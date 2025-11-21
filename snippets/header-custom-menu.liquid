@@ -1,0 +1,156 @@
+{% comment %}
+  Renders a standard custom style menu for the header.
+
+  Usage:
+  {% render 'header-custom-menu' %}
+{% endcomment %}
+
+{%- liquid
+  assign is_homepage = false
+  if request.page_type == 'index' or request.path == routes.root_url
+    assign is_homepage = true
+  endif
+
+  assign is_product_page = false
+  if request.page_type == 'product'
+    assign is_product_page = true
+  endif
+
+  assign is_service_page = false
+  if request.page_type == 'page' and page.handle == 'service-support'
+    assign is_service_page = true
+  endif
+
+  assign service_support_url = '/pages/service-support'
+  assign tutorial_url = 'https://example.com/tutorial'
+-%}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- comment -%} Homepage Menu Item {%- endcomment -%}
+    <li>
+      <a
+        id="HeaderMenu-homepage"
+        href="{{ routes.root_url }}"
+        class="header__menu-item list-menu__item link link--text focus-inset{% if is_homepage %} header__menu-item--active{% endif %}"
+        {% if is_homepage %}
+          aria-current="page"
+        {% endif %}
+      >
+        <span
+          data-text="{{ 'Homepage' | escape }}"
+          {%- if is_homepage %}
+            class="header__active-menu-item"
+          {% endif %}
+        >
+          {{- 'Homepage' | escape -}}
+        </span>
+      </a>
+    </li>
+
+    {%- comment -%} Product Menu with Dropdown {%- endcomment -%}
+    <li class="header__product-menu-item">
+      <div class="header__product-menu-wrapper">
+        <a
+          href="#"
+          id="HeaderMenu-Product"
+          class="header__menu-item list-menu__item link link--text focus-inset{% if is_product_page %} header__menu-item--active{% endif %}"
+          aria-expanded="false"
+          aria-haspopup="true"
+          onclick="return false;"
+        >
+          <span
+            data-text="{{ 'Product' | escape }}"
+            {%- if is_product_page %}
+              class="header__active-menu-item"
+            {% endif %}
+          >
+            {{- 'Product' | escape -}}
+          </span>
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </a>
+        <ul
+          id="HeaderMenu-MenuList-Product"
+          class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+          role="list"
+          tabindex="-1"
+        >
+          {%- comment -%} Get products from all collections or a specific collection {%- endcomment -%}
+          {%- assign products_to_show = collections.all.products -%}
+          {%- if collections.all.products.size == 0 -%}
+            {%- comment -%} Fallback: try to get products from featured collections {%- endcomment -%}
+            {%- for collection in collections limit: 1 -%}
+              {%- assign products_to_show = collection.products -%}
+              {%- break -%}
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- if products_to_show.size > 0 -%}
+            {%- for menu_product in products_to_show limit: 20 -%}
+              {%- liquid
+                assign is_current_product = false
+                if request.page_type == 'product' and product.id == menu_product.id
+                  assign is_current_product = true
+                endif
+              -%}
+              <li>
+                <a
+                  id="HeaderMenu-Product-{{ menu_product.handle }}"
+                  href="{{ menu_product.url }}"
+                  class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if is_current_product %} list-menu__item--active{% endif %}"
+                  {% if is_current_product %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{ menu_product.title | escape }}
+                </a>
+              </li>
+            {%- endfor -%}
+          {%- else -%}
+            <li>
+              <span class="header__menu-item list-menu__item caption-large" style="opacity: 0.6;">
+                {{ 'No products available' | escape }}
+              </span>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    </li>
+
+    {%- comment -%} Service&Support Menu Item {%- endcomment -%}
+    <li>
+      <a
+        id="HeaderMenu-service-support"
+        href="{{ service_support_url }}"
+        class="header__menu-item list-menu__item link link--text focus-inset{% if is_service_page %} header__menu-item--active{% endif %}"
+        {% if is_service_page %}
+          aria-current="page"
+        {% endif %}
+      >
+        <span
+          data-text="{{ 'Service&Support' | escape }}"
+          {%- if is_service_page %}
+            class="header__active-menu-item"
+          {% endif %}
+        >
+          {{- 'Service&Support' | escape -}}
+        </span>
+      </a>
+    </li>
+
+    {%- comment -%} Tutorial External Link {%- endcomment -%}
+    <li>
+      <a
+        id="HeaderMenu-tutorial"
+        href="{{ tutorial_url }}"
+        class="header__menu-item list-menu__item link link--text focus-inset"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-text="{{ 'Tutorial' | escape }}">
+          {{- 'Tutorial' | escape -}}
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>

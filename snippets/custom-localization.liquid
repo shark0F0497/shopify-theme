@@ -1,0 +1,181 @@
+{%- comment -%}
+  Renders nested localization picker with Shipping to, Language, and Currency options
+
+  Accepts:
+    - localPosition: pass in the position in which the form is coming up to create specific IDs
+{%- endcomment -%}
+
+{%- liquid
+  assign current_currency = localization.country.currency.iso_code
+  assign currencies = localization.available_countries | map: 'currency' | map: 'iso_code' | uniq
+%}
+
+<div class="custom-localization">
+  <button
+    type="button"
+    class="localization-form__select localization-selector"
+    aria-expanded="false"
+    aria-controls="{{ localPosition }}-main-panel"
+  >
+    {{ 'icon-language.svg' | inline_asset_content }}
+  </button>
+  <div class="disclosure__list-wrapper custom-localization__panel" id="{{ localPosition }}-main-panel" hidden>
+    <ul role="list" class="custom-localization__main-list">
+      {%- comment -%} Shipping to (Country) {%- endcomment -%}
+      <li class="custom-localization__main-item" data-type="country">
+        <button
+          type="button"
+          class="custom-localization__main-button"
+          aria-expanded="false"
+          aria-controls="{{ localPosition }}-country-subpanel"
+          data-subpanel="country"
+        >
+          <div class="custom-localization__main-content">
+            <label class="custom-localization__label">Shipping to</label>
+            <div class="custom-localization__value">
+              <span class="custom-localization__display">{{ localization.country.name }}</span>
+              <span class="custom-localization__arrow">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+            </div>
+          </div>
+        </button>
+        {%- comment -%} Country Sub-panel {%- endcomment -%}
+        <div class="custom-localization__subpanel" id="{{ localPosition }}-country-subpanel" hidden>
+          <ul role="list" class="custom-localization__sub-list">
+            {%- for country in localization.available_countries -%}
+              <li class="custom-localization__sub-item">
+                <a
+                  href="#"
+                  class="custom-localization__sub-link"
+                  data-value="{{ country.iso_code }}"
+                  data-input-name="country_code"
+                  {% if country.iso_code == localization.country.iso_code %}
+                    aria-current="true"
+                  {% endif %}
+                >
+                  <span class="custom-localization__check{% if country.iso_code != localization.country.iso_code %} hidden{% endif %}">
+                    {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                  </span>
+                  <span class="custom-localization__sub-label">{{ country.name }}</span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </li>
+
+      {%- comment -%} Language {%- endcomment -%}
+      {%- if localization.available_languages.size > 1 -%}
+        <li class="custom-localization__main-item" data-type="language">
+          <button
+            type="button"
+            class="custom-localization__main-button"
+            aria-expanded="false"
+            aria-controls="{{ localPosition }}-language-subpanel"
+            data-subpanel="language"
+          >
+            <div class="custom-localization__main-content">
+              <label class="custom-localization__label">{{ 'Language' }}</label>
+              <div class="custom-localization__value">
+                <span class="custom-localization__display">{{ localization.language.endonym_name | capitalize }}</span>
+                <span class="custom-localization__arrow">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+              </div>
+            </div>
+          </button>
+          {%- comment -%} Language Sub-panel {%- endcomment -%}
+          <div class="custom-localization__subpanel" id="{{ localPosition }}-language-subpanel" hidden>
+            <ul role="list" class="custom-localization__sub-list">
+              {%- for language in localization.available_languages -%}
+                <li class="custom-localization__sub-item">
+                  <a
+                    href="#"
+                    class="custom-localization__sub-link"
+                    data-value="{{ language.iso_code }}"
+                    data-input-name="locale_code"
+                    {% if language.iso_code == localization.language.iso_code %}
+                      aria-current="true"
+                    {% endif %}
+                  >
+                    <span class="custom-localization__check{% if language.iso_code != localization.language.iso_code %} hidden{% endif %}">
+                      {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="custom-localization__sub-label">{{ language.endonym_name | capitalize }}</span>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </li>
+      {%- endif -%}
+
+      {%- comment -%} Currency {%- endcomment -%}
+      {%- if currencies.size > 1 -%}
+        <li class="custom-localization__main-item" data-type="currency">
+          <button
+            type="button"
+            class="custom-localization__main-button"
+            aria-expanded="false"
+            aria-controls="{{ localPosition }}-currency-subpanel"
+            data-subpanel="currency"
+          >
+            <div class="custom-localization__main-content">
+              <label class="custom-localization__label">Currency</label>
+              <div class="custom-localization__value">
+                <span class="custom-localization__display">{{ current_currency }}</span>
+                <span class="custom-localization__arrow">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+              </div>
+            </div>
+          </button>
+          {%- comment -%} Currency Sub-panel {%- endcomment -%}
+          <div class="custom-localization__subpanel" id="{{ localPosition }}-currency-subpanel" hidden>
+            <ul role="list" class="custom-localization__sub-list">
+              {%- for currency_code in currencies -%}
+                {%- comment -%} Find a country that uses this currency {%- endcomment -%}
+                {%- assign currency_country = null -%}
+                {%- for country in localization.available_countries -%}
+                  {%- if country.currency.iso_code == currency_code -%}
+                    {%- assign currency_country = country -%}
+                    {%- break -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if currency_country -%}
+                  <li class="custom-localization__sub-item">
+                    <a
+                      href="#"
+                      class="custom-localization__sub-link"
+                      data-value="{{ currency_country.iso_code }}"
+                      data-input-name="country_code"
+                      data-currency-code="{{ currency_code }}"
+                      {% if currency_code == current_currency %}
+                        aria-current="true"
+                      {% endif %}
+                    >
+                      <span class="custom-localization__check{% if currency_code != current_currency %} hidden{% endif %}">
+                        {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                      </span>
+                      <span class="custom-localization__sub-label">
+                        {{- currency_code }}
+                        {{ currency_country.currency.symbol -}}
+                      </span>
+                    </a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        </li>
+      {%- else -%}
+        {%- comment -%} Only one currency available, show as read-only {%- endcomment -%}
+        <li class="custom-localization__main-item" data-type="currency">
+          <div class="custom-localization__main-content custom-localization__main-content--readonly">
+            <label class="custom-localization__label">Currency</label>
+            <div class="custom-localization__value">
+              <span class="custom-localization__display">{{ current_currency }}</span>
+            </div>
+          </div>
+        </li>
+      {%- endif -%}
+    </ul>
+  </div>
+  <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+  <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+</div>

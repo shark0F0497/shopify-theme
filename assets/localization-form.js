@@ -16,10 +16,26 @@ if (!customElements.get('localization-form')) {
           searchIcon: this.querySelector('.country-filter__search-icon'),
           liveRegion: this.querySelector('#sr-country-search-results'),
         };
+
+        // Check if nested custom localization structure exists
+        this.customLocalization = this.querySelector('.custom-localization');
+
+        if (this.customLocalization) {
+          // Initialize nested structure
+          this.initCustomLocalization();
+        } else {
+          // Initialize traditional structure
+          this.initTraditionalLocalization();
+        }
+      }
+
+      initTraditionalLocalization() {
         this.addEventListener('keyup', this.onContainerKeyUp.bind(this));
         this.addEventListener('keydown', this.onContainerKeyDown.bind(this));
         this.addEventListener('focusout', this.closeSelector.bind(this));
-        this.elements.button.addEventListener('click', this.openSelector.bind(this));
+        if (this.elements.button) {
+          this.elements.button.addEventListener('click', this.openSelector.bind(this));
+        }
 
         if (this.elements.search) {
           this.elements.search.addEventListener('keyup', this.filterCountries.bind(this));
@@ -36,6 +52,200 @@ if (!customElements.get('localization-form')) {
         }
 
         this.querySelectorAll('a').forEach((item) => item.addEventListener('click', this.onItemClick.bind(this)));
+      }
+
+      initCustomLocalization() {
+        const mainPanel = this.customLocalization.querySelector('.custom-localization__panel');
+        const mainButtons = this.customLocalization.querySelectorAll('.custom-localization__main-button');
+        const subLinks = this.customLocalization.querySelectorAll('.custom-localization__sub-link');
+
+        // Find the trigger button (the icon button that opens the main panel)
+        const triggerButton = this.querySelector('button.localization-form__select');
+
+        if (triggerButton) {
+          triggerButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isHidden = mainPanel.hasAttribute('hidden');
+            mainPanel.toggleAttribute('hidden', !isHidden);
+            triggerButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+
+            if (isHidden && this.hasAttribute('data-prevent-hide')) {
+              this.header.preventHide = true;
+            } else if (!isHidden && this.hasAttribute('data-prevent-hide')) {
+              this.header.preventHide = false;
+            }
+          });
+        }
+
+        // Handle main item button clicks (expand/collapse sub-panels)
+        mainButtons.forEach((button) => {
+          button.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const subpanelId = button.getAttribute('aria-controls');
+            const subpanel = document.getElementById(subpanelId);
+            if (subpanel) {
+              this.toggleSubPanel(button, subpanel);
+            }
+          });
+        });
+
+        // Handle sub-item link clicks
+        subLinks.forEach((link) => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.handleSubItemClick(link);
+          });
+        });
+
+        // Close panel when clicking outside
+        document.addEventListener('click', (e) => {
+          if (
+            this.customLocalization &&
+            !this.customLocalization.contains(e.target) &&
+            !e.target.closest('button.localization-form__select')
+          ) {
+            mainPanel.setAttribute('hidden', true);
+            // Close all sub-panels
+            mainButtons.forEach((btn) => {
+              btn.setAttribute('aria-expanded', 'false');
+              const subpanelId = btn.getAttribute('aria-controls');
+              const subpanel = document.getElementById(subpanelId);
+              if (subpanel) {
+                subpanel.setAttribute('hidden', true);
+              }
+            });
+          }
+        });
+
+        // Handle escape key
+        this.addEventListener('keyup', (e) => {
+          if (e.code === 'Escape') {
+            mainPanel.setAttribute('hidden', true);
+            mainButtons.forEach((btn) => {
+              btn.setAttribute('aria-expanded', 'false');
+              const subpanelId = btn.getAttribute('aria-controls');
+              const subpanel = document.getElementById(subpanelId);
+              if (subpanel) {
+                subpanel.setAttribute('hidden', true);
+              }
+            });
+            if (triggerButton) {
+              triggerButton.focus();
+            }
+          }
+        });
+      }
+
+      toggleMainPanel(panel) {
+        const isHidden = panel.hasAttribute('hidden');
+        panel.toggleAttribute('hidden', !isHidden);
+
+        if (!isHidden && this.hasAttribute('data-prevent-hide')) {
+          this.header.preventHide = false;
+        } else if (isHidden && this.hasAttribute('data-prevent-hide')) {
+          this.header.preventHide = true;
+        }
+      }
+
+      toggleSubPanel(button, subpanel) {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        // Close all other sub-panels
+        const allMainButtons = this.customLocalization.querySelectorAll('.custom-localization__main-button');
+        allMainButtons.forEach((btn) => {
+          if (btn !== button) {
+            btn.setAttribute('aria-expanded', 'false');
+            const otherSubpanelId = btn.getAttribute('aria-controls');
+            const otherSubpanel = document.getElementById(otherSubpanelId);
+            if (otherSubpanel) {
+              otherSubpanel.setAttribute('hidden', true);
+            }
+          }
+        });
+
+        // Toggle current sub-panel
+        button.setAttribute('aria-expanded', !isExpanded);
+        subpanel.toggleAttribute('hidden', isExpanded);
+      }
+
+      handleSubItemClick(link) {
+        const form = this.querySelector('form');
+        const inputName = link.getAttribute('data-input-name');
+        const value = link.getAttribute('data-value');
+        const input = this.querySelector(`input[name="${inputName}"]`);
+
+        if (input) {
+          input.value = value;
+        }
+
+        // Update checkmarks
+        const subpanel = link.closest('.custom-localization__subpanel');
+        if (subpanel) {
+          const allLinks = subpanel.querySelectorAll('.custom-localization__sub-link');
+          allLinks.forEach((l) => {
+            const check = l.querySelector('.custom-localization__check');
+            if (check) {
+              if (l === link) {
+                check.classList.remove('hidden');
+                l.setAttribute('aria-current', 'true');
+              } else {
+                check.classList.add('hidden');
+                l.removeAttribute('aria-current');
+              }
+            }
+          });
+        }
+
+        // Update display value
+        const mainItem = link.closest('.custom-localization__main-item');
+        if (mainItem) {
+          const display = mainItem.querySelector('.custom-localization__display');
+          const subLabel = link.querySelector('.custom-localization__sub-label');
+          if (display && subLabel) {
+            // For currency, use currency code if available, otherwise use sub-label
+            const currencyCode = link.getAttribute('data-currency-code');
+            if (currencyCode) {
+              display.textContent = currencyCode;
+            } else {
+              display.textContent = subLabel.textContent.trim();
+            }
+          }
+        }
+
+        // If currency was selected, also update country display if it changed
+        const currencyCode = link.getAttribute('data-currency-code');
+        if (currencyCode && inputName === 'country_code') {
+          const countryItem = this.customLocalization.querySelector('[data-type="country"]');
+          if (countryItem) {
+            const countryDisplay = countryItem.querySelector('.custom-localization__display');
+            const selectedCountryLink = Array.from(
+              this.customLocalization.querySelectorAll('[data-input-name="country_code"]')
+            ).find((l) => l.getAttribute('data-value') === value);
+            if (countryDisplay && selectedCountryLink) {
+              const countrySubLabel = selectedCountryLink.querySelector('.custom-localization__sub-label');
+              if (countrySubLabel) {
+                countryDisplay.textContent = countrySubLabel.textContent.trim();
+              }
+            }
+          }
+        }
+
+        // Close sub-panel after selection
+        if (subpanel) {
+          subpanel.setAttribute('hidden', true);
+          const button = this.customLocalization.querySelector(`[aria-controls="${subpanel.id}"]`);
+          if (button) {
+            button.setAttribute('aria-expanded', 'false');
+          }
+        }
+
+        // Submit form
+        if (form) {
+          form.submit();
+        }
       }
 
       hidePanel() {

@@ -1,0 +1,315 @@
+{% comment %}
+  Custom Footer Section - Based on Figma Design
+  Design: https://www.figma.com/design/lv7H0BB8b0cZ7Ttt5aagiQ/Reborn?node-id=1287-1070
+  Fixed content - no configuration options
+{% endcomment %}
+
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+{%- style -%}
+  .footer-custom {
+    background-color: #000000;
+    color: #f3f5f2;
+    width: 100%;
+    min-height: 416px;
+    position: relative;
+  }
+
+  .footer-custom__container {
+    max-width: 1728px;
+    margin: 0 auto;
+    padding: 98px 176px 0;
+  }
+
+  .footer-custom__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  /* Brand Section - Left */
+  .footer-custom__brand {
+    display: flex;
+    flex-direction: column;
+    width: 201px;
+  }
+
+  .footer-custom__logo {
+    width: 124.33px;
+    height: 52.97px;
+    flex-shrink: 0;
+    margin-right: 7px;
+  }
+
+  .footer-custom__logo img,
+  .footer-custom__logo svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .footer-custom__tagline-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 34px;
+  }
+
+  .footer-custom__separator {
+    width: 6px;
+    height: 10px;
+    background-color: #f3f5f2;
+    flex-shrink: 0;
+  }
+
+  .footer-custom__tagline {
+    font-family: 'Azeret Mono', monospace;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #f3f5f2;
+    white-space: nowrap;
+  }
+
+  .footer-custom__font-block {
+    width: 6px;
+    height: 10px;
+    background-color: #f3f5f2;
+    display: inline-block;
+    margin-left: 4px;
+  }
+
+  /* Right Section */
+  .footer-custom__right {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    align-items: flex-start;
+  }
+
+  /* Links Section */
+  .footer-custom__links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .footer-custom__link {
+    font-family: 'Azeret Mono', monospace;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1em;
+    text-transform: capitalize;
+    color: #f3f5f2;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+
+  .footer-custom__link:hover {
+    opacity: 0.7;
+  }
+
+  /* Social Icons Section */
+  .footer-custom__bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .footer-custom__social {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-shrink: 0;
+  }
+
+  .footer-custom__social img {
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Copyright Section */
+  .footer-custom__copyright {
+    font-family: 'Azeret Mono', monospace;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1em;
+    text-transform: capitalize;
+    color: #f3f5f2;
+    opacity: 0.4;
+    text-align: right;
+  }
+
+  /* Responsive Styles */
+
+  @media screen and (max-width: 1440px) {
+    .footer-custom {
+      min-height: auto;
+      padding: 4rem 0 3rem;
+    }
+
+    .footer-custom__container {
+      padding: 2rem;
+    }
+
+    .footer-custom__content {
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .footer-custom__right {
+      width: 100%;
+      align-items: center;
+    }
+
+    .footer-custom__links {
+      justify-content: center;
+    }
+
+    .footer-custom__bottom-row {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-custom__copyright {
+      align-self: center;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .footer-custom {
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-custom__container {
+      padding: 0 1.5rem;
+    }
+
+    .footer-custom__content {
+      gap: 2rem;
+      padding: 1.5rem 0;
+    }
+
+    .footer-custom__brand {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .footer-custom__links {
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .footer-custom__bottom-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .footer-custom__social {
+      width: 100%;
+      max-width: 304px;
+    }
+
+    .footer-custom__copyright {
+      text-align: left;
+    }
+  }
+{%- endstyle -%}
+
+<footer class="footer-custom">
+  <div class="footer-custom__container">
+    <div class="footer-custom__content">
+      {%- comment -%} Brand Section - Left {%- endcomment -%}
+      <div class="footer-custom__brand">
+        <div class="footer-custom__logo">
+          <img src="{{ 'icon-logo.svg' | asset_url }}" alt="{{ shop.name }}" width="125" height="53" loading="lazy">
+        </div>
+        <div class="footer-custom__tagline-wrapper">
+          <div class="footer-custom__separator"></div>
+          <div class="footer-custom__tagline">All You Want and Beyond.<i class="footer-custom__font-block"></i></div>
+        </div>
+      </div>
+
+      {%- comment -%} Right Section - Links, Social, Copyright {%- endcomment -%}
+      <div class="footer-custom__right">
+        {%- comment -%} Links Section {%- endcomment -%}
+        <nav class="footer-custom__links" role="navigation" aria-label="Footer links">
+          <a href="/policies/terms-of-service" class="footer-custom__link">Terms of Use</a>
+          <a href="/policies/privacy-policy" class="footer-custom__link">PrivacyPolicy</a>
+          <a href="/policies/cookie-policy" class="footer-custom__link">Cookie Policy</a>
+          <a href="#" class="footer-custom__link">Customized Cookies</a>
+        </nav>
+
+        <div class="footer-custom__bottom-row">
+          {%- comment -%} Social Icons Section {%- endcomment -%}
+          <div class="footer-custom__social">
+            <a target="_blank" href="https://www.youtube.com/@SYVOLO_official">
+              <img
+                src="{{ 'icon-youtube.png' | asset_url }}"
+                alt="youtube"
+                width="30"
+                height="30"
+                loading="lazy"
+              >
+            </a>
+            <a target="_blank" href="https://x.com/SYVOLO_OFFCIAL">
+              <img
+                src="{{ 'icon-x.png' | asset_url }}"
+                alt="x"
+                width="24"
+                height="24"
+                loading="lazy"
+              >
+            </a>
+            <a target="_blank" href="https://discord.com/users/syvolo_official">
+              <img
+                src="{{ 'icon-discord.png' | asset_url }}"
+                alt="discord"
+                width="32"
+                height="25"
+                loading="lazy"
+              >
+            </a>
+            <a target="_blank" href="mailto:support@syvolo.com">
+              <img
+                src="{{ 'icon-email.png' | asset_url }}"
+                alt="email"
+                width="30"
+                height="23"
+                loading="lazy"
+              >
+            </a>
+          </div>
+
+          {%- comment -%} Copyright Section {%- endcomment -%}
+          <div class="footer-custom__copyright">© 2025 Syvolo All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Custom Footer"
+}
+{% endschema %}
