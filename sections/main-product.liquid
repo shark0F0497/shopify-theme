@@ -85,6 +85,9 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
+          {%- assign promo_banners = section.blocks | where: 'type', 'promo_banner' -%}
+          {%- assign promo_banner_count = promo_banners.size -%}
+          {%- assign current_promo_banner_index = 0 -%}
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
@@ -209,6 +212,70 @@
                 </p>
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
+              {%- when 'promo_banner' -%}
+                {%- assign current_promo_banner_index = current_promo_banner_index | plus: 1 -%}
+                {%- liquid
+                  if current_promo_banner_index < promo_banner_count
+                    assign margin_bottom = '0'
+                  else
+                    assign margin_bottom = '2rem'
+                  endif
+                -%}
+                <div
+                  class="promo-banner-block"
+                  style="background-color: {{ block.settings.background_color }}; color: {{ block.settings.text_color }}; padding: 2rem; margin-bottom: {{ margin_bottom }}; border-radius: var(--product-card-corner-radius);"
+                  {{ block.shopify_attributes }}
+                >
+                  <div style="display: flex; align-items: baseline; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                    {%- if block.settings.heading != blank -%}
+                      <h3 style="margin: 0; font-size: 2rem; font-weight: bold; line-height: 1.2; color: inherit;">
+                        {{ block.settings.heading }}
+                      </h3>
+                    {%- endif -%}
+                    {%- if block.settings.link_text != blank and block.settings.link_url != blank -%}
+                      <a
+                        href="{{ block.settings.link_url }}"
+                        style="color: {{ block.settings.link_color }}; text-decoration: underline; text-underline-offset: 0.3rem; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em;"
+                      >
+                        {{ block.settings.link_text }}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.text != blank -%}
+                    <div style="font-size: 1.4rem; line-height: 1.6; opacity: 0.8; word-break: break-word; text-transform: uppercase;">
+                      {{ block.settings.text }}
+                    </div>
+                  {%- endif -%}
+                </div>
+
+                {%- if current_promo_banner_index < promo_banner_count -%}
+                  <div
+                    style="display: block; width: 100%; margin: 2rem 0; border-bottom: 1px dashed rgba(255,255,255,0.3);"
+                  ></div>
+                {%- endif -%}
+              {%- when 'ways_to_pay' -%}
+                <div
+                  class="ways-to-pay-block"
+                  style="margin-top: 2rem; margin-bottom: 2rem;"
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if block.settings.heading != blank -%}
+                    <div style="margin-bottom: 1rem; font-size: 1.6rem; letter-spacing: 0.1rem; color: rgba(var(--color-foreground), 0.75);">
+                      {{ block.settings.heading }}
+                    </div>
+                  {%- endif -%}
+                  <ul
+                    class="list list-payment"
+                    role="list"
+                    style="display: flex; flex-wrap: wrap; gap: 1rem; padding: 0; margin: 0; list-style: none; justify-content: flex-start;"
+                  >
+                    {%- for type in shop.enabled_payment_types -%}
+                      <li class="list-payment__item" style="padding: 0;">
+                        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -955,6 +1022,69 @@
           "id": "custom_liquid",
           "label": "t:sections.custom-liquid.settings.custom_liquid.label",
           "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+        }
+      ]
+    },
+    {
+      "type": "promo_banner",
+      "name": "Promo Banner",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "现货现发"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "LEARN MORE"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "BALABALABALABALABALABALABALABALABALABALABALABALABALABALABALABALABALABALABALABALABALABALABALA..."
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background",
+          "default": "#121212"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "link_color",
+          "label": "Link",
+          "default": "#4A90E2"
+        }
+      ]
+    },
+    {
+      "type": "ways_to_pay",
+      "name": "Ways to Pay",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Ways To Pay :"
         }
       ]
     },

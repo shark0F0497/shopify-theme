@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -37,7 +30,8 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button"
+            "picker_type": "button",
+            "swatch_shape": "square"
           }
         },
         "quantity_selector": {
@@ -51,179 +45,466 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
+            "heading": "Description",
+            "icon": "none",
+            "content": "<p>Ultra-light 9.6g trackers with a 22 dBm high-gain 2.4G receiver, 48+ hour battery life, and a 10-in-1 dock. Fully assembled, SlimeVR-compatible full-body tracking for VRChat—no DIY, no Wi-Fi setup, in stock and ready to ship.</p>",
             "page": ""
           }
         },
-        "collapsible-row-1": {
+        "collapsible_tab_Wmz9Ca": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
+            "heading": "Key Features",
+            "icon": "none",
+            "content": "<p>Styria Mini is a fully assembled, ultra-light 2.4G full-body tracking system designed for the SlimeVR ecosystem.</p><p>Each tracker weighs just 9.6 grams, delivering near-zero wearing burden with stable performance during fast or extended motion.</p><p>A compact 120 mAh battery delivers 48+ hours of active use per charge, supported by a high-gain 22 dBm receiver for smooth, low-latency tracking without Wi-Fi configuration.</p><p>A 10-in-1 dock centralizes charging, storage, fast pairing, and temperature calibration, streamlining daily use and keeping the entire tracker set organized.</p><p>The system ships immediately and includes optional 1-on-1 onboarding support for a smooth start to full-body tracking.</p>",
             "page": ""
           }
         },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
+        "promo_banner_YBnbfj": {
+          "type": "promo_banner",
           "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
+            "heading": "In-Stock & Ready to Ship",
+            "link_text": "learn more",
+            "link_url": "shopify://pages/shipping-policy",
+            "text": "All Styria Mini sets are available for immediate shipment with no preorder delays.",
+            "background_color": "#121212",
+            "text_color": "#ffffff",
+            "link_color": "#4a90e2"
           }
         },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
+        "promo_banner_NmNpeE": {
+          "type": "promo_banner",
           "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
+            "heading": "14 Days Guarantee",
+            "link_text": "LEARN MORE",
+            "link_url": "shopify://pages/return-refund-policy",
+            "text": "Unused products in original condition can be returned within 14 days of delivery.",
+            "background_color": "#121212",
+            "text_color": "#ffffff",
+            "link_color": "#4a90e2"
           }
         },
-        "share": {
-          "type": "share",
+        "promo_banner_xVEdtK": {
+          "type": "promo_banner",
           "settings": {
-            "share_label": "Share"
+            "heading": "12-Month Hardware Warranty",
+            "link_text": "LEARN MORE",
+            "link_url": "shopify://pages/warranty-and-after-sales-policy",
+            "text": "Includes coverage for manufacturing defects on all hardware components for one full year.",
+            "background_color": "#121212",
+            "text_color": "#ffffff",
+            "link_color": "#4a90e2"
+          }
+        },
+        "ways_to_pay_9CDnYG": {
+          "type": "ways_to_pay",
+          "settings": {
+            "heading": "Ways To Pay :"
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "caption",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "collapsible_tab_Wmz9Ca",
+        "promo_banner_YBnbfj",
+        "promo_banner_NmNpeE",
+        "promo_banner_xVEdtK",
+        "ways_to_pay_9CDnYG"
       ],
       "settings": {
         "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
         "media_size": "large",
         "constrain_to_viewport": true,
-        "gallery_layout": "stacked",
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
-        "hide_variants": true,
+        "media_position": "left",
+        "image_zoom": "hover",
+        "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "image-with-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
-      ],
-      "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column-0": {
-          "type": "column",
-          "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column-1": {
-          "type": "column",
-          "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column-0",
-        "column-1"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "feature_group_6iYXef": {
+      "type": "feature-group",
+      "blocks": {
+        "banner_JUkgHf": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_2.png",
+            "height": "medium",
+            "title": "Ships Immediately, No Waiting",
+            "heading_size": "h2",
+            "text": "<p>Skip the wait—no pre-orders, no delays. The complete tracking kit is ready to ship the moment you order, getting you into your virtual world without the agonizing wait.</p>"
+          }
+        },
+        "banner_c43Mm4": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_3.png",
+            "height": "medium",
+            "title": "Ultra-Light 9.6g, Flexible Hook-Suface",
+            "heading_size": "h2",
+            "text": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
+          }
+        },
+        "banner_dK4jYr": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_4.png",
+            "height": "medium",
+            "title": "48+ Hour Long Battery Life",
+            "heading_size": "h1",
+            "text": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
+          }
+        },
+        "banner_kY49ty": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_5.png",
+            "height": "medium",
+            "title": "No Wi-Fi Config, Plug-and-Play",
+            "heading_size": "h1",
+            "text": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
+          }
+        },
+        "banner_ezmnYC": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_6.png",
+            "height": "medium",
+            "title": "10-in-1 Quick Charging Dock",
+            "heading_size": "h1",
+            "text": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
+          }
+        },
+        "banner_iyt8qr": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_7.png",
+            "height": "medium",
+            "title": "1-on-1 Onboarding Support",
+            "heading_size": "h1",
+            "text": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "banner_JUkgHf",
+        "banner_c43Mm4",
+        "banner_dK4jYr",
+        "banner_kY49ty",
+        "banner_ezmnYC",
+        "banner_iyt8qr"
+      ],
+      "name": "产品亮点",
+      "settings": {
+        "heading": "产品亮点",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "feature_group_GXTHQU": {
+      "type": "feature-group",
+      "blocks": {
+        "comparison_table_4QAy7P": {
+          "type": "comparison_table",
+          "settings": {
+            "height": "adapt"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_table_4QAy7P"
+      ],
+      "name": "Comparison",
+      "settings": {
+        "heading": "Comparison",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "feature_group_TeUEkK": {
+      "type": "feature-group",
+      "blocks": {
+        "grid_images_EVRHgP": {
+          "type": "grid_images",
+          "settings": {
+            "card_style": "type_1",
+            "item_text_alignment": "center",
+            "image_1": "shopify://shop_images/Group_1000003995_1.png",
+            "title_1": "VRChat FBT",
+            "image_2": "shopify://shop_images/Group_1000003992_1.png",
+            "title_2": "VTubing",
+            "image_3": "shopify://shop_images/Group_1000003993_1.png",
+            "title_3": "VR Games",
+            "image_4": "shopify://shop_images/Group_1000003994_1.png",
+            "title_4": "Motion Capture",
+            "title_5": "",
+            "title_6": "",
+            "title_7": "",
+            "title_8": "",
+            "height": "medium",
+            "title": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "grid_images_EVRHgP"
+      ],
+      "name": "应用场景",
+      "settings": {
+        "heading": "应用场景",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "feature_group_jYFgnr": {
+      "type": "feature-group",
+      "blocks": {
+        "grid_images_enakLn": {
+          "type": "grid_images",
+          "settings": {
+            "card_style": "type_2",
+            "item_text_alignment": "left",
+            "image_1": "shopify://shop_images/Vector_5.png",
+            "title_1": "PC games and other applications, including VRChat, Resonite, Chillout VR, and Blade & Sorcery, to name just a few",
+            "image_2": "shopify://shop_images/13_1.png",
+            "title_2": "VRChat on Quest 2 & 3 standalone with or without PC, as well as on other standalone headsets like PICO VR",
+            "image_3": "shopify://shop_images/14_1.png",
+            "title_3": "Streaming VR applications with an avatar via LIV",
+            "image_4": "shopify://shop_images/Vector_6.png",
+            "title_4": "VTubing directly via OSC and VMC in VNyan, Warudo, VSeeFace or via SteamVR in Tracking World",
+            "image_5": "shopify://shop_images/15_1.png",
+            "title_5": "SteamVR games with FBT support (including mods, like Feet Saber)",
+            "image_6": "shopify://shop_images/logo_1_1.png",
+            "title_6": "SteamVR games played using the Shadow platform and others",
+            "title_7": "",
+            "title_8": "",
+            "height": "medium",
+            "title": "",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "grid_images_enakLn"
+      ],
+      "name": "第三方应用",
+      "settings": {
+        "heading": "第三方应用",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "feature_group_rjt9MB": {
+      "type": "feature-group",
+      "blocks": {
+        "inventory_table_NnAHQw": {
+          "type": "inventory_table",
+          "settings": {
+            "title": "What's In The Box",
+            "heading_size": "h2",
+            "height": "adapt"
+          }
+        }
+      },
+      "block_order": [
+        "inventory_table_NnAHQw"
+      ],
+      "name": "What’s in the Box",
+      "settings": {
+        "heading": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "feature_group_cA3TbT": {
+      "type": "feature-group",
+      "blocks": {
+        "specs_table_kfDWhf": {
+          "type": "specs_table",
+          "settings": {
+            "title": "Specifications",
+            "heading_size": "h2",
+            "height": "adapt"
+          }
+        }
+      },
+      "block_order": [
+        "specs_table_kfDWhf"
+      ],
+      "name": "Specifications",
+      "settings": {
+        "heading": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_NdVKnU": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_JAeMLj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is Styria Mini an official SlimeVR product?",
+            "icon": "none",
+            "row_content": "<p>No. Styria Mini is a third-party, fully SlimeVR-compatible full-body tracking system. It is not manufactured or endorsed by SlimeVR, but it works seamlessly with the SlimeVR open-source ecosystem and is developed based on the Smol Slime project.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KnhtfA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does Styria Mini work with SlimeVR Server and VRChat?",
+            "icon": "none",
+            "row_content": "<p>Yes. It connects to SlimeVR Server on PC and provides full-body tracking in VRChat, VTubing tools, motion-capture software, and other applications supported by the SlimeVR ecosystem.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_P7Dinr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does Styria Mini require Wi-Fi or router setup?",
+            "icon": "none",
+            "row_content": "<p>No. Styria Mini uses its own 2.4G wireless receiver and does not require any Wi-Fi configuration, unlike Wi-Fi-based SlimeVR trackers that depend on routers and 2.4 GHz network setup.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_reJpFF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is DIY assembly or 3D printing required?",
+            "icon": "none",
+            "row_content": "<p>No DIY is required. Styria Mini ships fully assembled with trackers, receiver, dock, straps, and storage case included.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_93jMbE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Which headsets and platforms are supported?",
+            "icon": "none",
+            "row_content": "<p>Any headset that works with SteamVR can use Styria Mini, including PCVR headsets and Quest/Quest 3 used via PC streaming (Link/Air Link/Virtual Desktop).</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_4Ygx3K": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What support is available for setup?",
+            "icon": "none",
+            "row_content": "<p>Direct support channels are available for setup questions, with each inquiry answered individually. SlimeVR documentation and community guides also apply.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_JAeMLj",
+        "collapsible_row_KnhtfA",
+        "collapsible_row_P7Dinr",
+        "collapsible_row_reJpFF",
+        "collapsible_row_93jMbE",
+        "collapsible_row_4Ygx3K"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "FAQS",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "newsletter_MQV39C": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_HJcWhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_9aRetL": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+          }
+        },
+        "email_form_LHG3pk": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_HJcWhT",
+        "paragraph_9aRetL",
+        "email_form_LHG3pk"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "main",
-    "image-with-text",
-    "multicolumn",
-    "related-products"
+    "related-products",
+    "feature_group_6iYXef",
+    "feature_group_GXTHQU",
+    "feature_group_TeUEkK",
+    "feature_group_jYFgnr",
+    "feature_group_rjt9MB",
+    "feature_group_cA3TbT",
+    "collapsible_content_NdVKnU",
+    "newsletter_MQV39C"
   ]
 }

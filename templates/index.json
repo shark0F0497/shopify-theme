@@ -12,26 +12,12 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_label_1": "Buy Now",
+            "button_link_1": "shopify://products/styria-mini-2-4g-slimevr-compatible-tracker",
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -39,15 +25,14 @@
         }
       },
       "block_order": [
-        "heading",
-        "text",
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/Mask_group_8.png",
+        "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "bottom-left",
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-3",
@@ -56,78 +41,261 @@
         "show_text_below": false
       }
     },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "slideshow_jEBgK7": {
-      "type": "slideshow",
+    "highlight_section_pfcNjb": {
+      "type": "highlight-section",
       "blocks": {
-        "slide_yHCLXD": {
-          "type": "slide",
+        "banner_JUkgHf": {
+          "type": "banner",
           "settings": {
-            "image_overlay_opacity": 0,
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
+            "image": "shopify://shop_images/Mask_group_2.png",
+            "title": "Ships Immediately, No Waiting",
+            "text": "<p>Skip the wait—no pre-orders, no delays. The complete tracking kit is ready to ship the moment you order, getting you into your virtual world without the agonizing wait.</p>"
           }
         },
-        "slide_yLKde4": {
-          "type": "slide",
+        "banner_c43Mm4": {
+          "type": "banner",
           "settings": {
-            "image_overlay_opacity": 0,
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
+            "image": "shopify://shop_images/Mask_group_3.png",
+            "title": "Ultra-Light 9.6g, Flexible Hook-Suface",
+            "text": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
+          }
+        },
+        "banner_dK4jYr": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_4.png",
+            "title": "48+ Hour Long Battery Life",
+            "text": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
+          }
+        },
+        "banner_kY49ty": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_5.png",
+            "title": "No Wi-Fi Config, Plug-and-Play",
+            "text": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
+          }
+        },
+        "banner_ezmnYC": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_6.png",
+            "title": "10-in-1 Quick Charging Dock",
+            "text": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
+          }
+        },
+        "banner_iyt8qr": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_7.png",
+            "title": "1-on-1 Onboarding Support",
+            "text": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
+          }
+        },
+        "highlight_item_AkbJQY": {
+          "type": "highlight_item",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_2.png",
+            "title": "SHIPS IMMEDIATELY, NO WAITING"
+          }
+        },
+        "highlight_item_KTG3wK": {
+          "type": "highlight_item",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_3.png",
+            "title": "TOP-TIER ALGORITHM, NO MORE FOOT SLIDE"
+          }
+        },
+        "highlight_item_73xhJ3": {
+          "type": "highlight_item",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_4.png",
+            "title": "48+ HOUR LONG BATTERY LIFE"
+          }
+        },
+        "highlight_item_JmAJpG": {
+          "type": "highlight_item",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_5.png",
+            "title": "NO WI-FI CONFIG, PLUG-AND-PLAY"
+          }
+        },
+        "highlight_item_zdVYkX": {
+          "type": "highlight_item",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_6.png",
+            "title": "10-IN-1 QUICK CHARGING DOCK"
+          }
+        },
+        "highlight_item_wxyYxV": {
+          "type": "highlight_item",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_7.png",
+            "title": "1-ON-1 ONBOARDING SUPPORT"
           }
         }
       },
       "block_order": [
-        "slide_yHCLXD",
-        "slide_yLKde4"
+        "banner_JUkgHf",
+        "banner_c43Mm4",
+        "banner_dK4jYr",
+        "banner_kY49ty",
+        "banner_ezmnYC",
+        "banner_iyt8qr",
+        "highlight_item_AkbJQY",
+        "highlight_item_KTG3wK",
+        "highlight_item_73xhJ3",
+        "highlight_item_JmAJpG",
+        "highlight_item_zdVYkX",
+        "highlight_item_wxyYxV"
       ],
-      "name": "t:sections.slideshow.presets.name",
+      "name": "Highlight Section",
+      "settings": {}
+    },
+    "featured_accessories_tPGyTD": {
+      "type": "featured-accessories",
+      "blocks": {
+        "accessory_fk46Uz": {
+          "type": "accessory",
+          "settings": {
+            "product": "the-3p-fulfilled-snowboard",
+            "image": "shopify://shop_images/image_1.png",
+            "title": "Styria Mini 22 dBm High-Gain 2.4G Receiver (Plug-and-Play)"
+          }
+        },
+        "accessory_9LRgHF": {
+          "type": "accessory",
+          "settings": {
+            "product": "the-compare-at-price-snowboard",
+            "image": "shopify://shop_images/image_2.png",
+            "title": "Styria Mini Protective Storage Case"
+          }
+        },
+        "accessory_YAKPBA": {
+          "type": "accessory",
+          "settings": {
+            "product": "the-complete-snowboard",
+            "image": "shopify://shop_images/image_3.png",
+            "title": "Styria Mini High-Grip Mounting Strap Set"
+          }
+        }
+      },
+      "block_order": [
+        "accessory_fk46Uz",
+        "accessory_9LRgHF",
+        "accessory_YAKPBA"
+      ],
+      "name": "Feature Accessories",
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "dots",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
+        "heading": "ACCESSORIES"
+      }
+    },
+    "static_icons_DgyweY": {
+      "type": "static-icons",
+      "name": "Static Service Icons",
+      "settings": {}
+    },
+    "newsletter_rxDdyG": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_bhyUL8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_ediP4J": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+          }
+        },
+        "email_form_ndkTNL": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_bhyUL8",
+        "paragraph_ediP4J",
+        "email_form_ndkTNL"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "feedback_beta_testers_Ha3VEF": {
+      "type": "feedback-beta-testers",
+      "blocks": {
+        "feedback_HpJ9qW": {
+          "type": "feedback",
+          "settings": {
+            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
+            "name": "ELEANOR"
+          }
+        },
+        "feedback_CdGeQa": {
+          "type": "feedback",
+          "settings": {
+            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
+            "name": "ELEANOR"
+          }
+        },
+        "feedback_Gb3rKA": {
+          "type": "feedback",
+          "settings": {
+            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
+            "name": "ELEANOR"
+          }
+        },
+        "feedback_QhqMnJ": {
+          "type": "feedback",
+          "settings": {
+            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
+            "name": "ELEANOR"
+          }
+        },
+        "feedback_TYtYVb": {
+          "type": "feedback",
+          "settings": {
+            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
+            "name": "ELEANOR"
+          }
+        },
+        "feedback_w7Vqyz": {
+          "type": "feedback",
+          "settings": {
+            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
+            "name": "ELEANOR"
+          }
+        }
+      },
+      "block_order": [
+        "feedback_HpJ9qW",
+        "feedback_CdGeQa",
+        "feedback_Gb3rKA",
+        "feedback_QhqMnJ",
+        "feedback_TYtYVb",
+        "feedback_w7Vqyz"
+      ],
+      "name": "Feedback Beta Testers",
+      "settings": {
+        "heading_line_1": "FEEDBACK FROM OUR",
+        "heading_line_2": "BETA TESTERS"
       }
     }
   },
   "order": [
     "image_banner",
-    "video",
-    "slideshow_jEBgK7"
+    "highlight_section_pfcNjb",
+    "featured_accessories_tPGyTD",
+    "static_icons_DgyweY",
+    "newsletter_rxDdyG",
+    "feedback_beta_testers_Ha3VEF"
   ]
 }

@@ -1,0 +1,93 @@
+.section-static-icons {
+  background-color: #000000;
+  padding: 60px 0;
+  color: #ffffff;
+}
+
+.static-icons__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.static-icons__border-wrapper {
+  border: 1px solid #333333;
+  border-radius: 20px;
+  padding: 60px 40px;
+  background-color: #000000;
+}
+
+.static-icons__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.static-icons__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.static-icons__icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  color: #999999; /* Light grey icon color */
+}
+
+.static-icons__icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.static-icons__text {
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.static-icons__title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.static-icons__subtitle {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 990px) {
+  .static-icons__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .static-icons__grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .static-icons__border-wrapper {
+    padding: 40px 20px;
+  }
+}
+

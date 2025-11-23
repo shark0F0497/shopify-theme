@@ -1,0 +1,120 @@
+.section-featured-accessories {
+  background-color: #000000;
+  padding: 60px 0;
+  color: #ffffff;
+}
+
+.featured-accessories__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.featured-accessories__heading {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-align: left;
+}
+
+.featured-accessories__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.featured-accessories__card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.featured-accessories__card:hover {
+  transform: translateY(-5px);
+}
+
+.featured-accessories__image-wrapper {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.featured-accessories__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.featured-accessories__title {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #000000;
+  letter-spacing: 0.02em;
+  max-width: 280px;
+}
+
+.featured-accessories__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3EACE1;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  gap: 8px;
+  margin-top: auto; /* Push to bottom */
+}
+
+.featured-accessories__button:hover {
+  background-color: #3590bd;
+  color: #ffffff;
+}
+
+.featured-accessories__button svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+@media screen and (max-width: 990px) {
+  .featured-accessories__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .featured-accessories__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured-accessories__heading {
+    text-align: center;
+  }
+}
+

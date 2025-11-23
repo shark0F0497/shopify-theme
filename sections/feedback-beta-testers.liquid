@@ -1,0 +1,136 @@
+{{ 'section-feedback-beta-testers.css' | asset_url | stylesheet_tag }}
+
+<div class="section-feedback-beta-testers">
+  <div class="page-width feedback-beta-testers__container">
+    <h2 class="feedback-beta-testers__heading">
+      {%- if section.settings.heading_line_1 != blank -%}
+        <span>{{ section.settings.heading_line_1 | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading_line_2 != blank -%}
+        <span>{{ section.settings.heading_line_2 | escape }}</span>
+      {%- endif -%}
+    </h2>
+
+    <div class="feedback-beta-testers__grid">
+      {%- for block in section.blocks -%}
+        <div class="feedback-card" {{ block.shopify_attributes }}>
+          <div class="feedback-card__image-wrapper">
+            {%- if block.settings.image != blank -%}
+               {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'feedback-card__image' }}
+            {%- else -%}
+               {{ 'image' | placeholder_svg_tag: 'placeholder-svg feedback-card__image' }}
+            {%- endif -%}
+          </div>
+          <div class="feedback-card__content">
+            <div class="feedback-card__text">
+              {%- if block.settings.text != blank -%}
+                {{ block.settings.text }}
+              {%- else -%}
+                "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT..."
+              {%- endif -%}
+            </div>
+            <div class="feedback-card__name">
+              {{ block.settings.name | default: 'NAME' }}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Feedback Beta Testers",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1",
+      "default": "FEEDBACK FROM OUR"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading Line 2",
+      "default": "BETA TESTERS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feedback",
+      "name": "Feedback Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Avatar Image"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Feedback Text",
+          "default": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\""
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Tester Name",
+          "default": "ELEANOR"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feedback Beta Testers",
+      "blocks": [
+        {
+          "type": "feedback",
+          "settings": {
+            "name": "ELEANOR",
+            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE. THE SETUP WAS UNBELIEVABLE—LITERALLY PLUG-AND-PLAY...\""
+          }
+        },
+        {
+          "type": "feedback",
+          "settings": {
+            "name": "JULIAN",
+            "text": "\"AS A DEVELOPER WORKING IN VR COLLABORATION, THE STABILITY AND PRECISION OF THE STYRIA SYSTEM ARE CRITICAL. THE TRACKING IS ROCK-SOLID AND INCREDIBLY ACCURATE...\""
+          }
+        },
+        {
+          "type": "feedback",
+          "settings": {
+            "name": "IVY",
+            "text": "\"THE 'SHIPS IMMEDIATELY' PROMISE IS WHAT SOLD ME FIRST, AND THEY WEREN'T KIDDING—IT ARRIVED IN TWO DAYS! BUT THE REAL SHOCK WAS THE WEIGHT. AT UNDER 10G...\""
+          }
+        },
+        {
+          "type": "feedback",
+          "settings": {
+            "name": "LEO",
+            "text": "\"I'LL BE HONEST, I CARE ABOUT HOW MY GEAR LOOKS, AND THE STYRIA TRACKERS ARE BEAUTIFULLY CRAFTED. THEY LOOK AND FEEL PREMIUM. BUT BEYOND THE LOOKS...\""
+          }
+        },
+        {
+          "type": "feedback",
+          "settings": {
+            "name": "JASPER",
+            "text": "\"48-HOUR BATTERY LIFE ISN'T A MARKETING GIMMICK; IT'S REAL. I PLAY A FEW HOURS EVERY NIGHT, AND I'VE ONLY CHARGED THESE THINGS ONCE SINCE I GOT THEM TWO WEEKS AGO...\""
+          }
+        },
+        {
+          "type": "feedback",
+          "settings": {
+            "name": "MAEVE",
+            "text": "\"I WAS WORRIED ABOUT SETTING UP A 10-TRACKER SYSTEM, BUT THE 'NO WI-FI CONFIG' MADE IT STUPIDLY EASY. I JUST PLUGGED THE DONGLE IN, PUT ON THE STRAPS...\""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

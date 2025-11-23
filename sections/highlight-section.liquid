@@ -1,0 +1,191 @@
+{{ 'section-highlight.css' | asset_url | stylesheet_tag }}
+
+<div class="section-highlight" data-block-count="{{ section.blocks.size }}">
+  <div class="page-width highlight__container">
+    <div class="highlight__heading">HIGHLIGHTS</div>
+    {%- comment -%} 1. Render Highlight Items in Masonry Grid {%- endcomment -%}
+    {%- assign highlight_items = section.blocks | where: 'type', 'highlight_item' -%}
+    {%- if highlight_items.size > 0 -%}
+      <div class="highlight__grid">
+        {%- comment -%} Column 1: Item 1 and 4 {%- endcomment -%}
+        <div class="highlight__column">
+          {%- for block in highlight_items -%}
+            {%- assign mod = forloop.index0 | modulo: 3 -%}
+            {%- if mod == 0 -%}
+              <div class="highlight-card" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag: loading: 'lazy', class: 'highlight-card__image'
+                  }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg highlight-card__image' }}
+                {%- endif -%}
+
+                <div class="highlight-card__content">
+                  {%- if block.settings.title != blank -%}
+                    <div class="highlight-card__title">{{ block.settings.title }}</div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Column 2: Item 2 and 5 {%- endcomment -%}
+        <div class="highlight__column">
+          {%- for block in highlight_items -%}
+            {%- assign mod = forloop.index0 | modulo: 3 -%}
+            {%- if mod == 1 -%}
+              <div class="highlight-card" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag: loading: 'lazy', class: 'highlight-card__image'
+                  }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg highlight-card__image' }}
+                {%- endif -%}
+
+                <div class="highlight-card__content">
+                  {%- if block.settings.title != blank -%}
+                    <div class="highlight-card__title">{{ block.settings.title }}</div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Column 3: Item 3 and 6 {%- endcomment -%}
+        <div class="highlight__column">
+          {%- for block in highlight_items -%}
+            {%- assign mod = forloop.index0 | modulo: 3 -%}
+            {%- if mod == 2 -%}
+              <div class="highlight-card" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag: loading: 'lazy', class: 'highlight-card__image'
+                  }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg highlight-card__image' }}
+                {%- endif -%}
+
+                <div class="highlight-card__content">
+                  {%- if block.settings.title != blank -%}
+                    <div class="highlight-card__title">{{ block.settings.title }}</div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} 2. Render Banner Blocks Second (Vertical Layout) {%- endcomment -%}
+    {%- assign banners = section.blocks | where: 'type', 'banner' -%}
+    {%- if banners.size > 0 -%}
+      <div class="highlight__banners">
+        {%- for block in banners -%}
+          <div class="highlight-card highlight-card--banner" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1200
+                | image_tag: loading: 'lazy', class: 'highlight-card__image'
+              }}
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg highlight-card__image' }}
+            {%- endif -%}
+
+            <div class="highlight-card__content">
+              <div class="highlight-card__text-container">
+                {%- if block.settings.title != blank -%}
+                  <div class="highlight-card__title">{{ block.settings.title }}</div>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="highlight-card__description rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size == 0 -%}
+      <div style="text-align: center; padding: 20px; color: #000;">
+        <p>No blocks added. Please add blocks in the theme editor.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Highlight Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "highlight_item",
+      "name": "Highlight Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading Text"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "name": "Banner Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Banner Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Banner description text.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Highlight Section",
+      "blocks": [
+        { "type": "highlight_item", "settings": { "title": "SHIPS IMMEDIATELY, NO WAITING" } },
+        { "type": "highlight_item", "settings": { "title": "TOP-TIER ALGORITHM, NO MORE FOOT SLIDE" } },
+        { "type": "highlight_item", "settings": { "title": "48+ HOUR LONG BATTERY LIFE" } },
+        { "type": "highlight_item", "settings": { "title": "NO WI-FI CONFIG, PLUG-AND-PLAY" } },
+        { "type": "highlight_item", "settings": { "title": "10-IN-1 QUICK CHARGING DOCK" } },
+        { "type": "highlight_item", "settings": { "title": "1-ON-1 ONBOARDING SUPPORT" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

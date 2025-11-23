@@ -1,0 +1,69 @@
+.document {
+  background-color: #fff;
+  color: #000;
+  padding: 100px 300px;
+}
+
+@media screen and (max-width: 990px) {
+  .document {
+    padding: 60px 30px;
+  }
+}
+
+.document h1 {
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: 700;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #000;
+}
+
+.document h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.document h3 {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.document .general {
+  margin-bottom: 50px;
+}
+
+.document .section {
+  margin-bottom: 50px;
+}
+
+.document p {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.document ul {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  list-style: disc;
+  padding-left: 20px;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.document b {
+  font-weight: 700;
+}

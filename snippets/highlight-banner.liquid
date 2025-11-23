@@ -1,0 +1,24 @@
+{%- comment -%}
+  Renders a banner card for the highlight section.
+  Accepts:
+  - block: {Object} The block object.
+{%- endcomment -%}
+
+<div class="highlight-card highlight-card--banner" {{ block.shopify_attributes }}>
+  {%- if block.settings.image != blank -%}
+    {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'highlight-card__image' }}
+  {%- else -%}
+    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg highlight-card__image' }}
+  {%- endif -%}
+  
+  <div class="highlight-card__content">
+    <div class="highlight-card__text-container">
+      {%- if block.settings.title != blank -%}
+        <div class="highlight-card__title">{{ block.settings.title }}</div>
+      {%- endif -%}
+      {%- if block.settings.text != blank -%}
+        <div class="highlight-card__description rte">{{ block.settings.text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
