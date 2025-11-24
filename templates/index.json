@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "custom_image_banner_3kBdJR": {
+    "custom_image_banner_KRUgEa": {
       "type": "custom-image-banner",
       "name": "Custom Image Banner",
       "settings": {
@@ -17,67 +17,67 @@
         "title": "In Stock Now!",
         "subtitle": "Styria Mini — 9.6g Ultra-Light SlimeVR-Compatible 2.4G Tracker",
         "description": "<p>Powered by a 22 dBm high-gain 2.4G receiver for stable,</p><p>low-latency full-body tracking with 48+ hour battery life.</p><p>No DIY, no Wi-Fi setup — plus 1-on-1 onboarding to get you started fast.</p>",
-        "button_text": "BUY NOW",
-        "button_link": "shopify://products/styria-mini-2-4g-slimevr-compatible-tracker"
+        "button_text": "Shop Now",
+        "button_link": ""
       }
     },
-    "highlight_section_QNC4ER": {
+    "highlight_section_pfcNjb": {
       "type": "highlight-section",
       "blocks": {
-        "highlight_item_gFqwQc": {
+        "highlight_item_AkbJQY": {
           "type": "highlight_item",
           "settings": {
             "title": "SHIPS IMMEDIATELY, NO WAITING",
-            "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you order, getting you into your virtual world without the agonizing wait.</p>"
+            "subtitle": "<p>Subtitle text here</p>"
           }
         },
-        "highlight_item_FAMnhB": {
+        "highlight_item_KTG3wK": {
           "type": "highlight_item",
           "settings": {
             "title": "TOP-TIER ALGORITHM, NO MORE FOOT SLIDE",
-            "subtitle": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
+            "subtitle": "<p>Subtitle text here</p>"
           }
         },
-        "highlight_item_wHQwip": {
+        "highlight_item_73xhJ3": {
           "type": "highlight_item",
           "settings": {
             "title": "48+ HOUR LONG BATTERY LIFE",
-            "subtitle": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
+            "subtitle": "<p>Subtitle text here</p>"
           }
         },
-        "highlight_item_bGdCER": {
+        "highlight_item_JmAJpG": {
           "type": "highlight_item",
           "settings": {
             "title": "NO WI-FI CONFIG, PLUG-AND-PLAY",
-            "subtitle": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
+            "subtitle": "<p>Subtitle text here</p>"
           }
         },
-        "highlight_item_dpjYUx": {
+        "highlight_item_zdVYkX": {
           "type": "highlight_item",
           "settings": {
             "title": "10-IN-1 QUICK CHARGING DOCK",
-            "subtitle": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
+            "subtitle": "<p>Subtitle text here</p>"
           }
         },
-        "highlight_item_yzhp3q": {
+        "highlight_item_wxyYxV": {
           "type": "highlight_item",
           "settings": {
             "title": "1-ON-1 ONBOARDING SUPPORT",
-            "subtitle": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
+            "subtitle": "<p>Subtitle text here</p>"
           }
         }
       },
       "block_order": [
-        "highlight_item_gFqwQc",
-        "highlight_item_FAMnhB",
-        "highlight_item_wHQwip",
-        "highlight_item_bGdCER",
-        "highlight_item_dpjYUx",
-        "highlight_item_yzhp3q"
+        "highlight_item_AkbJQY",
+        "highlight_item_KTG3wK",
+        "highlight_item_73xhJ3",
+        "highlight_item_JmAJpG",
+        "highlight_item_zdVYkX",
+        "highlight_item_wxyYxV"
       ],
       "name": "Highlight Section",
       "settings": {
-        "link": "shopify://products/styria-mini-2-4g-slimevr-compatible-tracker"
+        "link": ""
       }
     },
     "featured_accessories_tPGyTD": {
@@ -86,25 +86,25 @@
         "accessory_fk46Uz": {
           "type": "accessory",
           "settings": {
-            "product": "the-3p-fulfilled-snowboard",
-            "image": "shopify://shop_images/image_1.png",
-            "title": "Styria Mini 22 dBm High-Gain 2.4G Receiver (Plug-and-Play)"
+            "product": "styria-mini-22-dbm-2-4g-receiver-high-power-plug-and-play",
+            "image": "shopify://shop_images/2025-11-21122056.jpg",
+            "title": ""
           }
         },
         "accessory_9LRgHF": {
           "type": "accessory",
           "settings": {
             "product": "the-compare-at-price-snowboard",
-            "image": "shopify://shop_images/image_2.png",
-            "title": "Styria Mini Protective Storage Case"
+            "image": "shopify://shop_images/wechat_2025-11-23_163410_001.png",
+            "title": ""
           }
         },
         "accessory_YAKPBA": {
           "type": "accessory",
           "settings": {
             "product": "the-complete-snowboard",
-            "image": "shopify://shop_images/image_3.png",
-            "title": "Styria Mini High-Grip Mounting Strap Set"
+            "image": "shopify://shop_images/wechat_2025-11-23_170840_791.png",
+            "title": ""
           }
         }
       },
@@ -120,46 +120,6 @@
     },
     "static_icons_DgyweY": {
       "type": "static-icons",
-      "blocks": {
-        "icon_block_iaUTVA": {
-          "type": "icon_block",
-          "settings": {
-            "custom_icon": "shopify://shop_images/Vector_7.png",
-            "title": "Ships Now",
-            "subtitle": "from Our Warehouse"
-          }
-        },
-        "icon_block_zjLygX": {
-          "type": "icon_block",
-          "settings": {
-            "custom_icon": "shopify://shop_images/Vector_8.png",
-            "title": "Return POLICY",
-            "subtitle": ""
-          }
-        },
-        "icon_block_yftCLi": {
-          "type": "icon_block",
-          "settings": {
-            "custom_icon": "shopify://shop_images/Vector_9.png",
-            "title": "1 YEAR WARRANTY",
-            "subtitle": ""
-          }
-        },
-        "icon_block_pKK8E3": {
-          "type": "icon_block",
-          "settings": {
-            "custom_icon": "shopify://shop_images/Vector_10.png",
-            "title": "Official Support",
-            "subtitle": ""
-          }
-        }
-      },
-      "block_order": [
-        "icon_block_iaUTVA",
-        "icon_block_zjLygX",
-        "icon_block_yftCLi",
-        "icon_block_pKK8E3"
-      ],
       "name": "Static Service Icons",
       "settings": {}
     },
@@ -259,8 +219,8 @@
     }
   },
   "order": [
-    "custom_image_banner_3kBdJR",
-    "highlight_section_QNC4ER",
+    "custom_image_banner_KRUgEa",
+    "highlight_section_pfcNjb",
     "featured_accessories_tPGyTD",
     "static_icons_DgyweY",
     "newsletter_rxDdyG",
