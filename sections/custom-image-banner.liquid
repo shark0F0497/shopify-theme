@@ -1,0 +1,93 @@
+{{ 'section-custom-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'section-featured-accessories.css' | asset_url | stylesheet_tag }}
+
+<div class="section-custom-image-banner">
+  <div class="custom-image-banner__media">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          loading: 'lazy',
+          width: section.settings.image.width,
+          height: section.settings.image.height,
+          class: 'custom-image-banner__image'
+      }}
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+
+  <div class="custom-image-banner__content">
+    {%- if section.settings.title != blank -%}
+      <h2 class="custom-image-banner__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subtitle != blank -%}
+      <div class="custom-image-banner__subtitle">{{ section.settings.subtitle }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank -%}
+      <div class="custom-image-banner__description rte">{{ section.settings.description }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.button_link != blank -%}
+      <div class="custom-image-banner__button-wrapper" style="margin-top: 30px;">
+        {% render 'buy-button', text: section.settings.button_text, link: section.settings.button_link %}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Banner Heading"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Banner Subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Give customers details about the banner image(s) or content on the template.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Image Banner"
+    }
+  ]
+}
+{% endschema %}

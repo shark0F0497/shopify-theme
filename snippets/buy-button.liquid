@@ -1,0 +1,21 @@
+{% comment %}
+  Renders a reusable buy button.
+  Accepts:
+  - text: {String} The text to display on the button.
+  - link: {String} The URL the button links to.
+  - class: {String} Optional additional classes.
+
+  Usage:
+  {% render 'buy-button', text: 'Buy Now', link: product.url %}
+{% endcomment %}
+
+<a
+  href="{{ link | default: '#' }}"
+  class="custom-buy-button {{ class }}"
+  {% if link == blank %}
+    aria-disabled="true"
+  {% endif %}
+>
+  {{ 'icon-buy.svg' | inline_asset_content }}
+  {{ text | default: 'Buy Now' }}
+</a>

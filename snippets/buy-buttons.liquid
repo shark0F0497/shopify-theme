@@ -94,7 +94,22 @@
             {%- render 'loading-spinner' -%}
           </button>
           {%- if show_dynamic_checkout -%}
-            {{ form | payment_button }}
+            {%- comment -%}
+              Replace standard payment button with custom Buy It Now button styled like shopify-payment-button__button--unbranded
+            {%- endcomment -%}
+            <button
+              type="button"
+              class="custom-payment-button"
+              onclick="var f=document.getElementById('ProductSubmitButton-{{ section_id }}').form; var i=document.createElement('input'); i.type='hidden'; i.name='return_to'; i.value='/checkout'; f.appendChild(i); f.submit();"
+              {% if product.selected_or_first_available_variant.available == false
+                or quantity_rule_soldout
+                or product.selected_or_first_available_variant == null
+              %}
+                disabled
+              {% endif %}
+            >
+              Buy it now
+            </button>
           {%- endif -%}
         </div>
       {%- endform -%}

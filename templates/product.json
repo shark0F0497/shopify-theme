@@ -42,7 +42,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": false
           }
         },
         "collapsible-row-0": {
@@ -50,7 +50,7 @@
           "settings": {
             "heading": "Description",
             "icon": "none",
-            "content": "<p>Ultra-light 9.6g trackers with a 22 dBm high-gain 2.4G receiver, 48+ hour battery life, and a 10-in-1 dock. Fully assembled, SlimeVR-compatible full-body tracking for VRChat—no DIY, no Wi-Fi setup, in stock and ready to ship.</p>",
+            "content": "{{ product.description }}<p></p>",
             "page": ""
           }
         },

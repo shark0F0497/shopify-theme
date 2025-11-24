@@ -4,78 +4,38 @@
   <div class="page-width static-icons__container">
     <div class="static-icons__border-wrapper">
       <div class="static-icons__grid">
-        
-        {%- comment -%} Item 1: Ships Now {%- endcomment -%}
-        <div class="static-icons__item">
-          <div class="static-icons__icon">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Box Outline -->
-              <path d="M10 30L20 15H60L70 30V65H10V30Z" stroke="#999999" stroke-width="2" stroke-linejoin="round"/>
-              <!-- Box Flap Line -->
-              <path d="M10 30H70" stroke="#999999" stroke-width="2"/>
-              <!-- Checkmark/Lines detail -->
-              <path d="M25 45H35 M45 48L50 53L60 40" stroke="#999999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        {%- for block in section.blocks -%}
+          <div class="static-icons__item" {{ block.shopify_attributes }}>
+            <div class="static-icons__icon">
+              {%- if block.settings.custom_icon != blank -%}
+                {{
+                  block.settings.custom_icon
+                  | image_url: width: 240
+                  | image_tag: loading: 'lazy', class: 'static-icons__image', width: 120, height: 120
+                }}
+              {%- else -%}
+                {%- comment -%} Fallback SVG based on block index or default placeholder {%- endcomment -%}
+                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="80" height="80" fill="#F3F3F3" />
+                  <path
+                    d="M40 20V60M20 40H60"
+                    stroke="#999999"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              {%- endif -%}
+            </div>
+            <div class="static-icons__text">
+              {%- if block.settings.title != blank -%}
+                <div class="static-icons__title">{{ block.settings.title }}</div>
+              {%- endif -%}
+              {%- if block.settings.subtitle != blank -%}
+                <div class="static-icons__subtitle">{{ block.settings.subtitle }}</div>
+              {%- endif -%}
+            </div>
           </div>
-          <div class="static-icons__text">
-            <div class="static-icons__title">SHIPS NOW</div>
-            <div class="static-icons__subtitle">FROM OUR WAREHOUSE</div>
-          </div>
-        </div>
-
-        {%- comment -%} Item 2: Return Policy {%- endcomment -%}
-        <div class="static-icons__item">
-          <div class="static-icons__icon">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Box Outline -->
-              <path d="M10 30L20 15H60L70 30V65H10V30Z" stroke="#999999" stroke-width="2" stroke-linejoin="round"/>
-              <!-- Box Flap Line -->
-              <path d="M10 30H70" stroke="#999999" stroke-width="2"/>
-              <!-- Arrow Left -->
-              <path d="M50 48H30M30 48L38 40M30 48L38 56" stroke="#999999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="static-icons__text">
-            <div class="static-icons__title">RETURN POLICY</div>
-          </div>
-        </div>
-
-        {%- comment -%} Item 3: Warranty {%- endcomment -%}
-        <div class="static-icons__item">
-          <div class="static-icons__icon">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Shield Shape -->
-              <path d="M40 10C40 10 15 15 15 35C15 55 40 70 40 70C40 70 65 55 65 35C65 15 40 10 40 10Z" stroke="#999999" stroke-width="2" stroke-linejoin="round"/>
-              <!-- Clock Icon Overlay -->
-              <circle cx="55" cy="55" r="12" fill="black" stroke="#999999" stroke-width="2"/>
-              <path d="M55 48V55H60" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="static-icons__text">
-            <div class="static-icons__title">1 YEAR WARRANTY</div>
-          </div>
-        </div>
-
-        {%- comment -%} Item 4: Support {%- endcomment -%}
-        <div class="static-icons__item">
-          <div class="static-icons__icon">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Headset -->
-              <path d="M20 40V30C20 18.9543 28.9543 10 40 10C51.0457 10 60 18.9543 60 30V40" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
-              <!-- Ear cups -->
-              <rect x="15" y="40" width="10" height="15" rx="5" stroke="#999999" stroke-width="2"/>
-              <rect x="55" y="40" width="10" height="15" rx="5" stroke="#999999" stroke-width="2"/>
-              <!-- Mic -->
-              <path d="M60 55V60C60 65 55 70 40 70" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
-              <!-- Shoulders/Person -->
-              <path d="M20 70C20 60 30 60 40 60C50 60 60 60 60 70" stroke="#999999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4"/>
-            </svg>
-          </div>
-          <div class="static-icons__text">
-            <div class="static-icons__title">OFFICIAL SUPPORT</div>
-          </div>
-        </div>
-
+        {%- endfor -%}
       </div>
     </div>
   </div>
@@ -87,9 +47,60 @@
   "tag": "section",
   "class": "section",
   "settings": [],
+  "blocks": [
+    {
+      "type": "icon_block",
+      "name": "Service Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Service Heading"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Static Service Icons"
+      "name": "Static Service Icons",
+      "blocks": [
+        {
+          "type": "icon_block",
+          "settings": {
+            "title": "SHIPS NOW",
+            "subtitle": "FROM OUR WAREHOUSE"
+          }
+        },
+        {
+          "type": "icon_block",
+          "settings": {
+            "title": "RETURN POLICY"
+          }
+        },
+        {
+          "type": "icon_block",
+          "settings": {
+            "title": "1 YEAR WARRANTY"
+          }
+        },
+        {
+          "type": "icon_block",
+          "settings": {
+            "title": "OFFICIAL SUPPORT"
+          }
+        }
+      ]
     }
   ]
 }
