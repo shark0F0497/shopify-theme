@@ -209,6 +209,7 @@
         "feedback_HpJ9qW": {
           "type": "feedback",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_15.png",
             "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
             "name": "ELEANOR"
           }
@@ -216,36 +217,41 @@
         "feedback_CdGeQa": {
           "type": "feedback",
           "settings": {
-            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
-            "name": "ELEANOR"
+            "image": "shopify://shop_images/Mask_group_9.png",
+            "text": "\"As a developer working in VR collaboration, the stability and precision of the Styria system are critical. The tracking is rock-solid and incredibly accurate...",
+            "name": "Julian"
           }
         },
         "feedback_Gb3rKA": {
           "type": "feedback",
           "settings": {
-            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
-            "name": "ELEANOR"
+            "image": "shopify://shop_images/Mask_group_11.png",
+            "text": "\"The 'Ships Immediately' promise is what sold me first, and they weren't kidding—it arrived in two days! But the real shock was the weight. At under 10g...",
+            "name": "Ivy​"
           }
         },
         "feedback_QhqMnJ": {
           "type": "feedback",
           "settings": {
-            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
-            "name": "ELEANOR"
+            "image": "shopify://shop_images/Mask_group_12.png",
+            "text": "\"I'll be honest, I care about how my gear looks, and the Styria trackers are beautifully crafted. They look and feel premium. But beyond the looks...",
+            "name": "Leo"
           }
         },
         "feedback_TYtYVb": {
           "type": "feedback",
           "settings": {
-            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
-            "name": "ELEANOR"
+            "image": "shopify://shop_images/Mask_group_13.png",
+            "text": "\"48-hour battery life isn't a marketing gimmick; it's real. I play a few hours every night, and I've only charged these things once since I got them two weeks ago...",
+            "name": "Jasper"
           }
         },
         "feedback_w7Vqyz": {
           "type": "feedback",
           "settings": {
-            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
-            "name": "ELEANOR"
+            "image": "shopify://shop_images/Mask_group_14.png",
+            "text": "\"I was worried about setting up a 10-tracker system, but the 'No Wi-Fi Config' made it stupidly easy. I just plugged the dongle in, put on the straps...",
+            "name": "Maeve"
           }
         }
       },
