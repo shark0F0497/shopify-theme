@@ -21,63 +21,69 @@
         "button_link": "shopify://products/styria-mini-9-6g-ultra-light-48h-battery-slimevr-compatible-full-body-tracker-vrchat-fbt-ready-no-diy-required"
       }
     },
-    "highlight_section_pfcNjb": {
+    "highlight_section_9xTJY4": {
       "type": "highlight-section",
       "blocks": {
-        "highlight_item_AkbJQY": {
+        "highlight_item_LTiDnX": {
           "type": "highlight_item",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_2.png",
             "title": "SHIPS IMMEDIATELY, NO WAITING",
-            "subtitle": "<p>Subtitle text here</p>"
+            "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you order, getting you into your virtual world without the agonizing wait.</p>"
           }
         },
-        "highlight_item_KTG3wK": {
+        "highlight_item_7MEXQM": {
           "type": "highlight_item",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_3.png",
             "title": "TOP-TIER ALGORITHM, NO MORE FOOT SLIDE",
-            "subtitle": "<p>Subtitle text here</p>"
+            "subtitle": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
           }
         },
-        "highlight_item_73xhJ3": {
+        "highlight_item_6Vyjk3": {
           "type": "highlight_item",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_4.png",
             "title": "48+ HOUR LONG BATTERY LIFE",
-            "subtitle": "<p>Subtitle text here</p>"
+            "subtitle": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
           }
         },
-        "highlight_item_JmAJpG": {
+        "highlight_item_xjtbiP": {
           "type": "highlight_item",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_5.png",
             "title": "NO WI-FI CONFIG, PLUG-AND-PLAY",
-            "subtitle": "<p>Subtitle text here</p>"
+            "subtitle": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
           }
         },
-        "highlight_item_zdVYkX": {
+        "highlight_item_3KtiRW": {
           "type": "highlight_item",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_6.png",
             "title": "10-IN-1 QUICK CHARGING DOCK",
-            "subtitle": "<p>Subtitle text here</p>"
+            "subtitle": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
           }
         },
-        "highlight_item_wxyYxV": {
+        "highlight_item_DrPbLY": {
           "type": "highlight_item",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_7.png",
             "title": "1-ON-1 ONBOARDING SUPPORT",
-            "subtitle": "<p>Subtitle text here</p>"
+            "subtitle": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
           }
         }
       },
       "block_order": [
-        "highlight_item_AkbJQY",
-        "highlight_item_KTG3wK",
-        "highlight_item_73xhJ3",
-        "highlight_item_JmAJpG",
-        "highlight_item_zdVYkX",
-        "highlight_item_wxyYxV"
+        "highlight_item_LTiDnX",
+        "highlight_item_7MEXQM",
+        "highlight_item_6Vyjk3",
+        "highlight_item_xjtbiP",
+        "highlight_item_3KtiRW",
+        "highlight_item_DrPbLY"
       ],
       "name": "Highlight Section",
       "settings": {
-        "link": ""
+        "link": "shopify://products/styria-mini-9-6g-ultra-light-48h-battery-slimevr-compatible-full-body-tracker-vrchat-fbt-ready-no-diy-required"
       }
     },
     "featured_accessories_tPGyTD": {
@@ -120,6 +126,46 @@
     },
     "static_icons_DgyweY": {
       "type": "static-icons",
+      "blocks": {
+        "icon_block_NDCEnw": {
+          "type": "icon_block",
+          "settings": {
+            "custom_icon": "shopify://shop_images/Vector_7.png",
+            "title": "Ships Now",
+            "subtitle": "from Our Warehouse"
+          }
+        },
+        "icon_block_Krq8Cn": {
+          "type": "icon_block",
+          "settings": {
+            "custom_icon": "shopify://shop_images/Vector_8.png",
+            "title": "Return POLICY",
+            "subtitle": ""
+          }
+        },
+        "icon_block_bTfnUx": {
+          "type": "icon_block",
+          "settings": {
+            "custom_icon": "shopify://shop_images/Vector_9.png",
+            "title": "1 YEAR WARRANTY",
+            "subtitle": ""
+          }
+        },
+        "icon_block_wEazHB": {
+          "type": "icon_block",
+          "settings": {
+            "custom_icon": "shopify://shop_images/Vector_10.png",
+            "title": "Official Support",
+            "subtitle": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_block_NDCEnw",
+        "icon_block_Krq8Cn",
+        "icon_block_bTfnUx",
+        "icon_block_wEazHB"
+      ],
       "name": "Static Service Icons",
       "settings": {}
     },
@@ -220,7 +266,7 @@
   },
   "order": [
     "custom_image_banner_KRUgEa",
-    "highlight_section_pfcNjb",
+    "highlight_section_9xTJY4",
     "featured_accessories_tPGyTD",
     "static_icons_DgyweY",
     "newsletter_rxDdyG",
