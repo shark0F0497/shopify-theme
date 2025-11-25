@@ -27,7 +27,8 @@
         "highlight_item_LTiDnX": {
           "type": "highlight_item",
           "settings": {
-            "image": "shopify://shop_images/Mask_group_2.png",
+            "image_card": "shopify://shop_images/Mask_group_19.png",
+            "image_banner": "shopify://shop_images/Mask_group_2.png",
             "title": "SHIPS IMMEDIATELY, NO WAITING",
             "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you order, getting you into your virtual world without the agonizing wait.</p>"
           }
@@ -35,7 +36,8 @@
         "highlight_item_7MEXQM": {
           "type": "highlight_item",
           "settings": {
-            "image": "shopify://shop_images/Mask_group_3.png",
+            "image_card": "shopify://shop_images/Mask_group_20.png",
+            "image_banner": "shopify://shop_images/Mask_group_17.png",
             "title": "TOP-TIER ALGORITHM, NO MORE FOOT SLIDE",
             "subtitle": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
           }
@@ -43,7 +45,8 @@
         "highlight_item_6Vyjk3": {
           "type": "highlight_item",
           "settings": {
-            "image": "shopify://shop_images/Mask_group_4.png",
+            "image_card": "shopify://shop_images/Mask_group_21.png",
+            "image_banner": "shopify://shop_images/Mask_group_16.png",
             "title": "48+ HOUR LONG BATTERY LIFE",
             "subtitle": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
           }
@@ -51,7 +54,8 @@
         "highlight_item_xjtbiP": {
           "type": "highlight_item",
           "settings": {
-            "image": "shopify://shop_images/Mask_group_5.png",
+            "image_card": "shopify://shop_images/Mask_group_22.png",
+            "image_banner": "shopify://shop_images/Mask_group_5.png",
             "title": "NO WI-FI CONFIG, PLUG-AND-PLAY",
             "subtitle": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
           }
@@ -59,7 +63,8 @@
         "highlight_item_3KtiRW": {
           "type": "highlight_item",
           "settings": {
-            "image": "shopify://shop_images/Mask_group_6.png",
+            "image_card": "shopify://shop_images/Mask_group_23.png",
+            "image_banner": "shopify://shop_images/Mask_group_6.png",
             "title": "10-IN-1 QUICK CHARGING DOCK",
             "subtitle": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
           }
@@ -67,7 +72,8 @@
         "highlight_item_DrPbLY": {
           "type": "highlight_item",
           "settings": {
-            "image": "shopify://shop_images/Mask_group_7.png",
+            "image_card": "shopify://shop_images/Mask_group_24.png",
+            "image_banner": "shopify://shop_images/Mask_group_18.png",
             "title": "1-ON-1 ONBOARDING SUPPORT",
             "subtitle": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
           }
@@ -93,23 +99,23 @@
           "type": "accessory",
           "settings": {
             "product": "styria-mini-22-dbm-2-4g-receiver-high-power-plug-and-play",
-            "image": "shopify://shop_images/2025-11-21122056.jpg",
+            "image": "shopify://shop_images/7_1.png",
             "title": ""
           }
         },
         "accessory_9LRgHF": {
           "type": "accessory",
           "settings": {
-            "product": "the-compare-at-price-snowboard",
-            "image": "shopify://shop_images/wechat_2025-11-23_163410_001.png",
+            "product": "styria-mini-protective-storage-case",
+            "image": "shopify://shop_images/8_717.png",
             "title": ""
           }
         },
         "accessory_YAKPBA": {
           "type": "accessory",
           "settings": {
-            "product": "the-complete-snowboard",
-            "image": "shopify://shop_images/wechat_2025-11-23_170840_791.png",
+            "product": "styria-mini-non-slip-secure-fit-straps",
+            "image": "shopify://shop_images/9_1.png",
             "title": ""
           }
         }
