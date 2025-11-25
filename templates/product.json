@@ -195,7 +195,7 @@
             "height": "medium",
             "title": "No Wi-Fi Config, Plug-and-Play",
             "heading_size": "h1",
-            "text": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
+            "text": "<p>22 dBm high-power 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
           }
         },
         "banner_ezmnYC": {
@@ -203,7 +203,7 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_6.png",
             "height": "medium",
-            "title": "10-in-1 Quick Charging Dock",
+            "title": "10-in-1 Quick-Charge Dock",
             "heading_size": "h1",
             "text": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
           }
