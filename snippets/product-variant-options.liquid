@@ -37,6 +37,11 @@
     if value.available
       assign option_disabled = false
     endif
+
+    assign is_checked = false
+    if value.selected and product.selected_variant
+      assign is_checked = true
+    endif
   -%}
 
   {%- capture input_id -%}
@@ -70,7 +75,7 @@
       value: value | escape,
       swatch: value.swatch,
       product_form_id: product_form_id,
-      checked: value.selected,
+      checked: is_checked,
       visually_disabled: option_disabled,
       shape: block.settings.swatch_shape,
       help_text: help_text,
@@ -83,7 +88,7 @@
       name="{{ input_name | escape }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
-      {% if value.selected %}
+      {% if is_checked %}
         checked
       {% endif %}
       {% if option_disabled %}
@@ -99,7 +104,7 @@
     <option
       id="{{ input_id }}"
       value="{{ value | escape }}"
-      {% if value.selected %}
+      {% if is_checked %}
         selected="selected"
       {% endif %}
       {% if swatch_value and picker_type == 'swatch_dropdown' %}

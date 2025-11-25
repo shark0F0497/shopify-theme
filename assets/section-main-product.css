@@ -7,7 +7,7 @@ product-info {
 }
 
 .product.grid {
-  gap: 0;
+  gap: 5%;
 }
 
 .product--no-media {
@@ -33,7 +33,6 @@ product-info {
 
   .product__info-wrapper {
     padding: 30px;
-    background-color: #f5f5f5;
   }
 
   .product__info-wrapper--extra-padding {
@@ -63,8 +62,8 @@ product-info {
 
 @media screen and (min-width: 990px) {
   .product--large:not(.product--no-media) .product__media-wrapper {
-    max-width: 65%;
-    width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: 55%;
+    width: calc(55% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--large:not(.product--no-media) .product__info-wrapper {
