@@ -32,6 +32,8 @@
   min-height: 1.6rem;
   margin: 0;
   word-break: break-word;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .accordion .svg-wrapper {

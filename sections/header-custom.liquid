@@ -276,6 +276,19 @@
       margin-bottom: 27px;
     }
   }
+
+  {% if request.page_type == 'index' %}
+    .section-header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      background: transparent;
+    }
+
+    /* Ensure header background becomes visible on scroll if needed, or keep transparent */
+    /* For now, pure fixed as requested */
+  {% endif %}
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>

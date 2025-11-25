@@ -25,7 +25,7 @@
         {%- endif -%}
       </div>
     </div>
-    
+
     <div class="feature-group__content">
       {%- for block in section.blocks -%}
         <div class="feature-group__block feature-group__block--{{ block.type }}" {{ block.shopify_attributes }}>
@@ -38,21 +38,26 @@
                     assign sizes = '(min-width: 750px) 75vw, 100vw'
                     assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
                   -%}
-                  {{ block.settings.image | image_url: width: 3840 | image_tag:
-                    loading: 'lazy',
-                    height: height,
-                    sizes: sizes,
-                    widths: widths,
-                    class: 'feature-banner__image'
+                  {{
+                    block.settings.image
+                    | image_url: width: 3840
+                    | image_tag:
+                      loading: 'lazy',
+                      height: height,
+                      sizes: sizes,
+                      widths: widths,
+                      class: 'feature-banner__image'
                   }}
                 {%- else -%}
                   {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
                 {%- endif -%}
-                
+
                 <div class="feature-banner__content">
                   <div class="feature-banner__text-container">
                     {%- if block.settings.title != blank -%}
-                      <h3 class="feature-banner__title {{ block.settings.heading_size }}">{{ block.settings.title | escape }}</h3>
+                      <h3 class="feature-banner__title {{ block.settings.heading_size }}">
+                        {{ block.settings.title | escape }}
+                      </h3>
                     {%- endif -%}
                     {%- if block.settings.text != blank -%}
                       <div class="feature-banner__text rte">{{ block.settings.text }}</div>
@@ -61,319 +66,338 @@
                 </div>
               </div>
 
-           {%- when 'comparison_table' -%}
-             <div class="feature-comparison-table media--{{ block.settings.height }}">
-               {%- assign highlight_color = '#E06C28' -%}
-               {%- assign highlight_bg = highlight_color | color_modify: 'alpha', 0.15 -%}
-               <style>
-                 .feature-comparison-table--{{ block.id }} .comparison-table-header-item.highlighted {
-                   background-color: {{ highlight_color }};
-                 }
-                 .feature-comparison-table--{{ block.id }} td.highlighted {
-                   background-color: {{ highlight_bg }};
-                 }
-               </style>
-               <div class="comparison-table-wrapper feature-comparison-table--{{ block.id }}">
-                 <!-- Separate Header using DIVs (Moved Outside Wrapper) -->
-                 <div class="comparison-table-header">
+            {%- when 'comparison_table' -%}
+              <div class="feature-comparison-table media--{{ block.settings.height }}">
+                <div class="comparison-table-wrapper feature-comparison-table--{{ block.id }}">
+                  <!-- Separate Header using DIVs (Moved Outside Wrapper) -->
+                  <div class="comparison-table-header">
                     <div class="comparison-table-header-item">Feature</div>
                     <div class="comparison-table-header-item highlighted">Styria Mini</div>
                     <div class="comparison-table-header-item">SlimeVR Butterfly (Upcoming)</div>
                     <div class="comparison-table-header-item">SlimeVR Wi-Fi Version</div>
-                 </div>
+                  </div>
 
-                 <div class="comparison-table-content-wrapper">
+                  <div class="comparison-table-content-wrapper">
                     <!-- Body using Table -->
                     <div class="comparison-table-body">
-                       <table class="comparison-table-grid">
-                           <tbody>
-                               <tr>
-                                 <td>Availability</td>
-                                 <td class="highlighted">In Stock, Ships Immediately</td>
-                                 <td>Crowdfunding Launch (TBA Shipping)</td>
-                                 <td>Pre-Sale (Variable Lead Times)</td>
-                               </tr>
-                               <tr>
-                                 <td>Weight Per Tracker</td>
-                                 <td class="highlighted">9.6g (Ultra-Light)</td>
-                                 <td>~12g (Announced)</td>
-                                 <td>~50g</td>
-                               </tr>
-                               <tr>
-                                 <td>Connectivity</td>
-                                 <td class="highlighted">2.4G, Plug-And-Play, No Wi-Fi Setup</td>
-                                 <td>2.4G Wireless</td>
-                                 <td>Wi-Fi (Requires Network Setup)</td>
-                               </tr>
-                               <tr>
-                                 <td>Radio Power</td>
-                                 <td class="highlighted">22 dBm</td>
-                                 <td>Standard 2.4G (Not Yet Disclosed)</td>
-                                 <td>Wi-Fi Router Dependent</td>
-                               </tr>
-                               <tr>
-                                 <td>Battery Life</td>
-                                 <td class="highlighted">48+ Hours</td>
-                                 <td>~24+ Hours (Announced)</td>
-                                 <td>~20 Hours</td>
-                               </tr>
-                               <tr>
-                                 <td>MCU</td>
-                                 <td class="highlighted">Nordic SoC</td>
-                                 <td>Not Disclosed</td>
-                                 <td>ESP8266</td>
-                               </tr>
-                               <tr>
-                                 <td>Tracker Set</td>
-                                 <td class="highlighted">6 / 8 / 10 (Full Master)</td>
-                                 <td>6+ (Announced)</td>
-                                 <td>5+ (Includes Secondary Trackers)</td>
-                               </tr>
-                               <tr>
-                                 <td>Docking System</td>
-                                 <td class="highlighted">10-In-1 Dock: Charge, Pair, Calibrate</td>
-                                 <td>Charging Station (Sold Separately)</td>
-                                 <td>Not Included</td>
-                               </tr>
-                               <tr>
-                                 <td>Onboarding Support</td>
-                                 <td class="highlighted">1-On-1 Guided Setup</td>
-                                 <td>Community-Driven Support</td>
-                                 <td>Community-Driven Support</td>
-                               </tr>
-                           </tbody>
-                       </table>
+                      <table class="comparison-table-grid">
+                        <tbody>
+                          <tr>
+                            <td>Availability</td>
+                            <td class="highlighted">In Stock, Ships Immediately</td>
+                            <td>Crowdfunding Launch (TBA Shipping)</td>
+                            <td>Pre-Sale (Variable Lead Times)</td>
+                          </tr>
+                          <tr>
+                            <td>Weight Per Tracker</td>
+                            <td class="highlighted">9.6g (Ultra-Light)</td>
+                            <td>~12g (Announced)</td>
+                            <td>~50g</td>
+                          </tr>
+                          <tr>
+                            <td>Connectivity</td>
+                            <td class="highlighted">2.4G, Plug-And-Play, No Wi-Fi Setup</td>
+                            <td>2.4G Wireless</td>
+                            <td>Wi-Fi (Requires Network Setup)</td>
+                          </tr>
+                          <tr>
+                            <td>Radio Power</td>
+                            <td class="highlighted">22 dBm</td>
+                            <td>Standard 2.4G (Not Yet Disclosed)</td>
+                            <td>Wi-Fi Router Dependent</td>
+                          </tr>
+                          <tr>
+                            <td>Battery Life</td>
+                            <td class="highlighted">48+ Hours</td>
+                            <td>~24+ Hours (Announced)</td>
+                            <td>~20 Hours</td>
+                          </tr>
+                          <tr>
+                            <td>MCU</td>
+                            <td class="highlighted">Nordic SoC</td>
+                            <td>Not Disclosed</td>
+                            <td>ESP8266</td>
+                          </tr>
+                          <tr>
+                            <td>Tracker Set</td>
+                            <td class="highlighted">6 / 8 / 10 (Full Master)</td>
+                            <td>6+ (Announced)</td>
+                            <td>5+ (Includes Secondary Trackers)</td>
+                          </tr>
+                          <tr>
+                            <td>Docking System</td>
+                            <td class="highlighted">10-In-1 Dock: Charge, Pair, Calibrate</td>
+                            <td>Charging Station (Sold Separately)</td>
+                            <td>Not Included</td>
+                          </tr>
+                          <tr>
+                            <td>Onboarding Support</td>
+                            <td class="highlighted">1-On-1 Guided Setup</td>
+                            <td>Community-Driven Support</td>
+                            <td>Community-Driven Support</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                 </div>
-               </div>
-             </div>
-          {%- when 'inventory_table' -%}
-            <div class="feature-comparison-table feature-inventory-table media--{{ block.settings.height }}">
-              <div class="feature-grid__text-overlay">
-                  {%- if block.settings.title != blank -%}
-                   <h3 class="feature-grid__title {{ block.settings.heading_size }}">{{ block.settings.title | escape }}</h3>
-                  {%- endif -%}
-              </div>
-              <div class="comparison-table-wrapper feature-comparison-table--{{ block.id }}">
-                <!-- Header -->
-                <div class="comparison-table-header inventory-table-header">
-                   <div class="comparison-table-header-item">Feature</div>
-                   <div class="comparison-table-header-item">Core Set</div>
-                   <div class="comparison-table-header-item">Enhanced Core Set</div>
-                   <div class="comparison-table-header-item">Full Body Set</div>
+                  </div>
                 </div>
+              </div>
+            {%- when 'inventory_table' -%}
+              <div class="feature-comparison-table feature-inventory-table media--{{ block.settings.height }}">
+                <div class="comparison-table-wrapper feature-comparison-table--{{ block.id }}">
+                  <!-- Header -->
+                  <div class="comparison-table-header inventory-table-header">
+                    <div class="comparison-table-header-item">Feature</div>
+                    <div class="comparison-table-header-item">Core Set</div>
+                    <div class="comparison-table-header-item">Enhanced Core Set</div>
+                    <div class="comparison-table-header-item">Full Body Set</div>
+                  </div>
 
-                <div class="comparison-table-content-wrapper">
-                   <!-- Body -->
-                   <div class="comparison-table-body">
+                  <div class="comparison-table-content-wrapper">
+                    <!-- Body -->
+                    <div class="comparison-table-body">
                       <table class="comparison-table-grid">
-                          <tbody>
-                              <tr>
-                                <td>Number Of Trackers</td>
-                                <td>6</td>
-                                <td>8</td>
-                                <td>10</td>
-                              </tr>
-                              <tr>
-                                <td>Charging Dock</td>
-                                <td>10-Point Dock × 1</td>
-                                <td>10-Point Dock × 1</td>
-                                <td>10-Point Dock × 1</td>
-                              </tr>
-                              <tr>
-                                <td>2.4G Receiver</td>
-                                <td><span class="inventory-check">{% render 'icon-check-green' %}</span> Included</td>
-                                <td><span class="inventory-check">{% render 'icon-check-green' %}</span> Included</td>
-                                <td><span class="inventory-check">{% render 'icon-check-green' %}</span> Included</td>
-                              </tr>
-                              <tr>
-                                <td>32 Cm Straps</td>
-                                <td>2</td>
-                                <td>4</td>
-                                <td>4</td>
-                              </tr>
-                              <tr>
-                                <td>45 Cm Straps</td>
-                                <td>–</td>
-                                <td>–</td>
-                                <td>2</td>
-                              </tr>
-                              <tr>
-                                <td>56 Cm Straps</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                              </tr>
-                              <tr>
-                                <td>86 Cm Straps</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                              </tr>
-                              <tr>
-                                <td>Mounting Hooks</td>
-                                <td>6</td>
-                                <td>8</td>
-                                <td>10</td>
-                              </tr>
-                              <tr>
-                                <td>Mounting Bases</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                              </tr>
-                              <tr>
-                                <td>Position Stickers</td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                              </tr>
-                              <tr>
-                                <td>Quick Started Guide</td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                              </tr>
-                              <tr>
-                                <td>Storage Case</td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                                <td><span class="inventory-check centered">{% render 'icon-check-green' %}</span></td>
-                              </tr>
-                          </tbody>
+                        <tbody>
+                          <tr>
+                            <td>Number Of Trackers</td>
+                            <td>6</td>
+                            <td>8</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>Charging Dock</td>
+                            <td>10-Point Dock × 1</td>
+                            <td>10-Point Dock × 1</td>
+                            <td>10-Point Dock × 1</td>
+                          </tr>
+                          <tr>
+                            <td>2.4G Receiver</td>
+                            <td>
+                              <span class="inventory-check">{% render 'icon-check-green' %}</span> Included
+                            </td>
+                            <td>
+                              <span class="inventory-check">{% render 'icon-check-green' %}</span> Included
+                            </td>
+                            <td>
+                              <span class="inventory-check">{% render 'icon-check-green' %}</span> Included
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>32 Cm Straps</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>4</td>
+                          </tr>
+                          <tr>
+                            <td>45 Cm Straps</td>
+                            <td>–</td>
+                            <td>–</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>56 Cm Straps</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>86 Cm Straps</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>Mounting Hooks</td>
+                            <td>6</td>
+                            <td>8</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>Mounting Bases</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>Position Stickers</td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Quick Started Guide</td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Storage Case</td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                            <td>
+                              <span class="inventory-check centered">{% render 'icon-check-green' %}</span>
+                            </td>
+                          </tr>
+                        </tbody>
                       </table>
-                   </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-          {%- when 'specs_table' -%}
-            <div class="feature-comparison-table feature-specs-table media--{{ block.settings.height }}">
-              <div class="feature-grid__text-overlay">
-                  {%- if block.settings.title != blank -%}
-                   <h3 class="feature-grid__title {{ block.settings.heading_size }}">{{ block.settings.title | escape }}</h3>
-                  {%- endif -%}
-              </div>
-              <div class="comparison-table-wrapper feature-comparison-table--{{ block.id }}">
-                <div class="comparison-table-content-wrapper">
-                   <!-- Body -->
-                   <div class="comparison-table-body">
+            {%- when 'specs_table' -%}
+              <div class="feature-comparison-table feature-specs-table media--{{ block.settings.height }}">
+                <div class="comparison-table-wrapper feature-comparison-table--{{ block.id }}">
+                  <div class="comparison-table-content-wrapper">
+                    <!-- Body -->
+                    <div class="comparison-table-body">
                       <table class="comparison-table-grid">
-                          <tbody>
-                              <tr>
-                                <td>MCU</td>
-                                <td>NRF52840</td>
-                              </tr>
-                              <tr>
-                                <td>IMU</td>
-                                <td>ICM45686</td>
-                              </tr>
-                              <tr>
-                                <td>Tracker Weight</td>
-                                <td>9.6 G</td>
-                              </tr>
-                              <tr>
-                                <td>Battery</td>
-                                <td>120 MAh</td>
-                              </tr>
-                              <tr>
-                                <td>Battery Life</td>
-                                <td>48+ Hours</td>
-                              </tr>
-                              <tr>
-                                <td>Wireless Link</td>
-                                <td>2.4G Receiver-Based</td>
-                              </tr>
-                              <tr>
-                                <td>Receiver Output</td>
-                                <td>22 dBm</td>
-                              </tr>
-                              <tr>
-                                <td>Tracker Input</td>
-                                <td>Pogo Pin</td>
-                              </tr>
-                              <tr>
-                                <td>Dock Input</td>
-                                <td>Type-C</td>
-                              </tr>
-                              <tr>
-                                <td>Point Configurations</td>
-                                <td>6 / 8 / 10 Points</td>
-                              </tr>
-                              <tr>
-                                <td>Software Support</td>
-                                <td>SlimeVR Server, VRChat (OSC/VMC), VSeeFace, Warudo, Etc.</td>
-                              </tr>
-                          </tbody>
+                        <tbody>
+                          <tr>
+                            <td>MCU</td>
+                            <td>NRF52840</td>
+                          </tr>
+                          <tr>
+                            <td>IMU</td>
+                            <td>ICM45686</td>
+                          </tr>
+                          <tr>
+                            <td>Tracker Weight</td>
+                            <td>9.6 G</td>
+                          </tr>
+                          <tr>
+                            <td>Battery</td>
+                            <td>120 MAh</td>
+                          </tr>
+                          <tr>
+                            <td>Battery Life</td>
+                            <td>48+ Hours</td>
+                          </tr>
+                          <tr>
+                            <td>Wireless Link</td>
+                            <td>2.4G Receiver-Based</td>
+                          </tr>
+                          <tr>
+                            <td>Receiver Output</td>
+                            <td>22 dBm</td>
+                          </tr>
+                          <tr>
+                            <td>Tracker Input</td>
+                            <td>Pogo Pin</td>
+                          </tr>
+                          <tr>
+                            <td>Dock Input</td>
+                            <td>Type-C</td>
+                          </tr>
+                          <tr>
+                            <td>Point Configurations</td>
+                            <td>6 / 8 / 10 Points</td>
+                          </tr>
+                          <tr>
+                            <td>Software Support</td>
+                            <td>SlimeVR Server, VRChat (OSC/VMC), VSeeFace, Warudo, Etc.</td>
+                          </tr>
+                        </tbody>
                       </table>
-                   </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-          {%- when 'grid_images' -%}
-            <div class="feature-grid feature-grid--{{ block.settings.card_style }}"> <!-- Removed media--height class since we use fixed size -->
-                 <div class="feature-grid__text-overlay">
-                     {%- if block.settings.title != blank -%}
-                      <h3 class="feature-grid__title {{ block.settings.heading_size }}">{{ block.settings.title | escape }}</h3>
-                     {%- endif -%}
-                 </div>
+            {%- when 'grid_images' -%}
+              <div class="feature-grid feature-grid--{{ block.settings.card_style }}">
+                <!-- Removed media--height class since we use fixed size -->
+                <div class="feature-grid__text-overlay">
+                  {%- if block.settings.title != blank -%}
+                    <h3 class="feature-grid__title {{ block.settings.heading_size }}">
+                      {{ block.settings.title | escape }}
+                    </h3>
+                  {%- endif -%}
+                </div>
 
-                 <div class="feature-grid__wrapper">
-                   <button class="feature-grid__arrow feature-grid__arrow--left" aria-label="Scroll left">
-                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                   </button>
+                <div class="feature-grid__wrapper">
+                  <button class="feature-grid__arrow feature-grid__arrow--left" aria-label="Scroll left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
 
-                   <div class="feature-grid__scroll-container">
-                     <div class="feature-grid__images">
-                        {%- assign has_images = false -%}
-                        {%- for i in (1..8) -%}
-                          {%- capture image_setting -%}image_{{ i }}{%- endcapture -%}
-                          {%- capture title_setting -%}title_{{ i }}{%- endcapture -%}
-                          {%- assign image = block.settings[image_setting] -%}
-                          {%- assign item_title = block.settings[title_setting] -%}
-                          {%- if image != blank -%}
-                            {%- assign has_images = true -%}
-                            <div class="feature-grid__item feature-grid__item--{{ block.settings.item_text_alignment }}">
-                               {%- if block.settings.card_style == 'type_2' -%}
-                                 <!-- Type 2: Icon Centered in Colored Box -->
-                                 <div class="feature-grid__image-wrapper">
-                                   {{ image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'feature-grid__image' }}
-                                 </div>
-                               {%- else -%}
-                                 <!-- Standard & Type 1: Cover Image -->
-                                 {{ image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'feature-grid__image' }}
-                               {%- endif -%}
-                               
-                               {%- if item_title != blank -%}
-                                 <div class="feature-grid__item-title">{{ item_title }}</div>
-                               {%- endif -%}
-                            </div>
-                          {%- endif -%}
-                        {%- endfor -%}
-                        
-                        {%- unless has_images -%}
-                           {% comment %} Hide block or show placeholder if no images {% endcomment %}
-                           <div class="feature-grid__item">
-                               {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                           </div>
-                           <div class="feature-grid__item">
-                               {{ 'product-2' | placeholder_svg_tag: 'placeholder-svg' }}
-                           </div>
-                           <div class="feature-grid__item">
-                               {{ 'product-3' | placeholder_svg_tag: 'placeholder-svg' }}
-                           </div>
-                           <div class="feature-grid__item">
-                               {{ 'product-4' | placeholder_svg_tag: 'placeholder-svg' }}
-                           </div>
-                        {%- endunless -%}
-                     </div>
-                   </div>
+                  <div class="feature-grid__scroll-container">
+                    <div class="feature-grid__images">
+                      {%- assign has_images = false -%}
+                      {%- for i in (1..8) -%}
+                        {%- capture image_setting -%}image_{{ i }}{%- endcapture -%}
+                        {%- capture title_setting -%}title_{{ i }}{%- endcapture -%}
+                        {%- assign image = block.settings[image_setting] -%}
+                        {%- assign item_title = block.settings[title_setting] -%}
+                        {%- if image != blank -%}
+                          {%- assign has_images = true -%}
+                          <div class="feature-grid__item feature-grid__item--{{ block.settings.item_text_alignment }}">
+                            {%- if block.settings.card_style == 'type_2' -%}
+                              <!-- Type 2: Icon Centered in Colored Box -->
+                              <div class="feature-grid__image-wrapper">
+                                {{
+                                  image
+                                  | image_url: width: 400
+                                  | image_tag: loading: 'lazy', class: 'feature-grid__image'
+                                }}
+                              </div>
+                            {%- else -%}
+                              <!-- Standard & Type 1: Cover Image -->
+                              {{
+                                image
+                                | image_url: width: 600
+                                | image_tag: loading: 'lazy', class: 'feature-grid__image'
+                              }}
+                            {%- endif -%}
 
-                   <button class="feature-grid__arrow feature-grid__arrow--right" aria-label="Scroll right">
-                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                   </button>
-                 </div>
+                            {%- if item_title != blank -%}
+                              <div class="feature-grid__item-title">{{ item_title }}</div>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      {%- endfor -%}
+
+                      {%- unless has_images -%}
+                        {% comment %} Hide block or show placeholder if no images {% endcomment %}
+                        <div class="feature-grid__item">
+                          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                        <div class="feature-grid__item">
+                          {{ 'product-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                        <div class="feature-grid__item">
+                          {{ 'product-3' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                        <div class="feature-grid__item">
+                          {{ 'product-4' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                      {%- endunless -%}
+                    </div>
+                  </div>
+
+                  <button class="feature-grid__arrow feature-grid__arrow--right" aria-label="Scroll right">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
           {%- endcase -%}
         </div>
@@ -383,10 +407,11 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const gridBlocks = document.querySelectorAll('.feature-grid');
-    gridBlocks.forEach(block => {
+    gridBlocks.forEach((block) => {
       const container = block.querySelector('.feature-grid__scroll-container');
+      const wrapper = block.querySelector('.feature-grid__wrapper');
       const leftArrow = block.querySelector('.feature-grid__arrow--left');
       const rightArrow = block.querySelector('.feature-grid__arrow--right');
 
@@ -397,17 +422,34 @@
       const updateArrows = () => {
         // Check if content overflows
         const isScrollable = container.scrollWidth > container.clientWidth;
-        
+
         // Tolerance for float rounding
         const atStart = container.scrollLeft <= 1;
         const atEnd = Math.ceil(container.scrollLeft + container.clientWidth) >= container.scrollWidth - 1;
 
         if (isScrollable) {
-           leftArrow.style.display = atStart ? 'none' : 'flex';
-           rightArrow.style.display = atEnd ? 'none' : 'flex';
+          if (atStart) {
+            leftArrow.style.display = 'none';
+            if (wrapper) wrapper.style.paddingLeft = '0px';
+          } else {
+            leftArrow.style.display = 'flex';
+            if (wrapper) wrapper.style.paddingLeft = '';
+          }
+
+          if (atEnd) {
+            rightArrow.style.display = 'none';
+            if (wrapper) wrapper.style.paddingRight = '0px';
+          } else {
+            rightArrow.style.display = 'flex';
+            if (wrapper) wrapper.style.paddingRight = '';
+          }
         } else {
-           leftArrow.style.display = 'none';
-           rightArrow.style.display = 'none';
+          leftArrow.style.display = 'none';
+          rightArrow.style.display = 'none';
+          if (wrapper) {
+            wrapper.style.paddingLeft = '0px';
+            wrapper.style.paddingRight = '0px';
+          }
         }
       };
 
@@ -421,7 +463,7 @@
 
       container.addEventListener('scroll', updateArrows);
       window.addEventListener('resize', updateArrows);
-      
+
       // Initial check
       updateArrows();
       // Check again after images load (rough approximation)
@@ -514,24 +556,24 @@
           "default": "NO MORE FOOT SLIDE | ELITE ALGORITHMS, GROUNDED STEPS"
         },
         {
-            "type": "select",
-            "id": "heading_size",
-            "options": [
-              {
-                "value": "h2",
-                "label": "Small"
-              },
-              {
-                "value": "h1",
-                "label": "Medium"
-              },
-              {
-                "value": "h0",
-                "label": "Large"
-              }
-            ],
-            "default": "h1",
-            "label": "Heading size"
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Small"
+            },
+            {
+              "value": "h1",
+              "label": "Medium"
+            },
+            {
+              "value": "h0",
+              "label": "Large"
+            }
+          ],
+          "default": "h1",
+          "label": "Heading size"
         },
         {
           "type": "richtext",
@@ -564,32 +606,6 @@
       "name": "Inventory Table",
       "settings": [
         {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "What's In The Box"
-        },
-        {
-            "type": "select",
-            "id": "heading_size",
-            "options": [
-              {
-                "value": "h2",
-                "label": "Small"
-              },
-              {
-                "value": "h1",
-                "label": "Medium"
-              },
-              {
-                "value": "h0",
-                "label": "Large"
-              }
-            ],
-            "default": "h1",
-            "label": "Heading size"
-        },
-        {
           "type": "select",
           "id": "height",
           "options": [
@@ -607,32 +623,6 @@
       "type": "specs_table",
       "name": "Specs Table",
       "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Specifications"
-        },
-        {
-            "type": "select",
-            "id": "heading_size",
-            "options": [
-              {
-                "value": "h2",
-                "label": "Small"
-              },
-              {
-                "value": "h1",
-                "label": "Medium"
-              },
-              {
-                "value": "h0",
-                "label": "Large"
-              }
-            ],
-            "default": "h1",
-            "label": "Heading size"
-        },
         {
           "type": "select",
           "id": "height",
@@ -773,30 +763,30 @@
           "label": "Height"
         },
         {
-            "type": "text",
-            "id": "title",
-            "label": "Heading",
-            "default": "PRECISION FULL-BODY CAPTURE | SIX ONLY, COMPLETE TRACKING"
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "PRECISION FULL-BODY CAPTURE | SIX ONLY, COMPLETE TRACKING"
         },
         {
-            "type": "select",
-            "id": "heading_size",
-            "options": [
-              {
-                "value": "h2",
-                "label": "Small"
-              },
-              {
-                "value": "h1",
-                "label": "Medium"
-              },
-              {
-                "value": "h0",
-                "label": "Large"
-              }
-            ],
-            "default": "h1",
-            "label": "Heading size"
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Small"
+            },
+            {
+              "value": "h1",
+              "label": "Medium"
+            },
+            {
+              "value": "h0",
+              "label": "Large"
+            }
+          ],
+          "default": "h1",
+          "label": "Heading size"
         }
       ]
     }

@@ -1,5 +1,5 @@
 .section-highlight {
-  background-color: #f7f3f0; /* Light beige/cream background from image */
+  background-color: #EFE6D8;
   padding: 80px 0;
   color: #ffffff;
 }
@@ -14,7 +14,6 @@
   font-size: 40px;
   font-weight: 700;
   color: #000; /* Using black as it's on a light background */
-  text-align: center;
   margin-bottom: 40px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -25,18 +24,17 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  margin-top: 30px;
+  margin-top: 76px;
 }
 
 .highlight-card--banner {
-  height: 400px; /* Explicit height for banners */
+  height: 600px; /* Explicit height for banners */
   /* Reset generic highlight-card styles if needed */
 }
 
 .highlight-card--banner .highlight-card__content {
   /* Override gradient for banners if needed, or keep consistent */
   background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 60%);
-  justify-content: center; /* Center text vertically */
 }
 
 .highlight-card__text-container {
@@ -44,7 +42,7 @@
 }
 
 .highlight-card__description {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 16px;
   line-height: 1.5;
   color: #ddd;
@@ -60,7 +58,7 @@
 .highlight__column {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 90px;
   flex: 1;
   min-width: 0; /* Prevent overflow */
 }
@@ -114,6 +112,11 @@
   background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 60%);
 }
 
+.highlight-card--banner .highlight-card__content {
+  padding-left: 89px;
+  padding-top: 115px;
+}
+
 .highlight-card__title {
   font-size: 20px;
   font-weight: 700;
@@ -127,7 +130,7 @@
 
 /* Column 1 */
 .highlight__column:nth-child(1) .highlight-card:nth-child(1) {
-  height: 400px; /* Top Left: Large */
+  height: 500px; /* Top Left: Large */
 }
 .highlight__column:nth-child(1) .highlight-card:nth-child(2) {
   height: 300px; /* Bottom Left: Medium */
@@ -138,15 +141,15 @@
   height: 300px; /* Top Middle: Medium */
 }
 .highlight__column:nth-child(2) .highlight-card:nth-child(2) {
-  height: 400px; /* Bottom Middle: Large */
+  height: 500px; /* Bottom Middle: Large */
 }
 
 /* Column 3 */
 .highlight__column:nth-child(3) .highlight-card:nth-child(1) {
-  height: 450px; /* Top Right: Tall */
+  height: 500px; /* Top Right: Tall */
 }
 .highlight__column:nth-child(3) .highlight-card:nth-child(2) {
-  height: 250px; /* Bottom Right: Short */
+  height: 300px; /* Bottom Right: Short */
 }
 
 

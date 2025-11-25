@@ -13,6 +13,22 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% if template.name == 'index' %}
+    .section-{{ section.id }}-padding.newsletter__wrapper {
+      background-color: #000;
+      color: #fff;
+      h2 {
+        color: #fff;
+      }
+      .newsletter__subheading {
+        color: #fff;
+      }
+      .newsletter-form__message {
+        color: #fff;
+      }
+    }
+  {% endif %}
 {%- endstyle -%}
 
 <div class="newsletter center {% if section.settings.full_width == false %}newsletter--narrow page-width{% endif %}">

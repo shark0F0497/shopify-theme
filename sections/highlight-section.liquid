@@ -3,7 +3,7 @@
 <div class="section-highlight" data-block-count="{{ section.blocks.size }}">
   <div class="page-width highlight__container">
     <div class="highlight__heading">HIGHLIGHTS</div>
-    {%- comment -%} 1. Render Highlight Items in Masonry Grid {%- endcomment -%}
+    {%- comment -%} 1. Render Highlight Items in Masonry Grid (Use image_card) {%- endcomment -%}
     {%- if section.blocks.size > 0 -%}
       <div class="highlight__grid">
         {%- comment -%} Column 1: Item 1 and 4 {%- endcomment -%}
@@ -16,9 +16,9 @@
                   <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
                 {%- endif -%}
 
-                {%- if block.settings.image != blank -%}
+                {%- if block.settings.image_card != blank -%}
                   {{
-                    block.settings.image
+                    block.settings.image_card
                     | image_url: width: 800
                     | image_tag: loading: 'lazy', class: 'highlight-card__image'
                   }}
@@ -50,9 +50,9 @@
                   <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
                 {%- endif -%}
 
-                {%- if block.settings.image != blank -%}
+                {%- if block.settings.image_card != blank -%}
                   {{
-                    block.settings.image
+                    block.settings.image_card
                     | image_url: width: 800
                     | image_tag: loading: 'lazy', class: 'highlight-card__image'
                   }}
@@ -84,9 +84,9 @@
                   <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
                 {%- endif -%}
 
-                {%- if block.settings.image != blank -%}
+                {%- if block.settings.image_card != blank -%}
                   {{
-                    block.settings.image
+                    block.settings.image_card
                     | image_url: width: 800
                     | image_tag: loading: 'lazy', class: 'highlight-card__image'
                   }}
@@ -110,7 +110,7 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%} 2. Render Banner Blocks Second (Vertical Layout) {%- endcomment -%}
+    {%- comment -%} 2. Render Banner Blocks Second (Vertical Layout - Use image_banner) {%- endcomment -%}
     {%- if section.blocks.size > 0 -%}
       <div class="highlight__banners">
         {%- for block in section.blocks -%}
@@ -119,9 +119,9 @@
               <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
             {%- endif -%}
 
-            {%- if block.settings.image != blank -%}
+            {%- if block.settings.image_banner != blank -%}
               {{
-                block.settings.image
+                block.settings.image_banner
                 | image_url: width: 1200
                 | image_tag: loading: 'lazy', class: 'highlight-card__image'
               }}
@@ -177,8 +177,13 @@
       "settings": [
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "id": "image_card",
+          "label": "Card Image (Grid)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_banner",
+          "label": "Banner Image (Full Width)"
         },
         {
           "type": "text",

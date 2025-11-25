@@ -223,26 +223,26 @@
                 -%}
                 <div
                   class="promo-banner-block"
-                  style="background-color: {{ block.settings.background_color }}; color: {{ block.settings.text_color }}; padding: 2rem; margin-bottom: {{ margin_bottom }}; border-radius: var(--product-card-corner-radius);"
+                  style="color: #141414; margin-bottom: {{ margin_bottom }}; border-radius: var(--product-card-corner-radius);"
                   {{ block.shopify_attributes }}
                 >
                   <div style="display: flex; align-items: baseline; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
                     {%- if block.settings.heading != blank -%}
-                      <h3 style="margin: 0; font-size: 2rem; font-weight: bold; line-height: 1.2; color: inherit;">
+                      <h3 style="margin: 0; font-size: 16px; font-weight: bold; line-height: 1.2; color: inherit;">
                         {{ block.settings.heading }}
                       </h3>
                     {%- endif -%}
                     {%- if block.settings.link_text != blank and block.settings.link_url != blank -%}
                       <a
                         href="{{ block.settings.link_url }}"
-                        style="color: {{ block.settings.link_color }}; text-decoration: underline; text-underline-offset: 0.3rem; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em;"
+                        style="color: #3EACE1; text-decoration: underline; text-underline-offset: 0.3rem; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.05em;"
                       >
                         {{ block.settings.link_text }}
                       </a>
                     {%- endif -%}
                   </div>
                   {%- if block.settings.text != blank -%}
-                    <div style="font-size: 1.4rem; line-height: 1.6; opacity: 0.8; word-break: break-word; text-transform: uppercase;">
+                    <div style="color: #999999; font-size: 12px; line-height: 1.6; opacity: 0.8; word-break: break-word; text-transform: uppercase;">
                       {{ block.settings.text }}
                     </div>
                   {%- endif -%}
@@ -250,7 +250,7 @@
 
                 {%- if current_promo_banner_index < promo_banner_count -%}
                   <div
-                    style="display: block; width: 100%; margin: 2rem 0; border-bottom: 1px dashed rgba(255,255,255,0.3);"
+                    style="display: block; width: 100%; margin: 2rem 0; border-bottom: 1px dashed #999999;"
                   ></div>
                 {%- endif -%}
               {%- when 'ways_to_pay' -%}

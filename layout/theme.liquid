@@ -235,7 +235,6 @@
       }
 
       body {
-        background-color: #000;
         display: grid;
         grid-template-rows: auto auto 1fr auto;
         grid-template-columns: 100%;
@@ -254,6 +253,12 @@
           font-size: 1.6rem;
         }
       }
+
+      {% if template.name == 'index' %}
+        body {
+          background-color: #000;
+        }
+      {% endif %}
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
