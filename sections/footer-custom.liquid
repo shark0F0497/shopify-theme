@@ -206,30 +206,31 @@
 
     .footer-custom__brand {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center; /* Center brand */
       gap: 1rem;
     }
 
     .footer-custom__links {
-      justify-content: flex-start;
+      justify-content: center; /* Center links */
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center; /* Center links */
       gap: 1rem;
     }
 
     .footer-custom__bottom-row {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center; /* Center bottom row */
       gap: 1rem;
     }
 
     .footer-custom__social {
       width: 100%;
       max-width: 304px;
+      justify-content: center; /* Center social icons */
     }
 
     .footer-custom__copyright {
-      text-align: left;
+      text-align: center; /* Center copyright */
     }
   }
 {%- endstyle -%}
@@ -254,7 +255,7 @@
         <nav class="footer-custom__links" role="navigation" aria-label="Footer links">
           <a href="/pages/terms-of-use" class="footer-custom__link">Terms of Use</a>
           <a href="/pages/privacy-policy" class="footer-custom__link">Privacy Policy</a>
-          <a href="/pages/cookie-policy" class="footer-custom__link">Cookie Policy</a>
+          <a href="/pages/cookies-policy" class="footer-custom__link">Cookie Policy</a>
           {% comment %} <a href="#" class="footer-custom__link">Customized Cookies</a> {% endcomment %}
         </nav>
 

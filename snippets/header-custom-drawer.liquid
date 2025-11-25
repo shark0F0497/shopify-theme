@@ -1,0 +1,296 @@
+{% comment %}
+  Renders a custom header drawer menu for mobile.
+  Usage:
+  {% render 'header-custom-drawer' %}
+{% endcomment %}
+
+<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
+  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+    <summary
+      class="header__icon header__icon--menu header__icon--summary link focus-inset"
+      aria-label="{{ 'sections.header.menu' | t }}"
+    >
+      <span>
+        {{- 'icon-hamburger.svg' | inline_asset_content -}}
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
+    </summary>
+    <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
+      <div class="menu-drawer__inner-container">
+        <div class="menu-drawer__navigation-container">
+          <nav class="menu-drawer__navigation">
+            <ul class="menu-drawer__menu has-submenu list-menu" role="list">
+              {%- liquid
+                assign is_homepage = false
+                if request.page_type == 'index' or request.path == routes.root_url
+                  assign is_homepage = true
+                endif
+
+                assign is_product_page = false
+                if request.page_type == 'product'
+                  assign is_product_page = true
+                endif
+
+                assign is_service_page = false
+                if request.page_type == 'page' and page.handle == 'service-support'
+                  assign is_service_page = true
+                endif
+
+                assign service_support_url = '/pages/service-support'
+                assign tutorial_url = 'https://example.com/tutorial'
+              -%}
+
+              {%- comment -%} Homepage Menu Item {%- endcomment -%}
+              <li>
+                <a
+                  id="HeaderDrawer-homepage"
+                  href="{{ routes.root_url }}"
+                  class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if is_homepage %} menu-drawer__menu-item--active{% endif %}"
+                  {% if is_homepage %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{- 'Homepage' | escape -}}
+                </a>
+              </li>
+
+              {%- comment -%} Product Menu with Dropdown (Converted to Details for Drawer) {%- endcomment -%}
+              <li>
+                <details id="Details-menu-drawer-menu-item-product">
+                  <summary
+                    id="HeaderDrawer-Product"
+                    class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if is_product_page %} menu-drawer__menu-item--active{% endif %}"
+                  >
+                    {{- 'Product' | escape -}}
+                    <span class="svg-wrapper">
+                      {{- 'icon-arrow.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="svg-wrapper">
+                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                    </span>
+                  </summary>
+                  <div
+                    id="link-product"
+                    class="menu-drawer__submenu has-submenu gradient motion-reduce"
+                    tabindex="-1"
+                  >
+                    <div class="menu-drawer__inner-submenu">
+                      <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                        <span class="svg-wrapper">
+                          {{- 'icon-arrow.svg' | inline_asset_content -}}
+                        </span>
+                        {{- 'Product' | escape -}}
+                      </button>
+                      <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                        {%- assign products_to_show = collections.all.products -%}
+                        {%- if collections.all.products.size == 0 -%}
+                          {%- for collection in collections limit: 1 -%}
+                            {%- assign products_to_show = collection.products -%}
+                            {%- break -%}
+                          {%- endfor -%}
+                        {%- endif -%}
+
+                        {%- if products_to_show.size > 0 -%}
+                          {%- for menu_product in products_to_show limit: 20 -%}
+                            {%- liquid
+                              assign is_current_product = false
+                              if request.page_type == 'product' and product.id == menu_product.id
+                                assign is_current_product = true
+                              endif
+                            -%}
+                            <li>
+                              <a
+                                id="HeaderDrawer-Product-{{ menu_product.handle }}"
+                                href="{{ menu_product.url }}"
+                                class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if is_current_product %} menu-drawer__menu-item--active{% endif %}"
+                                {% if is_current_product %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ menu_product.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        {%- else -%}
+                          <li>
+                            <span class="menu-drawer__menu-item list-menu__item" style="opacity: 0.6;">
+                              {{ 'No products available' | escape }}
+                            </span>
+                          </li>
+                        {%- endif -%}
+                      </ul>
+                    </div>
+                  </div>
+                </details>
+              </li>
+
+              {%- comment -%} Service & Support Menu Item {%- endcomment -%}
+              <li>
+                <a
+                  id="HeaderDrawer-service-support"
+                  href="{{ service_support_url }}"
+                  class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if is_service_page %} menu-drawer__menu-item--active{% endif %}"
+                  {% if is_service_page %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{- 'Service & Support' | escape -}}
+                </a>
+              </li>
+
+              {%- comment -%} Tutorial External Link {%- endcomment -%}
+              <li>
+                <a
+                  id="HeaderDrawer-tutorial"
+                  href="{{ tutorial_url }}"
+                  class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{- 'Tutorial' | escape -}}
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          {%- comment -%} Utility Links (Account, Socials, etc.) from standard drawer {%- endcomment -%}
+          <div class="menu-drawer__utility-links">
+            {%- if shop.customer_accounts_enabled -%}
+              <a
+                href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
+                rel="nofollow"
+              >
+                {%- if section.settings.enable_customer_avatar -%}
+                  <account-icon>
+                    {%- if customer and customer.has_avatar? -%}
+                      {{ customer | avatar }}
+                    {%- else -%}
+                      <span class="svg-wrapper">
+                        {{- 'icon-account.svg' | inline_asset_content -}}
+                      </span>
+                    {%- endif -%}
+                  </account-icon>
+                {%- else -%}
+                  <span class="svg-wrapper">
+                    {{- 'icon-account.svg' | inline_asset_content -}}
+                  </span>
+                {%- endif -%}
+                {% comment %}
+                  {%- liquid
+                    if customer
+                      echo 'customer.account_fallback' | t
+                    else
+                      echo 'customer.log_in' | t
+                    endif
+                  -%}
+                {% endcomment %}
+              </a>
+            {%- endif -%}
+            {%- if localization.available_countries or localization.available_languages -%}
+              <div class="menu-drawer__localization header-localization">
+                <localization-form>
+                  {%- form 'localization', id: 'HeaderCustomLocalizationForm', class: 'localization-form' -%}
+                    {%- render 'custom-localization', localPosition: 'HeaderCustomLocalization' -%}
+                  {%- endform -%}
+                </localization-form>
+              </div>
+            {%- endif -%}
+            <ul class="list list-social list-unstyled" role="list">
+              {%- if settings.social_twitter_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_twitter_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-twitter.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if settings.social_facebook_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_facebook_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-facebook.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if settings.social_pinterest_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_pinterest_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-pinterest.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if settings.social_instagram_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_instagram_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-instagram.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if settings.social_tiktok_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_tiktok_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-tiktok.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if settings.social_tumblr_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_tumblr_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-tumblr.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if settings.social_snapchat_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_snapchat_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-snapchat.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if settings.social_youtube_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_youtube_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-youtube.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+              {%- if settings.social_vimeo_link != blank -%}
+                <li class="list-social__item">
+                  <a href="{{ settings.social_vimeo_link }}" class="list-social__link link">
+                    <span class="svg-wrapper">
+                      {{- 'icon-vimeo.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+</header-drawer>

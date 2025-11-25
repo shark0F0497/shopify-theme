@@ -155,6 +155,10 @@
 
 /* Responsive */
 @media screen and (max-width: 990px) {
+  .highlight__banners {
+    display: none;
+  }
+
   .highlight__grid {
     flex-direction: column;
   }

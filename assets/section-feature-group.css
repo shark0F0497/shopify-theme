@@ -250,7 +250,7 @@
 }
 
 .feature-grid--type_2 .feature-grid__image-wrapper {
-  width: 200px;
+  width: 100%;
   height: 100px;
   background-color: #353535;
   border-radius: 20px;
@@ -268,18 +268,32 @@
   object-fit: contain; /* Ensure icon fits */
 }
 
-/* Mobile Adjustments */
 @media screen and (max-width: 749px) {
-  .feature-grid__item {
-    width: 50%; /* Standard fallback */
+  .feature-grid__wrapper {
+    padding: 0 0 40px 0; /* Add bottom padding for arrows */
   }
-  
-  .feature-grid--type_1 .feature-grid__item {
-    width: 60vw; /* Give more space on mobile */
+
+  .feature-grid__arrow {
+    display: flex; /* Force show arrows on mobile */
+    top: auto; /* Reset top positioning */
+    bottom: 0; /* Position at bottom */
+    transform: none; /* Remove center transform */
+    background-color: transparent;
+    box-shadow: none;
   }
-  
-  .feature-grid--type_2 .feature-grid__item {
-    width: 40vw;
+
+  .feature-grid__arrow:hover {
+    background-color: transparent;
+    transform: scale(1.1);
+  }
+
+  .feature-grid__arrow--left {
+    left: calc(50% - 40px); /* Center left arrow */
+  }
+
+  .feature-grid__arrow--right {
+    right: calc(50% - 40px); /* Center right arrow */
+    left: auto;
   }
 }
 
@@ -369,6 +383,31 @@
 
 .comparison-table-wrapper {
   min-width: 600px; /* Ensure table doesn't squish too much on mobile */
+}
+
+@media screen and (max-width: 749px) {
+  .feature-comparison-table {
+    overflow-x: auto; /* Enable horizontal scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    display: block; /* Ensure it behaves as a block for scrolling */
+  }
+
+  .comparison-table-wrapper {
+    width: 800px; /* Force a wider width to trigger scroll */
+    min-width: 800px;
+  }
+  
+  /* Adjust padding for mobile cells */
+  .comparison-table-body td {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .comparison-table-header-item {
+    font-size: 1.3rem;
+    padding: 1.5rem 1rem;
+  }
 }
 
 /* New Wrapper for Border and Radius (Body Only) */
@@ -516,6 +555,19 @@
 .feature-inventory-table .feature-grid__text-overlay,
 .feature-specs-table .feature-grid__text-overlay {
   text-align: center;
+}
+
+/* Responsive Styles for Specs Table */
+@media screen and (max-width: 749px) {
+  .feature-specs-table .comparison-table-body td {
+    padding: 1rem;
+    font-size: 1.2rem;
+    word-break: break-word; /* Prevent long words from overflowing */
+  }
+  
+  .feature-specs-table .comparison-table-body table {
+    table-layout: auto; /* Allow table cells to adapt width */
+  }
 }
 
 /* Fallback if :has not supported (though widely supported now) */

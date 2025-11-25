@@ -171,8 +171,11 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__utility-links {
   padding: 0;
-  background-color: rgba(var(--color-foreground), 0.03);
+  background-color: #000;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .header--has-social .menu-drawer__utility-links {

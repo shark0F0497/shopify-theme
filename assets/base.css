@@ -79,7 +79,7 @@
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  /* padding: 0 1.5rem; */
+  padding: 0 1.5rem;
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
@@ -3148,9 +3148,13 @@ details-disclosure > details {
   margin-bottom: var(--media-shadow-vertical-offset);
 }
 
-.rte ul,
 .rte ol {
-  list-style-position: inside;
+  list-style-position: outside;
+  padding-left: 2rem;
+}
+
+.rte ul {
+  list-style-position: outside;
   padding-left: 2rem;
 }
 
