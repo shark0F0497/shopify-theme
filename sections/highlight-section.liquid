@@ -11,11 +11,7 @@
           {%- for block in section.blocks -%}
             {%- assign mod = forloop.index0 | modulo: 3 -%}
             {%- if mod == 0 -%}
-              <div class="highlight-card" {{ block.shopify_attributes }}>
-                {%- if section.settings.link != blank -%}
-                  <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
-                {%- endif -%}
-
+              <div class="highlight-card" data-block-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
                 {%- if block.settings.image_card != blank -%}
                   {{
                     block.settings.image_card
@@ -32,9 +28,15 @@
                   {%- endif -%}
                 </div>
 
-                {%- if section.settings.link != blank -%}
-                  </a>
-                {%- endif -%}
+                <button
+                  class="highlight-card__scroll-button"
+                  data-target-banner="banner-{{ forloop.index0 }}"
+                  aria-label="Scroll to banner"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </div>
             {%- endif -%}
           {%- endfor -%}
@@ -45,11 +47,7 @@
           {%- for block in section.blocks -%}
             {%- assign mod = forloop.index0 | modulo: 3 -%}
             {%- if mod == 1 -%}
-              <div class="highlight-card" {{ block.shopify_attributes }}>
-                {%- if section.settings.link != blank -%}
-                  <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
-                {%- endif -%}
-
+              <div class="highlight-card" data-block-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
                 {%- if block.settings.image_card != blank -%}
                   {{
                     block.settings.image_card
@@ -66,9 +64,15 @@
                   {%- endif -%}
                 </div>
 
-                {%- if section.settings.link != blank -%}
-                  </a>
-                {%- endif -%}
+                <button
+                  class="highlight-card__scroll-button"
+                  data-target-banner="banner-{{ forloop.index0 }}"
+                  aria-label="Scroll to banner"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </div>
             {%- endif -%}
           {%- endfor -%}
@@ -79,11 +83,7 @@
           {%- for block in section.blocks -%}
             {%- assign mod = forloop.index0 | modulo: 3 -%}
             {%- if mod == 2 -%}
-              <div class="highlight-card" {{ block.shopify_attributes }}>
-                {%- if section.settings.link != blank -%}
-                  <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
-                {%- endif -%}
-
+              <div class="highlight-card" data-block-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
                 {%- if block.settings.image_card != blank -%}
                   {{
                     block.settings.image_card
@@ -100,9 +100,15 @@
                   {%- endif -%}
                 </div>
 
-                {%- if section.settings.link != blank -%}
-                  </a>
-                {%- endif -%}
+                <button
+                  class="highlight-card__scroll-button"
+                  data-target-banner="banner-{{ forloop.index0 }}"
+                  aria-label="Scroll to banner"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </div>
             {%- endif -%}
           {%- endfor -%}
@@ -110,41 +116,71 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%} 2. Render Banner Blocks Second (Vertical Layout - Use image_banner) {%- endcomment -%}
+    {%- comment -%} 2. Render Banner Blocks as Carousel (Use image_banner) {%- endcomment -%}
     {%- if section.blocks.size > 0 -%}
-      <div class="highlight__banners">
-        {%- for block in section.blocks -%}
-          <div class="highlight-card highlight-card--banner">
-            {%- if section.settings.link != blank -%}
-              <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
-            {%- endif -%}
-
-            {%- if block.settings.image_banner != blank -%}
-              {{
-                block.settings.image_banner
-                | image_url: width: 1200
-                | image_tag: loading: 'lazy', class: 'highlight-card__image'
-              }}
-            {%- else -%}
-              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg highlight-card__image' }}
-            {%- endif -%}
-
-            <div class="highlight-card__content">
-              <div class="highlight-card__text-container">
-                {%- if block.settings.title != blank -%}
-                  <div class="highlight-card__title">{{ block.settings.title }}</div>
+      <div class="highlight__banners" id="highlight-banner-carousel">
+        <div class="highlight__carousel-wrapper">
+          <div class="highlight__carousel-track">
+            {%- for block in section.blocks -%}
+              <div
+                class="highlight-card highlight-card--banner highlight__carousel-slide"
+                data-slide-index="{{ forloop.index0 }}"
+              >
+                {%- if section.settings.link != blank -%}
+                  <a href="{{ section.settings.link }}" class="highlight-card__link-overlay">
                 {%- endif -%}
-                {%- if block.settings.subtitle != blank -%}
-                  <div class="highlight-card__description rte">{{ block.settings.subtitle }}</div>
+
+                {%- if block.settings.image_banner != blank -%}
+                  {{
+                    block.settings.image_banner
+                    | image_url: width: 1200
+                    | image_tag: loading: 'lazy', class: 'highlight-card__image'
+                  }}
+                {%- else -%}
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg highlight-card__image' }}
+                {%- endif -%}
+
+                <div class="highlight-card__content">
+                  <div class="highlight-card__text-container">
+                    {%- if block.settings.title != blank -%}
+                      <div class="highlight-card__title">{{ block.settings.title }}</div>
+                    {%- endif -%}
+                    {%- if block.settings.subtitle != blank -%}
+                      <div class="highlight-card__description rte">{{ block.settings.subtitle }}</div>
+                    {%- endif -%}
+                  </div>
+                </div>
+
+                {%- if section.settings.link != blank -%}
+                  </a>
                 {%- endif -%}
               </div>
-            </div>
-
-            {%- if section.settings.link != blank -%}
-              </a>
-            {%- endif -%}
+            {%- endfor -%}
           </div>
-        {%- endfor -%}
+        </div>
+
+        {%- if section.blocks.size > 1 -%}
+          <button class="highlight__carousel-button highlight__carousel-button--prev" aria-label="Previous banner">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="highlight__carousel-button highlight__carousel-button--next" aria-label="Next banner">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="highlight__carousel-dots">
+            {%- for block in section.blocks -%}
+              <button
+                class="highlight__carousel-dot {% if forloop.first %}highlight__carousel-dot--active{% endif %}"
+                data-slide-index="{{ forloop.index0 }}"
+                aria-label="Go to slide {{ forloop.index }}"
+              ></button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       </div>
     {%- endif -%}
 
@@ -155,6 +191,86 @@
     {%- endif -%}
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.getElementById('highlight-banner-carousel');
+    if (!carousel) return;
+
+    const carouselTrack = carousel.querySelector('.highlight__carousel-track');
+    const slides = carousel.querySelectorAll('.highlight__carousel-slide');
+    const prevButton = carousel.querySelector('.highlight__carousel-button--prev');
+    const nextButton = carousel.querySelector('.highlight__carousel-button--next');
+    const dots = carousel.querySelectorAll('.highlight__carousel-dot');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // 切换到指定幻灯片
+    function goToSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+
+      currentSlide = index;
+
+      // 更新幻灯片位置
+      carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      // 更新指示点
+      dots.forEach((dot, i) => {
+        if (i === currentSlide) {
+          dot.classList.add('highlight__carousel-dot--active');
+        } else {
+          dot.classList.remove('highlight__carousel-dot--active');
+        }
+      });
+    }
+
+    // 上一张
+    if (prevButton) {
+      prevButton.addEventListener('click', function () {
+        goToSlide(currentSlide - 1);
+      });
+    }
+
+    // 下一张
+    if (nextButton) {
+      nextButton.addEventListener('click', function () {
+        goToSlide(currentSlide + 1);
+      });
+    }
+
+    // 点击指示点
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', function () {
+        goToSlide(index);
+      });
+    });
+
+    // 处理 card 向下按钮点击
+    const scrollButtons = document.querySelectorAll('.highlight-card__scroll-button');
+
+    scrollButtons.forEach(function (button) {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const targetBannerIndex = this.getAttribute('data-target-banner').replace('banner-', '');
+        const slideIndex = parseInt(targetBannerIndex, 10);
+
+        // 滚动到轮播区域
+        carousel.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+
+        // 切换到对应的 banner
+        setTimeout(function () {
+          goToSlide(slideIndex);
+        }, 300); // 等待滚动动画开始后再切换
+      });
+    });
+  });
+</script>
 
 {% schema %}
 {

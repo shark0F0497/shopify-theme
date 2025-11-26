@@ -97,6 +97,11 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+  will-change: scroll-position;
+  transform: translateZ(0); /* Enable hardware acceleration */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .feature-grid__scroll-container::-webkit-scrollbar {
@@ -109,80 +114,64 @@
   height: 100%;
   gap: 50px; /* Default gap */
   min-width: 100%;
+  will-change: transform;
+  transform: translateZ(0); /* Enable hardware acceleration */
 }
 
 /* Navigation Arrows */
 .feature-grid__wrapper {
   position: relative;
   width: 100%;
-  padding: 0; /* Default no padding on mobile */
+}
+
+.feature-grid__arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
 }
 
 .feature-grid__arrow {
-  position: absolute;
-  /* Top position calculated per card type below */
-  transform: translateY(-50%);
-  width: 32px; /* Smaller button size */
+  width: 32px;
   height: 32px;
-  background-color: transparent; /* Transparent background */
-  border: none; /* No border */
+  background-color: transparent;
+  border: none;
   border-radius: 50%;
-  display: none; /* Hidden by default/mobile */
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 5;
   transition: all 0.3s ease;
-  color: #000; /* White arrow */
+  color: #000;
   padding: 0;
-  box-shadow: none; /* No shadow */
+  box-shadow: none;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .feature-grid__arrow:hover {
-  background-color: transparent; /* Keep transparent */
+  background-color: transparent;
   box-shadow: none;
-  transform: translateY(-50%) scale(1.2); /* Scale up slightly on hover */
+  transform: scale(1.2);
   opacity: 0.8;
 }
 
-.feature-grid__arrow--left {
-  left: 10px;
+.feature-grid__arrow--hidden {
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
 }
 
-.feature-grid__arrow--right {
-  right: 10px;
+.feature-grid__arrow--hidden:hover {
+  transform: none;
+  opacity: 0;
 }
 
 .feature-grid__arrow svg {
-  width: 18px; /* Smaller icon size */
+  width: 18px;
   height: 18px;
-}
-
-/* Desktop Arrow Positioning */
-@media screen and (min-width: 990px) {
-  .feature-grid__wrapper {
-    padding: 0 80px; /* Increased padding for more distance */
-  }
-
-  .feature-grid__arrow {
-    display: flex; /* Show on desktop if JS allows */
-  }
-
-  /* Center vertically relative to IMAGE height */
-  /* Standard: Image 349px / 2 = 174.5px */
-  .feature-grid--standard .feature-grid__arrow {
-    top: 174.5px;
-  }
-
-  /* Type 1: Image 150px / 2 = 75px */
-  .feature-grid--type_1 .feature-grid__arrow {
-    top: 75px;
-  }
-
-  /* Type 2: Image 100px / 2 = 50px */
-  .feature-grid--type_2 .feature-grid__arrow {
-    top: 50px;
-  }
 }
 
 
@@ -269,31 +258,13 @@
 }
 
 @media screen and (max-width: 749px) {
-  .feature-grid__wrapper {
-    padding: 0 0 40px 0; /* Add bottom padding for arrows */
-  }
-
   .feature-grid__arrow {
-    display: flex; /* Force show arrows on mobile */
-    top: auto; /* Reset top positioning */
-    bottom: 0; /* Position at bottom */
-    transform: none; /* Remove center transform */
-    background-color: transparent;
-    box-shadow: none;
+    display: flex;
   }
 
   .feature-grid__arrow:hover {
     background-color: transparent;
     transform: scale(1.1);
-  }
-
-  .feature-grid__arrow--left {
-    left: calc(50% - 40px); /* Center left arrow */
-  }
-
-  .feature-grid__arrow--right {
-    right: calc(50% - 40px); /* Center right arrow */
-    left: auto;
   }
 }
 

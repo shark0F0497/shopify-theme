@@ -332,12 +332,6 @@
                 </div>
 
                 <div class="feature-grid__wrapper">
-                  <button class="feature-grid__arrow feature-grid__arrow--left" aria-label="Scroll left">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </button>
-
                   <div class="feature-grid__scroll-container">
                     <div class="feature-grid__images">
                       {%- assign has_images = false -%}
@@ -392,11 +386,19 @@
                     </div>
                   </div>
 
-                  <button class="feature-grid__arrow feature-grid__arrow--right" aria-label="Scroll right">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </button>
+                  <div class="feature-grid__arrows">
+                    <button class="feature-grid__arrow feature-grid__arrow--left" aria-label="Scroll left">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+
+                    <button class="feature-grid__arrow feature-grid__arrow--right" aria-label="Scroll right">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
           {%- endcase -%}
@@ -409,65 +411,155 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const gridBlocks = document.querySelectorAll('.feature-grid');
+    
+    // Throttle function to limit function calls
+    function throttle(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
     gridBlocks.forEach((block) => {
       const container = block.querySelector('.feature-grid__scroll-container');
-      const wrapper = block.querySelector('.feature-grid__wrapper');
       const leftArrow = block.querySelector('.feature-grid__arrow--left');
       const rightArrow = block.querySelector('.feature-grid__arrow--right');
+      const firstItem = block.querySelector('.feature-grid__item');
 
       if (!container || !leftArrow || !rightArrow) return;
 
-      const scrollAmount = 400; // Approximate width of one item
+      // Calculate scroll amount based on actual item width + gap
+      let scrollAmount = 400; // Default fallback
+      if (firstItem) {
+        const itemRect = firstItem.getBoundingClientRect();
+        const gap = 50; // Match CSS gap value
+        scrollAmount = itemRect.width + gap;
+      }
+
+      let isScrolling = false;
+      let scrollTimeout = null;
 
       const updateArrows = () => {
-        // Check if content overflows
-        const isScrollable = container.scrollWidth > container.clientWidth;
+        // Use requestAnimationFrame for smoother updates
+        requestAnimationFrame(() => {
+          // Check if content overflows
+          const isScrollable = container.scrollWidth > container.clientWidth;
 
-        // Tolerance for float rounding
-        const atStart = container.scrollLeft <= 1;
-        const atEnd = Math.ceil(container.scrollLeft + container.clientWidth) >= container.scrollWidth - 1;
+          // Tolerance for float rounding
+          const atStart = container.scrollLeft <= 1;
+          const atEnd = Math.ceil(container.scrollLeft + container.clientWidth) >= container.scrollWidth - 1;
 
-        if (isScrollable) {
-          if (atStart) {
-            leftArrow.style.display = 'none';
-            if (wrapper) wrapper.style.paddingLeft = '0px';
+          if (isScrollable) {
+            if (atStart) {
+              leftArrow.classList.add('feature-grid__arrow--hidden');
+            } else {
+              leftArrow.classList.remove('feature-grid__arrow--hidden');
+            }
+
+            if (atEnd) {
+              rightArrow.classList.add('feature-grid__arrow--hidden');
+            } else {
+              rightArrow.classList.remove('feature-grid__arrow--hidden');
+            }
           } else {
-            leftArrow.style.display = 'flex';
-            if (wrapper) wrapper.style.paddingLeft = '';
+            leftArrow.classList.add('feature-grid__arrow--hidden');
+            rightArrow.classList.add('feature-grid__arrow--hidden');
           }
-
-          if (atEnd) {
-            rightArrow.style.display = 'none';
-            if (wrapper) wrapper.style.paddingRight = '0px';
-          } else {
-            rightArrow.style.display = 'flex';
-            if (wrapper) wrapper.style.paddingRight = '';
-          }
-        } else {
-          leftArrow.style.display = 'none';
-          rightArrow.style.display = 'none';
-          if (wrapper) {
-            wrapper.style.paddingLeft = '0px';
-            wrapper.style.paddingRight = '0px';
-          }
-        }
+        });
       };
 
-      leftArrow.addEventListener('click', () => {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      // Throttled scroll handler
+      const handleScroll = throttle(() => {
+        if (!isScrolling) {
+          updateArrows();
+        }
+      }, 16); // ~60fps
+
+      const handleScrollEnd = () => {
+        isScrolling = false;
+        updateArrows();
+      };
+
+      leftArrow.addEventListener('click', (e) => {
+        if (leftArrow.classList.contains('feature-grid__arrow--hidden')) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+        
+        isScrolling = true;
+        clearTimeout(scrollTimeout);
+        
+        // Recalculate scroll amount in case layout changed
+        if (firstItem) {
+          const itemRect = firstItem.getBoundingClientRect();
+          const gap = 50;
+          scrollAmount = itemRect.width + gap;
+        }
+        
+        container.scrollBy({ 
+          left: -scrollAmount, 
+          behavior: 'smooth' 
+        });
+        
+        scrollTimeout = setTimeout(handleScrollEnd, 300);
       });
 
-      rightArrow.addEventListener('click', () => {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      rightArrow.addEventListener('click', (e) => {
+        if (rightArrow.classList.contains('feature-grid__arrow--hidden')) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+        
+        isScrolling = true;
+        clearTimeout(scrollTimeout);
+        
+        // Recalculate scroll amount in case layout changed
+        if (firstItem) {
+          const itemRect = firstItem.getBoundingClientRect();
+          const gap = 50;
+          scrollAmount = itemRect.width + gap;
+        }
+        
+        container.scrollBy({ 
+          left: scrollAmount, 
+          behavior: 'smooth' 
+        });
+        
+        scrollTimeout = setTimeout(handleScrollEnd, 300);
       });
 
-      container.addEventListener('scroll', updateArrows);
-      window.addEventListener('resize', updateArrows);
+      container.addEventListener('scroll', handleScroll, { passive: true });
+      
+      const handleResize = throttle(() => {
+        // Recalculate scroll amount on resize
+        if (firstItem) {
+          const itemRect = firstItem.getBoundingClientRect();
+          const gap = 50;
+          scrollAmount = itemRect.width + gap;
+        }
+        updateArrows();
+      }, 150);
+      
+      window.addEventListener('resize', handleResize);
 
       // Initial check
       updateArrows();
-      // Check again after images load (rough approximation)
-      setTimeout(updateArrows, 500);
+      
+      // Check again after images load
+      if (document.readyState === 'complete') {
+        setTimeout(updateArrows, 100);
+      } else {
+        window.addEventListener('load', () => {
+          setTimeout(updateArrows, 100);
+        });
+      }
     });
   });
 </script>

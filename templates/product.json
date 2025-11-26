@@ -173,9 +173,9 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_17.png",
             "height": "medium",
-            "title": "Ultra-Light 9.6g, Flexible Velcro-Surface",
+            "title": "Ultra-Light 9.6g, Flexible Hook-Suface",
             "heading_size": "h2",
-            "text": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The velcro-surface backing attaches instantly to straps, enabling flexible placement and effortless adjustment.</p>"
+            "text": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
           }
         },
         "banner_dK4jYr": {
@@ -183,7 +183,7 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_16.png",
             "height": "medium",
-            "title": "48+ Hours Long Battery Life",
+            "title": "48+ Hour Long Battery Life",
             "heading_size": "h1",
             "text": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
           }
@@ -195,7 +195,7 @@
             "height": "medium",
             "title": "No Wi-Fi Config, Plug-and-Play",
             "heading_size": "h1",
-            "text": "<p>22 dBm high-power 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
+            "text": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
           }
         },
         "banner_ezmnYC": {
@@ -203,7 +203,7 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_6.png",
             "height": "medium",
-            "title": "10-in-1 Quick-Charge Dock",
+            "title": "10-in-1 Quick Charging Dock",
             "heading_size": "h1",
             "text": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
           }
@@ -215,7 +215,7 @@
             "height": "medium",
             "title": "1-on-1 Onboarding Support",
             "heading_size": "h1",
-            "text": "<p>New to FBT? We offer personal onboarding to help you get started quickly and smoothly.</p>"
+            "text": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
           }
         }
       },
