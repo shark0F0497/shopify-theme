@@ -55,8 +55,8 @@
                 <div class="feature-banner__content">
                   <div class="feature-banner__text-container">
                     {%- if block.settings.title != blank -%}
-                      <h3 class="feature-banner__title {{ block.settings.heading_size }}">
-                        {{ block.settings.title | escape }}
+                      <h3 class="feature-banner__title {{ block.settings.heading_size }} rte">
+                        {{ block.settings.title }}
                       </h3>
                     {%- endif -%}
                     {%- if block.settings.text != blank -%}
@@ -411,7 +411,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const gridBlocks = document.querySelectorAll('.feature-grid');
-    
+
     // Throttle function to limit function calls
     function throttle(func, wait) {
       let timeout;
@@ -491,22 +491,22 @@
           e.stopPropagation();
           return;
         }
-        
+
         isScrolling = true;
         clearTimeout(scrollTimeout);
-        
+
         // Recalculate scroll amount in case layout changed
         if (firstItem) {
           const itemRect = firstItem.getBoundingClientRect();
           const gap = 50;
           scrollAmount = itemRect.width + gap;
         }
-        
-        container.scrollBy({ 
-          left: -scrollAmount, 
-          behavior: 'smooth' 
+
+        container.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth',
         });
-        
+
         scrollTimeout = setTimeout(handleScrollEnd, 300);
       });
 
@@ -516,27 +516,27 @@
           e.stopPropagation();
           return;
         }
-        
+
         isScrolling = true;
         clearTimeout(scrollTimeout);
-        
+
         // Recalculate scroll amount in case layout changed
         if (firstItem) {
           const itemRect = firstItem.getBoundingClientRect();
           const gap = 50;
           scrollAmount = itemRect.width + gap;
         }
-        
-        container.scrollBy({ 
-          left: scrollAmount, 
-          behavior: 'smooth' 
+
+        container.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth',
         });
-        
+
         scrollTimeout = setTimeout(handleScrollEnd, 300);
       });
 
       container.addEventListener('scroll', handleScroll, { passive: true });
-      
+
       const handleResize = throttle(() => {
         // Recalculate scroll amount on resize
         if (firstItem) {
@@ -546,12 +546,12 @@
         }
         updateArrows();
       }, 150);
-      
+
       window.addEventListener('resize', handleResize);
 
       // Initial check
       updateArrows();
-      
+
       // Check again after images load
       if (document.readyState === 'complete') {
         setTimeout(updateArrows, 100);
@@ -642,10 +642,10 @@
           "label": "Height"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "title",
           "label": "Heading",
-          "default": "NO MORE FOOT SLIDE | ELITE ALGORITHMS, GROUNDED STEPS"
+          "default": "<p>NO MORE FOOT SLIDE | ELITE ALGORITHMS, GROUNDED STEPS</p>"
         },
         {
           "type": "select",

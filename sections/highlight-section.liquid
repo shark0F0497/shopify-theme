@@ -23,8 +23,8 @@
                 {%- endif -%}
 
                 <div class="highlight-card__content">
-                  {%- if block.settings.title != blank -%}
-                    <div class="highlight-card__title">{{ block.settings.title }}</div>
+                  {%- if block.settings.title_card != blank -%}
+                    <div class="highlight-card__title rte">{{ block.settings.title_card }}</div>
                   {%- endif -%}
                 </div>
 
@@ -59,8 +59,8 @@
                 {%- endif -%}
 
                 <div class="highlight-card__content">
-                  {%- if block.settings.title != blank -%}
-                    <div class="highlight-card__title">{{ block.settings.title }}</div>
+                  {%- if block.settings.title_card != blank -%}
+                    <div class="highlight-card__title rte">{{ block.settings.title_card }}</div>
                   {%- endif -%}
                 </div>
 
@@ -95,8 +95,8 @@
                 {%- endif -%}
 
                 <div class="highlight-card__content">
-                  {%- if block.settings.title != blank -%}
-                    <div class="highlight-card__title">{{ block.settings.title }}</div>
+                  {%- if block.settings.title_card != blank -%}
+                    <div class="highlight-card__title rte">{{ block.settings.title_card }}</div>
                   {%- endif -%}
                 </div>
 
@@ -137,8 +137,8 @@
 
             <div class="highlight-card__content">
               <div class="highlight-card__text-container">
-                {%- if block.settings.title != blank -%}
-                  <div class="highlight-card__title">{{ block.settings.title }}</div>
+                {%- if block.settings.title_banner != blank -%}
+                  <div class="highlight-card__title rte">{{ block.settings.title_banner }}</div>
                 {%- endif -%}
                 {%- if block.settings.subtitle != blank -%}
                   <div class="highlight-card__description rte">{{ block.settings.subtitle }}</div>
@@ -215,10 +215,16 @@
           "label": "Banner Image (Full Width)"
         },
         {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Heading Text"
+          "type": "richtext",
+          "id": "title_card",
+          "label": "Card Heading",
+          "default": "<p>Card Heading Text</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "title_banner",
+          "label": "Banner Heading",
+          "default": "<p>Banner Heading Text</p>"
         },
         {
           "type": "richtext",
@@ -236,42 +242,48 @@
         {
           "type": "highlight_item",
           "settings": {
-            "title": "SHIPS IMMEDIATELY, NO WAITING",
+            "title_card": "<p>SHIPS IMMEDIATELY, NO WAITING</p>",
+            "title_banner": "<p>SHIPS IMMEDIATELY, NO WAITING</p>",
             "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you order, getting you into your virtual world without the agonizing wait.</p>"
           }
         },
         {
           "type": "highlight_item",
           "settings": {
-            "title": "TOP-TIER ALGORITHM, NO MORE FOOT SLIDE",
+            "title_card": "<p>TOP-TIER ALGORITHM, NO MORE FOOT SLIDE</p>",
+            "title_banner": "<p>TOP-TIER ALGORITHM, NO MORE FOOT SLIDE</p>",
             "subtitle": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
           }
         },
         {
           "type": "highlight_item",
           "settings": {
-            "title": "48+ HOUR LONG BATTERY LIFE",
+            "title_card": "<p>48+ HOUR LONG BATTERY LIFE</p>",
+            "title_banner": "<p>48+ HOUR LONG BATTERY LIFE</p>",
             "subtitle": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
           }
         },
         {
           "type": "highlight_item",
           "settings": {
-            "title": "NO WI-FI CONFIG, PLUG-AND-PLAY",
+            "title_card": "<p>NO WI-FI CONFIG, PLUG-AND-PLAY</p>",
+            "title_banner": "<p>NO WI-FI CONFIG, PLUG-AND-PLAY</p>",
             "subtitle": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
           }
         },
         {
           "type": "highlight_item",
           "settings": {
-            "title": "10-IN-1 QUICK CHARGING DOCK",
+            "title_card": "<p>10-IN-1 QUICK CHARGING DOCK</p>",
+            "title_banner": "<p>10-IN-1 QUICK CHARGING DOCK</p>",
             "subtitle": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
           }
         },
         {
           "type": "highlight_item",
           "settings": {
-            "title": "1-ON-1 ONBOARDING SUPPORT",
+            "title_card": "<p>1-ON-1 ONBOARDING SUPPORT</p>",
+            "title_banner": "<p>1-ON-1 ONBOARDING SUPPORT</p>",
             "subtitle": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
           }
         }
