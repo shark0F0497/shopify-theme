@@ -131,11 +131,7 @@
                 {%- endif -%}
 
                 {%- if block.settings.image_banner != blank -%}
-                  {{
-                    block.settings.image_banner
-                    | image_url: width: 1200
-                    | image_tag: loading: 'lazy', class: 'highlight-card__image'
-                  }}
+                  {{ block.settings.image_banner | image_url: width: 1200 | image_tag: class: 'highlight-card__image' }}
                 {%- else -%}
                   {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg highlight-card__image' }}
                 {%- endif -%}
