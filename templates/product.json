@@ -78,7 +78,7 @@
         "promo_banner_NmNpeE": {
           "type": "promo_banner",
           "settings": {
-            "heading": "14-Day Return Guarantee",
+            "heading": "14 Days Guarantee",
             "link_text": "LEARN MORE",
             "link_url": "shopify://pages/return-refund-policy",
             "text": "Unused products in original condition can be returned within 14 days of delivery.",
@@ -163,7 +163,7 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_2.png",
             "height": "medium",
-            "title": "<p>Ships Immediately,</p><p>No Waiting</p>",
+            "title": "Ships Immediately, No Waiting",
             "heading_size": "h2",
             "text": "<p>Skip the wait—no pre-orders, no delays. The complete tracking kit is ready to ship the moment you order, getting you into your virtual world without the agonizing wait.</p>"
           }
@@ -173,9 +173,9 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_17.png",
             "height": "medium",
-            "title": "<p>Ultra-Light 9.6g,</p><p>Flexible Velcro-Surface</p>",
+            "title": "Ultra-Light 9.6g, Flexible Hook-Suface",
             "heading_size": "h2",
-            "text": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The velcro-surface backing attaches instantly to straps, enabling flexible placement and effortless adjustment.</p>"
+            "text": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
           }
         },
         "banner_dK4jYr": {
@@ -183,7 +183,7 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_16.png",
             "height": "medium",
-            "title": "<p>48+ Hours</p><p>Long Battery Life</p>",
+            "title": "48+ Hour Long Battery Life",
             "heading_size": "h1",
             "text": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
           }
@@ -193,9 +193,9 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_5.png",
             "height": "medium",
-            "title": "<p>No Wi-Fi Config,</p><p>Plug-and-Play</p>",
+            "title": "No Wi-Fi Config, Plug-and-Play",
             "heading_size": "h1",
-            "text": "<p>22 dBm high-power 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
+            "text": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
           }
         },
         "banner_ezmnYC": {
@@ -203,7 +203,7 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_6.png",
             "height": "medium",
-            "title": "<p>10-in-1</p><p>Quick Charging Dock</p>",
+            "title": "10-in-1 Quick Charging Dock",
             "heading_size": "h1",
             "text": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
           }
@@ -213,9 +213,9 @@
           "settings": {
             "image": "shopify://shop_images/Mask_group_18.png",
             "height": "medium",
-            "title": "<p>1-on-1</p><p>Onboarding Support</p>",
+            "title": "1-on-1 Onboarding Support",
             "heading_size": "h1",
-            "text": "<p>New to FBT? We offer personal onboarding to help you get started quickly and smoothly.</p>"
+            "text": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
           }
         }
       },
@@ -229,7 +229,7 @@
       ],
       "name": "产品亮点",
       "settings": {
-        "heading": "highlights",
+        "heading": "产品亮点",
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
@@ -287,7 +287,7 @@
       ],
       "name": "应用场景",
       "settings": {
-        "heading": "Use Cases",
+        "heading": "应用场景",
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
@@ -326,7 +326,7 @@
       ],
       "name": "第三方应用",
       "settings": {
-        "heading": "Third-Party Applications",
+        "heading": "第三方应用",
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
@@ -462,7 +462,7 @@
         "heading_HJcWhT": {
           "type": "heading",
           "settings": {
-            "heading": "Subscribe to our emails",
+            "heading": "Subscribe to our email",
             "heading_size": "h1"
           }
         },

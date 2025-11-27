@@ -284,7 +284,6 @@
 }
 
 .feature-banner__text-container {
-  max-width: 60rem;
   color: #FFFFFF; /* Default white text */
   text-shadow: 0 2px 10px rgba(0,0,0,0.5);
   pointer-events: auto;

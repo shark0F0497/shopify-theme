@@ -15,8 +15,8 @@
       "settings": {
         "image": "shopify://shop_images/874874978b73dd1dc8b964d0a92ff82f1a9532a9.png",
         "title": "Coming Soon!",
-        "subtitle": "Styria Mini — 9.6g Ultra-Light SlimeVR-Compatible Plug-and-Play Tracker",
-        "description": "<p>Powered by a 22 dBm high-power 2.4G receiver for stable,</p><p>low-latency full-body tracking with a 48+ hours battery life.</p><p>No DIY, no Wi-Fi setup — plus 1-on-1 onboarding to get you started fast.</p>",
+        "subtitle": "Styria Mini — 9.6g Ultra-Light SlimeVR-Compatible 2.4G Tracker",
+        "description": "<p>Powered by a 22 dBm high-gain 2.4G receiver for stable,</p><p>low-latency full-body tracking with 48+ hour battery life.</p><p>No DIY, no Wi-Fi setup — plus 1-on-1 onboarding to get you started fast.</p>",
         "button_text": "Buy Now",
         "button_link": "shopify://products/styria-mini-9-6g-ultra-light-48h-battery-slimevr-compatible-full-body-tracker-vrchat-fbt-ready-no-diy-required"
       }
@@ -29,9 +29,8 @@
           "settings": {
             "image_card": "shopify://shop_images/Mask_group_19.png",
             "image_banner": "shopify://shop_images/Mask_group_2.png",
-            "title_card": "<p>Ships Immediately,</p><p>No Waiting</p>",
-            "title_banner": "<p>Ships Immediately, No Waiting</p>",
-            "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you</p><p>order, getting you into your virtual world without the agonizing wait.</p>"
+            "title": "SHIPS IMMEDIATELY, NO WAITING",
+            "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you order, getting you into your virtual world without the agonizing wait.</p>"
           }
         },
         "highlight_item_7MEXQM": {
@@ -39,9 +38,8 @@
           "settings": {
             "image_card": "shopify://shop_images/Mask_group_20.png",
             "image_banner": "shopify://shop_images/Mask_group_17.png",
-            "title_card": "<p>Ultra-Light 9.6g,</p><p>Flexible Velcro-Surface</p>",
-            "title_banner": "<p>Ultra-Light 9.6g, Flexible Velcro-Surface</p>",
-            "subtitle": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The velcro-surface backing</p><p>attaches instantly to straps, enabling flexible placement and effortless adjustment.</p>"
+            "title": "TOP-TIER ALGORITHM, NO MORE FOOT SLIDE",
+            "subtitle": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The hook-surface backing attaches instantly to straps and pads, enabling flexible placement and effortless adjustment.</p>"
           }
         },
         "highlight_item_6Vyjk3": {
@@ -49,9 +47,8 @@
           "settings": {
             "image_card": "shopify://shop_images/Mask_group_21.png",
             "image_banner": "shopify://shop_images/Mask_group_16.png",
-            "title_card": "<p>48+ Hours</p><p>Long Battery Life</p>",
-            "title_banner": "<p>48+ Hours Long Battery Life</p>",
-            "subtitle": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need</p><p>to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
+            "title": "48+ HOUR LONG BATTERY LIFE",
+            "subtitle": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
           }
         },
         "highlight_item_xjtbiP": {
@@ -59,9 +56,8 @@
           "settings": {
             "image_card": "shopify://shop_images/Mask_group_22.png",
             "image_banner": "shopify://shop_images/Mask_group_5.png",
-            "title_card": "<p>No Wi-Fi Config,</p><p>Plug-and-Play</p>",
-            "title_banner": "<p>No Wi-Fi Config, Plug-and-Play</p>",
-            "subtitle": "<p>22 dBm high-power 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking,</p><p>enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
+            "title": "NO WI-FI CONFIG, PLUG-AND-PLAY",
+            "subtitle": "<p>22 dBm high-gain 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking, enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
           }
         },
         "highlight_item_3KtiRW": {
@@ -69,9 +65,8 @@
           "settings": {
             "image_card": "shopify://shop_images/Mask_group_23.png",
             "image_banner": "shopify://shop_images/Mask_group_6.png",
-            "title_card": "<p>10-in-1</p><p>Quick Charging Dock</p>",
-            "title_banner": "<p>10-in-1 Quick Charging Dock</p>",
-            "subtitle": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration,</p><p>keeping the entire tracker set organized and effortlessly managed.</p>"
+            "title": "10-IN-1 QUICK CHARGING DOCK",
+            "subtitle": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration, keeping the entire tracker set organized and effortlessly managed.</p>"
           }
         },
         "highlight_item_DrPbLY": {
@@ -79,9 +74,8 @@
           "settings": {
             "image_card": "shopify://shop_images/Mask_group_24.png",
             "image_banner": "shopify://shop_images/Mask_group_18.png",
-            "title_card": "<p>1-on-1</p><p>Onboarding Support</p>",
-            "title_banner": "<p>1-on-1 Onboarding Support</p>",
-            "subtitle": "<p>New to FBT? We offer personal onboarding to help you get started quickly and smoothly.</p>"
+            "title": "1-ON-1 ONBOARDING SUPPORT",
+            "subtitle": "<p>New to FBT? We provide 1-on-1 onboarding to help you get started smoothly.</p>"
           }
         }
       },
@@ -143,15 +137,15 @@
           "type": "icon_block",
           "settings": {
             "custom_icon": "shopify://shop_images/Vector_7.png",
-            "title": "SHIPPING READY",
-            "subtitle": ""
+            "title": "Ships Now",
+            "subtitle": "from Our Warehouse"
           }
         },
         "icon_block_Krq8Cn": {
           "type": "icon_block",
           "settings": {
             "custom_icon": "shopify://shop_images/Vector_8.png",
-            "title": "14-DAY RETURN",
+            "title": "Return POLICY",
             "subtitle": ""
           }
         },
@@ -159,7 +153,7 @@
           "type": "icon_block",
           "settings": {
             "custom_icon": "shopify://shop_images/Vector_9.png",
-            "title": "1-YEAR WARRANTY",
+            "title": "1 YEAR WARRANTY",
             "subtitle": ""
           }
         },
@@ -194,7 +188,7 @@
         "paragraph_ediP4J": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Be the first to unlock new releases, exclusive perks, and insider updates.</p>"
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
           }
         },
         "email_form_ndkTNL": {

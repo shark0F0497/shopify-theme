@@ -37,10 +37,6 @@
   background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 60%);
 }
 
-.highlight-card__text-container {
-  max-width: 600px;
-}
-
 .highlight-card__description {
   margin-top: 15px;
   font-size: 16px;
@@ -123,10 +119,8 @@
 .highlight-card__title {
   font-size: 20px;
   font-weight: 700;
-  text-transform: uppercase;
   line-height: 1.2;
   color: #ffffff;
-  max-width: 80%;
 }
 
 /* Scroll Button */
