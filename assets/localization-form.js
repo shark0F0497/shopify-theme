@@ -168,7 +168,11 @@ if (!customElements.get('localization-form')) {
 
         // Toggle current sub-panel
         button.setAttribute('aria-expanded', (!isExpanded).toString());
-        subpanel.toggleAttribute('hidden', !isExpanded);
+        if (isExpanded) {
+          subpanel.setAttribute('hidden', true);
+        } else {
+          subpanel.removeAttribute('hidden');
+        }
       }
 
       handleSubItemClick(link) {
