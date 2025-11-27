@@ -167,7 +167,7 @@ if (!customElements.get('localization-form')) {
         });
 
         // Toggle current sub-panel
-        button.setAttribute('aria-expanded', !isExpanded);
+        button.setAttribute('aria-expanded', (!isExpanded).toString());
         subpanel.toggleAttribute('hidden', !isExpanded);
       }
 
