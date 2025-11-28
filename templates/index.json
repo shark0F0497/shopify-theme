@@ -30,7 +30,7 @@
             "image_card": "shopify://shop_images/Mask_group_19.png",
             "image_banner": "shopify://shop_images/Mask_group_2.png",
             "title_card": "<p>Ships Immediately,</p><p>No Waiting</p>",
-            "title_banner": "<p>Ships Immediately, No Waiting</p>",
+            "title_banner": "<p>Ships Immediately,</p><p>No Waiting</p>",
             "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you</p><p>order, getting you into your virtual world without the agonizing wait.</p>"
           }
         },
@@ -40,7 +40,7 @@
             "image_card": "shopify://shop_images/Mask_group_20.png",
             "image_banner": "shopify://shop_images/Mask_group_17.png",
             "title_card": "<p>Ultra-Light 9.6g,</p><p>Flexible Velcro-Surface</p>",
-            "title_banner": "<p>Ultra-Light 9.6g, Flexible Velcro-Surface</p>",
+            "title_banner": "<p>Ultra-Light 9.6g,</p><p>Flexible Velcro-Surface</p>",
             "subtitle": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The velcro-surface backing</p><p>attaches instantly to straps, enabling flexible placement and effortless adjustment.</p>"
           }
         },
@@ -50,7 +50,7 @@
             "image_card": "shopify://shop_images/Mask_group_21.png",
             "image_banner": "shopify://shop_images/Mask_group_16.png",
             "title_card": "<p>48+ Hours</p><p>Long Battery Life</p>",
-            "title_banner": "<p>48+ Hours Long Battery Life</p>",
+            "title_banner": "<p>48+ Hours</p><p>Long Battery Life</p>",
             "subtitle": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need</p><p>to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
           }
         },
@@ -60,7 +60,7 @@
             "image_card": "shopify://shop_images/Mask_group_22.png",
             "image_banner": "shopify://shop_images/Mask_group_5.png",
             "title_card": "<p>No Wi-Fi Config,</p><p>Plug-and-Play</p>",
-            "title_banner": "<p>No Wi-Fi Config, Plug-and-Play</p>",
+            "title_banner": "<p>No Wi-Fi Config,</p><p>Plug-and-Play</p>",
             "subtitle": "<p>22 dBm high-power 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking,</p><p>enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
           }
         },
@@ -70,7 +70,7 @@
             "image_card": "shopify://shop_images/Mask_group_23.png",
             "image_banner": "shopify://shop_images/Mask_group_6.png",
             "title_card": "<p>10-in-1</p><p>Quick Charging Dock</p>",
-            "title_banner": "<p>10-in-1 Quick Charging Dock</p>",
+            "title_banner": "<p>10-in-1</p><p>Quick Charging Dock</p>",
             "subtitle": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration,</p><p>keeping the entire tracker set organized and effortlessly managed.</p>"
           }
         },
@@ -80,7 +80,7 @@
             "image_card": "shopify://shop_images/Mask_group_24.png",
             "image_banner": "shopify://shop_images/Mask_group_18.png",
             "title_card": "<p>1-on-1</p><p>Onboarding Support</p>",
-            "title_banner": "<p>1-on-1 Onboarding Support</p>",
+            "title_banner": "<p>1-on-1</p><p>Onboarding Support</p>",
             "subtitle": "<p>New to FBT? We offer personal onboarding to help you get started quickly and smoothly.</p>"
           }
         }
