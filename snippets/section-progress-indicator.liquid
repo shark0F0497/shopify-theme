@@ -1,0 +1,16 @@
+{% comment %}
+  Renders a progress indicator on the left side of the page.
+  Shows scroll progress and current section name.
+  Usage:
+  {% render 'section-progress-indicator' %}
+{% endcomment %}
+
+<div class="section-progress-indicator" id="section-progress-indicator">
+  <div class="section-progress-indicator__bar">
+    <div class="section-progress-indicator__progress" id="progress-fill">&nbsp;</div>
+  </div>
+  <div class="section-progress-indicator__label" id="section-label">
+    <span class="section-progress-indicator__text"></span>
+  </div>
+</div>
+

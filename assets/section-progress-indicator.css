@@ -1,0 +1,85 @@
+/* Section Progress Indicator Styles */
+.section-progress-indicator {
+  position: fixed;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 200px;
+  z-index: 9999;
+  display: none;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 750px) {
+  .section-progress-indicator {
+    /* Display will be controlled by JavaScript based on scroll position */
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.section-progress-indicator__bar {
+  width: 4px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.section-progress-indicator__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #4a90e2;
+  transition: height 0.1s ease-out;
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(74, 144, 226, 0.5);
+  min-height: 2px; /* Ensure minimum visibility */
+  display: block !important; /* Override base.css :empty rule */
+  font-size: 0; /* Hide the &nbsp; content */
+  line-height: 0;
+}
+
+.section-progress-indicator__label {
+  display: flex;
+  align-items: flex-start;
+  height: 200px;
+  position: relative;
+}
+
+.section-progress-indicator__text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.2;
+  transition: color 0.2s ease-out;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 0;
+}
+
+/* Text color for highlight-section */
+.section-progress-indicator__text.highlight-section {
+  color: #000;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Progress bar floats above content, no margin needed for sections */
+
+/* Hide on mobile */
+@media screen and (max-width: 749px) {
+  .section-progress-indicator {
+    display: none !important;
+  }
+}
+
