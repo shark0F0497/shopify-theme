@@ -297,6 +297,11 @@
   font-size: 24px; /* px unit */
 }
 
+.feature-banner__text p {
+  margin: 0;
+  padding: 0;
+}
+
 .feature-banner__text {
   color: inherit;
   font-size: 16px; /* px unit */
