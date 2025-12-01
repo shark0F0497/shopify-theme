@@ -21,6 +21,22 @@
   object-fit: cover;
 }
 
+.custom-image-banner__dots {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 1053px;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.custom-image-banner__dots-image {
+  object-fit: contain;
+  position: relative;
+}
+
 .custom-image-banner__content {
   position: absolute;
   top: 40%;
@@ -38,7 +54,7 @@
   font-size: 96px;
   font-weight: 700;
   margin: 0 0 20px;
-  line-height: 1.1;
+  line-height: 96px;
   color: #00FF5C;
 }
 
@@ -46,7 +62,7 @@
   font-size: 32px;
   font-weight: 600;
   margin: 0 0 25px;
-  line-height: 1.2;
+  line-height: 1.8;
   color: #ffffff;
 }
 
@@ -79,6 +95,17 @@
 
   .custom-image-banner__media img {
     object-fit: cover;
+  }
+
+  .custom-image-banner__dots {
+    position: relative;
+    order: 1;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .custom-image-banner__dots-image {
+    opacity: 0.2;
   }
 
   .custom-image-banner__content {

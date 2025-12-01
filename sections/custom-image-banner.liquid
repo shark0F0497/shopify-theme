@@ -18,6 +18,10 @@
     {%- endif -%}
   </div>
 
+  <div class="custom-image-banner__dots">
+    <img src="{{ 'dots.svg' | asset_url }}" alt="" class="custom-image-banner__dots-image" loading="lazy">
+  </div>
+
   <div class="custom-image-banner__content">
     {%- if section.settings.title != blank -%}
       <h2 class="custom-image-banner__title">{{ section.settings.title }}</h2>
