@@ -302,12 +302,22 @@
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 0 {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 0;
+    min-height: 80px;
+    height: 80px;
+  }
+
+  .header.page-width {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+    top: 20px;
+    z-index: 999;
   }
 
   @media screen and (min-width: 750px) {
@@ -318,8 +328,8 @@
 
   @media screen and (min-width: 990px) {
     .header {
-      margin-top: 20px;
-      margin-bottom: 27px;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -327,13 +337,10 @@
     .section-header {
       position: fixed;
       width: 100%;
-      top: 0;
+      top: 20px;
       z-index: 999;
       background: transparent;
     }
-
-    /* Ensure header background becomes visible on scroll if needed, or keep transparent */
-    /* For now, pure fixed as requested */
   {% endif %}
 {%- endstyle -%}
 
