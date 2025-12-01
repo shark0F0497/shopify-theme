@@ -180,8 +180,28 @@
     white-space: nowrap;
   }
 
+  /* Remove default highlight from active menu items */
   .header__inline-menu .header__menu-item span.header__active-menu-item {
+    font-weight: 400;
+    color: #F3F5F2;
+  }
+
+  /* Highlight on hover for all menu items */
+  .header__inline-menu .header__menu-item:hover span,
+  .header__inline-menu .header__menu-item:hover .header__active-menu-item {
     font-weight: bold;
+    color: #fff;
+  }
+
+  /* Also override base.css styles */
+  .header__inline-menu .header__active-menu-item {
+    font-weight: 400 !important;
+    color: #F3F5F2 !important;
+  }
+
+  .header__inline-menu .header__menu-item:hover .header__active-menu-item {
+    font-weight: bold !important;
+    color: #fff !important;
   }
 
   /* Product menu hover styles */
