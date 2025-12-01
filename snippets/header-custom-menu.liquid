@@ -71,87 +71,44 @@
         </a>
         <ul
           id="HeaderMenu-MenuList-Product"
-          class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+          class="header__submenu header__submenu--hidden list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
           role="list"
           tabindex="-1"
         >
-          {%- comment -%} Get products from all collections or a specific collection {%- endcomment -%}
-          {%- assign products_to_show = collections.all.products -%}
-          {%- if collections.all.products.size == 0 -%}
-            {%- comment -%} Fallback: try to get products from featured collections {%- endcomment -%}
-            {%- for collection in collections limit: 1 -%}
-              {%- assign products_to_show = collection.products -%}
-              {%- break -%}
-            {%- endfor -%}
-          {%- endif -%}
+          {%- liquid
+            assign product_items = 'styria-mini-tracker,receiver,storage-case,strap' | split: ','
+            assign product_titles = 'Styria Mini Tracker,Receiver,Storage Case,Strap' | split: ','
+          -%}
+          {%- for product_handle in product_items -%}
+            {%- assign product_index = forloop.index0 -%}
+            {%- assign product_title = product_titles[product_index] -%}
+            {%- liquid
+              assign is_current_product = false
+              if request.page_type == 'product' and product.handle == product_handle
+                assign is_current_product = true
+              endif
 
-          {%- if products_to_show.size > 0 -%}
-            {%- comment -%} Create string with sort keys and product handles, separated by commas {%- endcomment -%}
-            {%- assign product_sort_string = '' -%}
-
-            {%- for menu_product in products_to_show limit: 20 -%}
-              {%- assign product_id = menu_product.metafields.custom.product_id.value | default: 99999 -%}
-              {%- comment -%} Pad product_id with zeros for proper numeric sorting (6 digits) {%- endcomment -%}
-              {%- assign product_id_str = product_id | append: '' -%}
-              {%- assign padding_length = 6 -%}
-              {%- assign current_length = product_id_str | size -%}
-              {%- if current_length < padding_length -%}
-                {%- assign zeros_needed = padding_length | minus: current_length -%}
-                {%- assign padding = '' -%}
-                {%- for i in (1..zeros_needed) -%}
-                  {%- assign padding = padding | append: '0' -%}
-                {%- endfor -%}
-                {%- assign padded_id = padding | append: product_id_str -%}
-              {%- else -%}
-                {%- assign padded_id = product_id_str -%}
-              {%- endif -%}
-              {%- assign sort_key = padded_id | append: '|' | append: menu_product.handle -%}
-              {%- if product_sort_string == '' -%}
-                {%- assign product_sort_string = sort_key -%}
-              {%- else -%}
-                {%- assign product_sort_string = product_sort_string | append: ',' | append: sort_key -%}
-              {%- endif -%}
-            {%- endfor -%}
-
-            {%- comment -%} Convert to array and sort {%- endcomment -%}
-            {%- assign product_sort_array = product_sort_string | split: ',' | sort -%}
-
-            {%- for sort_item in product_sort_array -%}
-              {%- assign product_handle = sort_item | split: '|' | last -%}
-              {%- comment -%} Find the product by handle {%- endcomment -%}
-              {%- for menu_product in products_to_show limit: 20 -%}
-                {%- if menu_product.handle == product_handle -%}
-                  {%- liquid
-                    assign is_current_product = false
-                    if request.page_type == 'product' and product.id == menu_product.id
-                      assign is_current_product = true
-                    endif
-
-                    assign product_subtitle = menu_product.metafields.descriptors.subtitle.value | default: menu_product.title
-                  -%}
-                  <li>
-                    <a
-                      id="HeaderMenu-Product-{{ menu_product.handle }}"
-                      href="{{ menu_product.url }}"
-                      class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if is_current_product %} list-menu__item--active{% endif %}"
-                      {% if is_current_product %}
-                        aria-current="page"
-                      {% endif %}
-                    >
-                      {{ product_subtitle | escape }}
-                    </a>
-                  </li>
-                  {%- break -%}
-                {%- endif -%}
-              {%- endfor -%}
-            {%- endfor -%}
-          {%- else -%}
+              assign product_url = '/products/' | append: product_handle
+              for menu_product in collections.all.products
+                if menu_product.handle == product_handle
+                  assign product_url = menu_product.url
+                  break
+                endif
+              endfor
+            -%}
             <li>
-              <span class="header__menu-item list-menu__item caption-large" style="opacity: 0.6;">
-                {{ 'No products available' | escape }}
-              </span>
+              <a
+                id="HeaderMenu-Product-{{ product_handle }}"
+                href="{{ product_url }}"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if is_current_product %} list-menu__item--active{% endif %}"
+                {% if is_current_product %}
+                  aria-current="page"
+                {% endif %}
+              >
+                {{ product_title }}
+              </a>
             </li>
-          {%- endif -%}
+          {%- endfor -%}
         </ul>
       </div>
     </li>

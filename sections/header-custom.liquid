@@ -223,58 +223,44 @@
     transform: translateX(-50%) translateY(-1.5rem);
     transition: opacity var(--duration-default) ease, transform var(--duration-default) ease, visibility var(--duration-default) ease;
     z-index: 1;
-    width: 134px;
-    max-height: 200px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: #151515 !important;
+    width: 503px;
+    height: 50px;
+    background-color: #9359EB !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 6px !important;
-    padding: 16px 0 !important;
+    padding: 0 !important;
     margin-top: 0.5rem;
     gap: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     box-shadow: none;
+    overflow: hidden;
   }
 
-  .header__product-menu-item:hover .header__submenu,
-  .header__product-menu-wrapper:hover .header__submenu,
-  .header__product-menu-item:hover .header__submenu,
-  .header__product-menu-wrapper .header__submenu:hover {
-    transform: translateX(-50%) translateY(0);
+  /* Show submenu when not hidden (controlled by JavaScript on click) */
+  .header__product-menu-wrapper .header__submenu:not(.header__submenu--hidden) {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) !important;
   }
 
-
-  /* Custom scrollbar for Product submenu */
-  .header__product-menu-wrapper .header__submenu::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  .header__product-menu-wrapper .header__submenu::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .header__product-menu-wrapper .header__submenu::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-  }
-
-  .header__product-menu-wrapper .header__submenu::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
 
   .header__product-menu-wrapper .header__submenu li {
     margin: 0;
     padding: 0;
     list-style: none;
+    flex: 1;
+    height: 100%;
+    display: flex;
   }
 
   .header__product-menu-wrapper .header__submenu .header__menu-item {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 14px 20px !important;
+    padding: 0 !important;
     font-family: 'Azeret Mono', 'Courier New', Courier, monospace !important;
     font-weight: 400 !important;
     font-size: 12px !important;
@@ -282,7 +268,9 @@
     text-align: center !important;
     color: #F3F5F2 !important;
     text-decoration: none !important;
-    width: 100%;
+    white-space: nowrap !important;
+    flex: 1;
+    height: 100%;
     border-radius: 0;
     transition: background-color var(--duration-short) ease;
     margin: 0;
@@ -300,25 +288,6 @@
     display: none !important;
   }
 
-  /* Create a bridge between menu item and submenu for smooth hover */
-  .header__product-menu-item::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    height: 0.5rem;
-    z-index: 2;
-  }
-
-  .header__product-menu-item:hover .header__submenu,
-  .header__product-menu-wrapper:hover .header__submenu,
-  .header__product-menu-item:hover .header__submenu,
-  .header__product-menu-wrapper .header__submenu:hover {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
 
   .header__product-menu-item:hover .header__menu-item,
   .header__product-menu-wrapper:hover .header__menu-item {
@@ -332,13 +301,6 @@
 
   .header__product-menu-item:hover .header__menu-item .icon-caret {
     transform: rotate(180deg);
-  }
-
-  /* Keep menu visible when hovering over submenu */
-  .header__product-menu-item .header__submenu:hover {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateX(-50%) translateY(0) !important;
   }
 </style>
 
@@ -646,31 +608,42 @@
 
   customElements.define('sticky-header', StickyHeader);
 
-  // Handle Product menu: hide dropdown when clicking on submenu items
+  // Handle Product menu: toggle on click only
   document.addEventListener('DOMContentLoaded', function () {
+    const productMenuLink = document.querySelector('#HeaderMenu-Product');
     const productMenuItem = document.querySelector('.header__product-menu-item');
     const productSubmenu = document.querySelector('#HeaderMenu-MenuList-Product');
 
-    if (productMenuItem && productSubmenu) {
-      const submenuLinks = productSubmenu.querySelectorAll('a');
+    if (productMenuLink && productSubmenu) {
+      // Ensure menu is hidden on initialization
+      productSubmenu.classList.add('header__submenu--hidden');
 
-      // Hide menu when clicking on submenu items
-      submenuLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-          // Force hide the submenu by adding a class
+      // Toggle dropdown on click
+      productMenuLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Toggle hidden class
+        if (productSubmenu.classList.contains('header__submenu--hidden')) {
+          productSubmenu.classList.remove('header__submenu--hidden');
+        } else {
           productSubmenu.classList.add('header__submenu--hidden');
-          productSubmenu.style.opacity = '0';
-          productSubmenu.style.visibility = 'hidden';
-          productSubmenu.style.transform = 'translateY(-1.5rem)';
-        });
+        }
       });
 
-      // Show menu again when hovering over the menu item
-      productMenuItem.addEventListener('mouseenter', function () {
-        productSubmenu.classList.remove('header__submenu--hidden');
-        productSubmenu.style.opacity = '';
-        productSubmenu.style.visibility = '';
-        productSubmenu.style.transform = '';
+      // Prevent closing when clicking inside dropdown
+      productSubmenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function (e) {
+        if (productMenuItem && productSubmenu) {
+          // Check if click is outside both menu item and submenu
+          if (!productMenuItem.contains(e.target) && !productSubmenu.contains(e.target)) {
+            productSubmenu.classList.add('header__submenu--hidden');
+          }
+        }
       });
     }
   });
