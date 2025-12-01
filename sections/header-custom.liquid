@@ -342,6 +342,13 @@
       background: transparent;
     }
   {% endif %}
+
+  .header__heading-link {
+    position: absolute;
+    top: 26px;
+    left: 209px;
+    padding: 0;
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -387,7 +394,7 @@
         <h1 class="header__heading">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-        <img src="{{ 'icon-logo.svg' | asset_url }}" alt="{{ shop.name }}" width="84.87" height="36.29" loading="lazy">
+        <img src="{{ 'styria.svg' | asset_url }}" alt="{{ shop.name }}" width="104" height="28" loading="lazy">
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
@@ -403,7 +410,7 @@
         <h1 class="header__heading">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-        <img src="{{ 'icon-logo.svg' | asset_url }}" alt="{{ shop.name }}" width="84.87" height="36.29" loading="lazy">
+        <img src="{{ 'styria.svg' | asset_url }}" alt="{{ shop.name }}" width="104" height="28" loading="lazy">
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>

@@ -2364,6 +2364,7 @@ input[type='checkbox'] {
   border: 1px solid #FFFFFF14;
   min-height: 80px;
   height: 80px;
+  position: relative;
 }
 
 @media screen and (max-width: 749px) {
