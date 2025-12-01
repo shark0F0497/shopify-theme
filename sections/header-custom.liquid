@@ -39,6 +39,17 @@
     display: flex;
   }
 
+  .header__icons {
+    margin-right: 210px;
+  }
+
+  .header__icons .header__icon,
+  .header__icons .localization-form,
+  .header__icons .localization-form__select,
+  .header__icons .desktop-localization-wrapper * {
+    cursor: pointer;
+  }
+
   .header__inline-menu {
     display: flex;
     align-items: center;
@@ -73,6 +84,7 @@
     .header__icons {
       grid-column: 3;
       justify-self: end;
+      margin-right: 210px;
     }
 
     /* Handle mobile logo position left - force center for now as requested */
@@ -118,20 +130,30 @@
   .list-menu__item {
     display: flex;
     align-items: center;
-    line-height: calc(1 + 0.3 / var(--font-body-scale));
+    font-family: 'Azeret Mono', 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 12px;
+    color: #F3F5F2;
   }
 
   .list-menu__item--link {
     text-decoration: none;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    line-height: calc(1 + 0.8 / var(--font-body-scale));
+    padding-bottom: 0;
+    padding-top: 0;
+    font-family: 'Azeret Mono', 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 12px;
+    color: #F3F5F2;
   }
 
   @media screen and (min-width: 750px) {
     .list-menu__item--link {
-      padding-bottom: 0.5rem;
-      padding-top: 0.5rem;
+      padding-bottom: 0;
+      padding-top: 0;
     }
   }
 

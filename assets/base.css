@@ -2358,8 +2358,8 @@ input[type='checkbox'] {
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   background-color: rgba(44, 44, 44, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border-radius: 0;
   border: 1px solid #FFFFFF14;
   min-height: 80px;
