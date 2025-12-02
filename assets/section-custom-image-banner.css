@@ -39,21 +39,21 @@
 
 .custom-image-banner__content {
   position: absolute;
-  top: 40%;
+  top: 42%;
   left: 10%;
   transform: translateY(-50%);
   text-align: left;
-  width: 80%;
-  /* Limit width to prevent text hitting edges */
-  max-width: 800px;
+  width: 850px;
+  height: 211px;
   color: #ffffff;
   z-index: 1;
 }
 
 .custom-image-banner__title {
+  font-family: 'Pilcrow', sans-serif;
   font-size: 96px;
   font-weight: 700;
-  margin: 0 0 20px;
+  margin: 0 0 1px;
   line-height: 96px;
   color: #00FF5C;
 }
@@ -61,16 +61,17 @@
 .custom-image-banner__subtitle {
   font-size: 32px;
   font-weight: 600;
-  margin: 0 0 25px;
+  margin: 0 0 1px;
   line-height: 1.8;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .custom-image-banner__description {
   font-size: 16px;
   font-weight: 600;
   margin: 0;
-  line-height: 2;
+  line-height: 1.2;
   color: #ffffff;
 }
 

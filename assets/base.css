@@ -3612,7 +3612,7 @@ details-disclosure>details {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #3EACE1;
+  background-color: #9359EB;
   color: #ffffff;
   text-decoration: none;
   padding: 12px 30px;
@@ -3630,7 +3630,7 @@ details-disclosure>details {
 
 .custom-buy-button:hover,
 .custom-buy-button:focus {
-  background-color: #3590bd;
+  background-color: #7A4AC8;
   color: #ffffff;
 }
 
