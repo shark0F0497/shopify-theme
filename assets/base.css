@@ -3615,17 +3615,20 @@ details-disclosure>details {
   background-color: #9359EB;
   color: #ffffff;
   text-decoration: none;
-  padding: 12px 30px;
+  padding: 0 30px;
   border-radius: 50px;
+  font-family: 'Azeret Mono', monospace;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   transition: background-color 0.3s ease;
   gap: 8px;
   border: none;
   cursor: pointer;
-  min-height: 44px;
+  height: 48px;
   line-height: 1;
+  width: 140px;
+  white-space: nowrap;
 }
 
 .custom-buy-button:hover,
@@ -3635,10 +3638,10 @@ details-disclosure>details {
 }
 
 .custom-buy-button svg {
-  width: 16px;
-  height: 16px;
+  width: auto;
+  height: 24px;
+  flex-shrink: 0;
   fill: currentColor;
-  /* Ensure icon-buy.svg specific stroke/fill handling if needed */
 }
 
 .custom-buy-button .icon-arrow-right {
