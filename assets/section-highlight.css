@@ -11,7 +11,8 @@
 
 .highlight__container {
   max-width: 1400px;
-  margin: 0 auto;
+  margin-left: calc(50% - 700px - 60px);
+  margin-right: auto;
   padding: 0 20px;
 }
 
@@ -214,6 +215,14 @@
 
 
 /* Responsive */
+@media screen and (max-width: 1540px) {
+
+  .highlight__container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media screen and (max-width: 990px) {
   .highlight__banners {
     display: none;
