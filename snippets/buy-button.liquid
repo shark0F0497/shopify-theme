@@ -4,9 +4,11 @@
   - text: {String} The text to display on the button.
   - link: {String} The URL the button links to.
   - class: {String} Optional additional classes.
+  - icon: {String} Optional icon file name (default: 'icon-buy.svg').
 
   Usage:
   {% render 'buy-button', text: 'Buy Now', link: product.url %}
+  {% render 'buy-button', text: 'Watch Video', link: '#', icon: 'video.svg' %}
 {% endcomment %}
 
 <a
@@ -16,6 +18,6 @@
     aria-disabled="true"
   {% endif %}
 >
-  {{ 'icon-buy.svg' | inline_asset_content }}
+  {{ icon | default: 'icon-buy.svg' | inline_asset_content }}
   {{ text | default: 'Buy Now' }}
 </a>

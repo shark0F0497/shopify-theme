@@ -79,6 +79,13 @@
   margin: 0;
 }
 
+.custom-image-banner__button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  flex-wrap: wrap;
+}
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   .section-custom-image-banner {
@@ -144,5 +151,7 @@
     margin-top: 30px !important;
     display: flex;
     justify-content: center;
+    gap: 34px;
+    flex-wrap: wrap;
   }
 }

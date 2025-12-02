@@ -3654,3 +3654,20 @@ details-disclosure>details {
   width: 100%;
   display: flex;
 }
+
+/* Secondary button variant */
+.custom-buy-button--secondary {
+  width: 160px;
+  background-color: #F3F5F2CC;
+  color: #2C2C2C;
+}
+
+.custom-buy-button--secondary:hover,
+.custom-buy-button--secondary:focus {
+  background-color: #E8EBE6CC;
+  color: #2C2C2C;
+}
+
+.custom-buy-button--secondary svg {
+  fill: #2C2C2C;
+}

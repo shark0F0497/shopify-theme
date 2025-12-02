@@ -35,9 +35,20 @@
       <div class="custom-image-banner__description rte">{{ section.settings.description }}</div>
     {%- endif -%}
 
-    {%- if section.settings.button_link != blank -%}
+    {%- if section.settings.button_link != blank or section.settings.button2_text != blank -%}
       <div class="custom-image-banner__button-wrapper" style="margin-top: 135px;">
-        {% render 'buy-button', text: section.settings.button_text, link: section.settings.button_link %}
+        {%- if section.settings.button_link != blank -%}
+          {% render 'buy-button', text: section.settings.button_text, link: section.settings.button_link %}
+        {%- endif -%}
+        {%- if section.settings.button2_text != blank -%}
+          {%
+            render 'buy-button',
+            text: section.settings.button2_text,
+            link: section.settings.button2_link | default: '#',
+            class: 'custom-buy-button--secondary',
+            icon: 'video.svg'
+          %}
+        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
@@ -86,6 +97,21 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Second Button"
+    },
+    {
+      "type": "text",
+      "id": "button2_text",
+      "label": "Second Button Label",
+      "default": "WATCH VIDEO"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Second Button Link"
     }
   ],
   "presets": [
