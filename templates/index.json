@@ -14,9 +14,9 @@
       "name": "Custom Image Banner",
       "settings": {
         "image": "shopify://shop_images/1_9.png",
-        "title": "Coming Soon!",
-        "subtitle": "Styria Mini — 9.6g Ultra-Light SlimeVR-Compatible Plug-and-Play Tracker",
-        "description": "<p>Powered by a 22 dBm high-power 2.4G receiver for stable,</p><p>low-latency full-body tracking with a 48+ hours battery life.</p><p>No DIY, no Wi-Fi setup — plus 1-on-1 onboarding to get you started fast.</p>",
+        "title": "In Stock Now!",
+        "subtitle": "Styria Mini — 9.6g Ultra-Light SlimeVR-Compatible 2.4G Tracker",
+        "description": "<p>Powered By A 22 DBm High-Gain 2.4G Receiver For Stable,</p><p>Low-Latency Full-body Tracking With 48+ Hour Battery Life.</p><p>No DIY, No Wi-Fi Setup — Plus 1-On-1 Onboarding To Get You Started Fast.</p>",
         "button_text": "Buy Now",
         "button_link": "shopify://products/styria-mini-9-6g-ultra-light-48h-battery-slimevr-compatible-full-body-tracker-vrchat-fbt-ready-no-diy-required"
       }
