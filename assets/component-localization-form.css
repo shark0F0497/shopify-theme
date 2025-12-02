@@ -470,7 +470,7 @@
 
 .custom-localization__panel:has(.custom-localization__main-button[aria-expanded="true"]),
 .custom-localization__panel.has-expanded-subpanel {
-  height: 290px !important;
+  height: 306px !important;
   max-height: none !important;
 }
 
@@ -594,9 +594,25 @@
   transform: rotate(180deg);
 }
 
-/* Hide value area when subpanel is expanded */
+/* Hide value area when subpanel is expanded, but keep arrow visible */
 .custom-localization__main-button[aria-expanded="true"] .custom-localization__value {
-  display: none;
+  position: relative;
+}
+
+.custom-localization__main-button[aria-expanded="true"] .custom-localization__display {
+  visibility: hidden;
+  width: 0;
+  overflow: hidden;
+}
+
+/* Keep arrow visible when subpanel is expanded */
+.custom-localization__main-button[aria-expanded="true"] .custom-localization__arrow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  display: inline-flex !important;
+  visibility: visible !important;
 }
 
 .custom-localization__subpanel {
@@ -605,6 +621,8 @@
   background-color: transparent;
   border-top: none;
   padding: 0;
+  width: 100%;
+  max-width: 172px;
 }
 
 /* Auto height when country subpanel is expanded to fit 3 countries */
@@ -618,6 +636,8 @@
   padding: 0;
   margin: 0;
   max-height: none;
+  width: 100%;
+  max-width: 172px;
 }
 
 .custom-localization__sub-item {
@@ -630,8 +650,8 @@
   justify-content: flex-start;
   gap: 0;
   padding: 7px;
-  width: auto;
-  min-width: 120px;
+  width: 140px;
+  max-width: 140px;
   height: 26px;
   text-decoration: none;
   color: #FFFFFF;
@@ -646,6 +666,7 @@
   border-radius: 0;
   position: relative;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .custom-localization__sub-link:hover,
