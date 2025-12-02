@@ -1,4 +1,7 @@
 .newsletter__wrapper {
+  max-width: 1400px;
+  margin-left: calc(50% - 700px - 60px);
+  margin-right: auto;
   padding-right: calc(4rem / var(--font-body-scale));
   padding-left: calc(4rem / var(--font-body-scale));
 }
@@ -7,6 +10,13 @@
   .newsletter__wrapper {
     padding-right: 9rem;
     padding-left: 9rem;
+  }
+}
+
+@media screen and (max-width: 1540px) {
+  .newsletter__wrapper {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

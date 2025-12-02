@@ -17,13 +17,13 @@
 }
 
 .highlight__heading {
+  font-family: 'Pilcrow', sans-serif;
   font-size: 40px;
-  font-weight: 700;
+  line-height: 40px;
+  font-weight: 500;
   color: #000;
-  /* Using black as it's on a light background */
   margin-bottom: 40px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 /* Banners Section */
