@@ -18,7 +18,8 @@
 .highlight__heading {
   font-size: 40px;
   font-weight: 700;
-  color: #000; /* Using black as it's on a light background */
+  color: #000;
+  /* Using black as it's on a light background */
   margin-bottom: 40px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -33,13 +34,14 @@
 }
 
 .highlight-card--banner {
-  height: 600px; /* Explicit height for banners */
+  height: 600px;
+  /* Explicit height for banners */
   /* Reset generic highlight-card styles if needed */
 }
 
 .highlight-card--banner .highlight-card__content {
   /* Override gradient for banners if needed, or keep consistent */
-  background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 60%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%);
 }
 
 .highlight-card__description {
@@ -61,7 +63,8 @@
   flex-direction: column;
   gap: 90px;
   flex: 1;
-  min-width: 0; /* Prevent overflow */
+  min-width: 0;
+  /* Prevent overflow */
 }
 
 .highlight-card {
@@ -73,7 +76,8 @@
 }
 
 .highlight-card--banner {
-  cursor: pointer; /* Only banners are clickable */
+  cursor: pointer;
+  /* Only banners are clickable */
 }
 
 .highlight-card__link-overlay {
@@ -82,7 +86,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2; /* Ensure it sits above content */
+  z-index: 2;
+  /* Ensure it sits above content */
   display: block;
   text-decoration: none;
 }
@@ -93,8 +98,10 @@
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
-  opacity: 1 !important; /* Force opacity */
-  visibility: visible !important; /* Force visibility */
+  opacity: 1 !important;
+  /* Force opacity */
+  visibility: visible !important;
+  /* Force visibility */
 }
 
 .highlight-card:hover .highlight-card__image {
@@ -112,8 +119,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  pointer-events: none; /* Let clicks pass to link */
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 60%);
+  pointer-events: none;
+  /* Let clicks pass to link */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 60%);
 }
 
 .highlight-card--banner .highlight-card__content {
@@ -173,26 +181,35 @@
 
 /* Column 1 */
 .highlight__column:nth-child(1) .highlight-card:nth-child(1) {
-  height: 500px; /* Top Left: Large */
+  height: 500px;
+  /* Top Left: Large */
 }
+
 .highlight__column:nth-child(1) .highlight-card:nth-child(2) {
-  height: 300px; /* Bottom Left: Medium */
+  height: 300px;
+  /* Bottom Left: Medium */
 }
 
 /* Column 2 */
 .highlight__column:nth-child(2) .highlight-card:nth-child(1) {
-  height: 300px; /* Top Middle: Medium */
+  height: 300px;
+  /* Top Middle: Medium */
 }
+
 .highlight__column:nth-child(2) .highlight-card:nth-child(2) {
-  height: 500px; /* Bottom Middle: Large */
+  height: 500px;
+  /* Bottom Middle: Large */
 }
 
 /* Column 3 */
 .highlight__column:nth-child(3) .highlight-card:nth-child(1) {
-  height: 500px; /* Top Right: Tall */
+  height: 500px;
+  /* Top Right: Tall */
 }
+
 .highlight__column:nth-child(3) .highlight-card:nth-child(2) {
-  height: 300px; /* Bottom Right: Short */
+  height: 300px;
+  /* Bottom Right: Short */
 }
 
 
@@ -205,7 +222,7 @@
   .highlight__grid {
     flex-direction: column;
   }
-  
+
   .highlight__column {
     gap: 20px;
   }
@@ -214,11 +231,11 @@
   .highlight__column .highlight-card {
     height: 300px !important;
   }
-  
+
   .highlight-card--banner {
     height: 300px;
   }
-  
+
   .highlight__heading {
     font-size: 32px;
     margin-bottom: 30px;
