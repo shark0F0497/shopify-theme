@@ -84,14 +84,19 @@ if (!customElements.get('localization-form')) {
         }
 
         // Handle main item button clicks (expand/collapse sub-panels)
+        // Only trigger when clicking on the value area, not the label
         mainButtons.forEach((button) => {
           button.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const subpanelId = button.getAttribute('aria-controls');
-            const subpanel = document.getElementById(subpanelId);
-            if (subpanel) {
-              this.toggleSubPanel(button, subpanel);
+            // Check if click target is within the value area
+            const valueArea = button.querySelector('.custom-localization__value');
+            if (valueArea && valueArea.contains(e.target)) {
+              e.preventDefault();
+              e.stopPropagation();
+              const subpanelId = button.getAttribute('aria-controls');
+              const subpanel = document.getElementById(subpanelId);
+              if (subpanel) {
+                this.toggleSubPanel(button, subpanel);
+              }
             }
           });
         });
@@ -104,6 +109,36 @@ if (!customElements.get('localization-form')) {
             this.handleSubItemClick(link);
           });
         });
+
+        // Close sub-panels when clicking on other areas of the main panel
+        if (mainPanel) {
+          mainPanel.addEventListener('click', (e) => {
+            // Check if click is on a sub-link (already handled)
+            if (e.target.closest('.custom-localization__sub-link')) {
+              return;
+            }
+            
+            // Check if click is on a value area (should toggle, not close)
+            const clickedValueArea = e.target.closest('.custom-localization__value');
+            if (clickedValueArea) {
+              return;
+            }
+            
+            // If clicking on other areas of the panel, close all sub-panels
+            const hasExpanded = Array.from(mainButtons).some(btn => btn.getAttribute('aria-expanded') === 'true');
+            if (hasExpanded) {
+              mainButtons.forEach((btn) => {
+                btn.setAttribute('aria-expanded', 'false');
+                const subpanelId = btn.getAttribute('aria-controls');
+                const subpanel = document.getElementById(subpanelId);
+                if (subpanel) {
+                  subpanel.setAttribute('hidden', true);
+                }
+              });
+              mainPanel.classList.remove('has-expanded-subpanel');
+            }
+          });
+        }
 
         // Close panel when clicking outside
         document.addEventListener('click', (e) => {
@@ -260,6 +295,12 @@ if (!customElements.get('localization-form')) {
           if (button) {
             button.setAttribute('aria-expanded', 'false');
           }
+        }
+
+        // Reset panel height to 232px after selection
+        const mainPanel = this.customLocalization.querySelector('.custom-localization__panel');
+        if (mainPanel) {
+          mainPanel.classList.remove('has-expanded-subpanel');
         }
 
         // Submit form

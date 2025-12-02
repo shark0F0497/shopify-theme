@@ -470,7 +470,7 @@
 
 .custom-localization__panel:has(.custom-localization__main-button[aria-expanded="true"]),
 .custom-localization__panel.has-expanded-subpanel {
-  height: 306px !important;
+  height: 310px !important;
   max-height: none !important;
 }
 
@@ -671,7 +671,7 @@
 
 .custom-localization__sub-link:hover,
 .custom-localization__sub-link:focus {
-  background-color: #151515;
+  background-color: #252525;
   color: #FFFFFF;
 }
 
@@ -679,6 +679,12 @@
   background-color: #353535;
   color: #FFFFFF;
   font-weight: 400;
+}
+
+.custom-localization__sub-link[aria-current="true"]:hover,
+.custom-localization__sub-link[aria-current="true"]:focus {
+  background-color: #404040;
+  color: #FFFFFF;
 }
 
 .custom-localization__check {
