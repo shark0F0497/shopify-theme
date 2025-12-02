@@ -41,23 +41,24 @@
         {%- comment -%} Country Sub-panel {%- endcomment -%}
         <div class="custom-localization__subpanel" id="{{ localPosition }}-country-subpanel" hidden>
           <ul role="list" class="custom-localization__sub-list">
+            {%- assign country_count = 0 -%}
             {%- for country in localization.available_countries -%}
-              <li class="custom-localization__sub-item">
-                <a
-                  href="#"
-                  class="custom-localization__sub-link"
-                  data-value="{{ country.iso_code }}"
-                  data-input-name="country_code"
-                  {% if country.iso_code == localization.country.iso_code %}
-                    aria-current="true"
-                  {% endif %}
-                >
-                  <span class="custom-localization__check{% if country.iso_code != localization.country.iso_code %} hidden{% endif %}">
-                    {{- 'icon-checkmark.svg' | inline_asset_content -}}
-                  </span>
-                  <span class="custom-localization__sub-label">{{ country.name }}</span>
-                </a>
-              </li>
+              {%- if country_count < 3 -%}
+                <li class="custom-localization__sub-item">
+                  <a
+                    href="#"
+                    class="custom-localization__sub-link"
+                    data-value="{{ country.iso_code }}"
+                    data-input-name="country_code"
+                    {% if country.iso_code == localization.country.iso_code %}
+                      aria-current="true"
+                    {% endif %}
+                  >
+                    <span class="custom-localization__sub-label">{{ country.name }}</span>
+                  </a>
+                </li>
+                {%- assign country_count = country_count | plus: 1 -%}
+              {%- endif -%}
             {%- endfor -%}
           </ul>
         </div>
@@ -95,9 +96,6 @@
                       aria-current="true"
                     {% endif %}
                   >
-                    <span class="custom-localization__check{% if language.iso_code != localization.language.iso_code %} hidden{% endif %}">
-                      {{- 'icon-checkmark.svg' | inline_asset_content -}}
-                    </span>
                     <span class="custom-localization__sub-label">{{ language.endonym_name | capitalize }}</span>
                   </a>
                 </li>
@@ -149,9 +147,6 @@
                         aria-current="true"
                       {% endif %}
                     >
-                      <span class="custom-localization__check{% if currency_code != current_currency %} hidden{% endif %}">
-                        {{- 'icon-checkmark.svg' | inline_asset_content -}}
-                      </span>
                       <span class="custom-localization__sub-label">
                         {{- currency_code }}
                         {{ currency_country.currency.symbol -}}

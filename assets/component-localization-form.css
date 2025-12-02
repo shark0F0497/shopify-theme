@@ -451,8 +451,7 @@
 
 .custom-localization__panel {
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   position: absolute !important;
   top: calc(100% + 0.5rem) !important;
   left: 0 !important;
@@ -463,12 +462,16 @@
   border-radius: 4px !important;
   box-shadow: none !important;
   width: 172px;
-  min-width: 172px;
-  max-width: 172px;
-  height: auto;
+  height: 232px;
+  max-height: none !important;
   display: flex;
   flex-direction: column;
-  -webkit-overflow-scrolling: touch;
+}
+
+.custom-localization__panel:has(.custom-localization__main-button[aria-expanded="true"]),
+.custom-localization__panel.has-expanded-subpanel {
+  height: 290px !important;
+  max-height: none !important;
 }
 
 .custom-localization__panel[hidden] {
@@ -576,11 +579,19 @@
   height: 24px;
   flex-shrink: 0;
   margin-left: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .custom-localization__arrow svg {
   width: 24px;
   height: 24px;
+  transition: transform var(--duration-short) ease;
+}
+
+/* Rotate arrow 180 degrees when subpanel is expanded */
+.custom-localization__main-button[aria-expanded="true"] .custom-localization__arrow svg {
+  transform: rotate(180deg);
 }
 
 /* Hide value area when subpanel is expanded */
@@ -594,6 +605,12 @@
   background-color: transparent;
   border-top: none;
   padding: 0;
+}
+
+/* Auto height when country subpanel is expanded to fit 3 countries */
+.custom-localization__main-item[data-type="country"] .custom-localization__subpanel:not([hidden]) {
+  height: auto;
+  overflow: hidden;
 }
 
 .custom-localization__sub-list {
@@ -625,7 +642,7 @@
   text-transform: uppercase;
   text-align: left;
   transition: background-color var(--duration-short) ease, color var(--duration-short) ease;
-  background-color: #2D2D2D;
+  background-color: #151515;
   border-radius: 0;
   position: relative;
   white-space: nowrap;
@@ -633,11 +650,12 @@
 
 .custom-localization__sub-link:hover,
 .custom-localization__sub-link:focus {
-  background-color: #2D2D2D;
+  background-color: #151515;
   color: #FFFFFF;
 }
 
 .custom-localization__sub-link[aria-current="true"] {
+  background-color: #353535;
   color: #FFFFFF;
   font-weight: 400;
 }

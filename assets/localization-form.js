@@ -75,6 +75,11 @@ if (!customElements.get('localization-form')) {
             } else if (!isHidden && this.hasAttribute('data-prevent-hide')) {
               this.header.preventHide = false;
             }
+
+            // Reset panel height when closing
+            if (!isHidden) {
+              mainPanel.classList.remove('has-expanded-subpanel');
+            }
           });
         }
 
@@ -117,6 +122,8 @@ if (!customElements.get('localization-form')) {
                 subpanel.setAttribute('hidden', true);
               }
             });
+            // Reset panel height to 232px
+            mainPanel.classList.remove('has-expanded-subpanel');
           }
         });
 
@@ -132,6 +139,8 @@ if (!customElements.get('localization-form')) {
                 subpanel.setAttribute('hidden', true);
               }
             });
+            // Reset panel height to 232px
+            mainPanel.classList.remove('has-expanded-subpanel');
             if (triggerButton) {
               triggerButton.focus();
             }
@@ -152,6 +161,7 @@ if (!customElements.get('localization-form')) {
 
       toggleSubPanel(button, subpanel) {
         const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const panel = this.customLocalization.querySelector('.custom-localization__panel');
 
         // Close all other sub-panels
         const allMainButtons = this.customLocalization.querySelectorAll('.custom-localization__main-button');
@@ -167,11 +177,22 @@ if (!customElements.get('localization-form')) {
         });
 
         // Toggle current sub-panel
-        button.setAttribute('aria-expanded', (!isExpanded).toString());
+        const newExpandedState = !isExpanded;
+        button.setAttribute('aria-expanded', newExpandedState.toString());
         if (isExpanded) {
           subpanel.setAttribute('hidden', true);
         } else {
           subpanel.removeAttribute('hidden');
+        }
+
+        // Update panel height class based on expanded state (check after state update)
+        if (panel) {
+          const hasExpanded = Array.from(allMainButtons).some(btn => btn.getAttribute('aria-expanded') === 'true');
+          if (hasExpanded) {
+            panel.classList.add('has-expanded-subpanel');
+          } else {
+            panel.classList.remove('has-expanded-subpanel');
+          }
         }
       }
 
@@ -185,20 +206,15 @@ if (!customElements.get('localization-form')) {
           input.value = value;
         }
 
-        // Update checkmarks
+        // Update aria-current attributes
         const subpanel = link.closest('.custom-localization__subpanel');
         if (subpanel) {
           const allLinks = subpanel.querySelectorAll('.custom-localization__sub-link');
           allLinks.forEach((l) => {
-            const check = l.querySelector('.custom-localization__check');
-            if (check) {
-              if (l === link) {
-                check.classList.remove('hidden');
-                l.setAttribute('aria-current', 'true');
-              } else {
-                check.classList.add('hidden');
-                l.removeAttribute('aria-current');
-              }
+            if (l === link) {
+              l.setAttribute('aria-current', 'true');
+            } else {
+              l.removeAttribute('aria-current');
             }
           });
         }
