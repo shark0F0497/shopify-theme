@@ -183,7 +183,27 @@
         if (targetBanner) {
           targetBanner.scrollIntoView({
             behavior: 'smooth',
-            block: 'start',
+            block: 'center',
+          });
+        }
+      });
+    });
+
+    const bannerButtons = document.querySelectorAll('.highlight-card__banner-button');
+
+    bannerButtons.forEach(function (button) {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const highlightHeading = document.querySelector('.highlight__heading');
+        if (highlightHeading) {
+          const headingPosition = highlightHeading.getBoundingClientRect().top + window.pageYOffset;
+          const offset = 100;
+
+          window.scrollTo({
+            top: headingPosition - offset,
+            behavior: 'smooth',
           });
         }
       });
