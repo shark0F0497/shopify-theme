@@ -61,7 +61,7 @@
           </div>
           {%- if section.settings.subtitle_text != blank -%}
             <div class="newsletter__subtitle-text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-              {{ section.settings.subtitle_text }}
+              {{ section.settings.subtitle_text | newline_to_br }}
             </div>
           {%- endif -%}
         {%- when 'email_form' -%}
@@ -155,7 +155,7 @@
       "content": "t:sections.newsletter.settings.paragraph.content"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "subtitle_text",
       "label": "Subtitle Text",
       "default": "Enter your subtitle text here",
