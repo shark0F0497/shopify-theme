@@ -200,6 +200,7 @@
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
+        "subtitle_text": "Be Among The First To Receive Updates On Our Latest Products,\nProduct Innovations, And Exclusive Offers.",
         "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 40,
