@@ -172,13 +172,48 @@
 }
 
 .highlight-card__scroll-button svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Hide scroll button on banner cards */
 .highlight-card--banner .highlight-card__scroll-button {
   display: none;
+}
+
+/* Banner Button (Left Bottom) */
+.highlight-card__banner-button {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #FFFFFF33;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: all 0.3s ease;
+  color: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-card__banner-button:hover {
+  background-color: #9359EB;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.highlight-card__banner-button:active {
+  transform: translateY(0);
+}
+
+.highlight-card__banner-button svg {
+  width: 20px;
+  height: 20px;
 }
 
 
