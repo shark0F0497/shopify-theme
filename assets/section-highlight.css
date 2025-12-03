@@ -143,10 +143,10 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #FFFFFF33;
   border: none;
   cursor: pointer;
   display: flex;
@@ -159,7 +159,7 @@
 }
 
 .highlight-card__scroll-button:hover {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #9359EB;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
