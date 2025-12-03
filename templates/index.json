@@ -39,6 +39,8 @@
         "highlight_item_7MEXQM": {
           "type": "highlight_item",
           "settings": {
+            "image_card": "shopify://shop_images/styria2.png",
+            "image_banner": "shopify://shop_images/styria3.png",
             "title_card": "<p>TOP-TIER ALGORITHM,</p><p>NO MORE FOOT SLIDE</p>",
             "title_banner": "<p>TOP-TIER ALGORITHM,</p><p>NO MORE FOOT SLIDE</p>",
             "subtitle": "<p>Lighter than both the 50g Wi-Fi version and the upcoming 12g Butterfly. The velcro-surface backing</p><p>attaches instantly to straps, enabling flexible placement and effortless adjustment.</p>"
@@ -47,6 +49,8 @@
         "highlight_item_6Vyjk3": {
           "type": "highlight_item",
           "settings": {
+            "image_card": "shopify://shop_images/styria4.png",
+            "image_banner": "shopify://shop_images/styria5.png",
             "title_card": "<p>48+ HOUR</p><p>LONG BATTERY LIFE</p>",
             "title_banner": "<p>48+ HOUR</p><p>LONG BATTERY LIFE</p>",
             "subtitle": "<p>Last over 48 hours of play time on one battery charge with a tiny 120 mAh battery! You would only need</p><p>to charge them about once every 2 weeks or less if you play a few hours a day.</p>"
@@ -55,7 +59,8 @@
         "highlight_item_xjtbiP": {
           "type": "highlight_item",
           "settings": {
-            "image_banner": "shopify://shop_images/Mask_group_5.png",
+            "image_card": "shopify://shop_images/styria6.png",
+            "image_banner": "shopify://shop_images/styria7.png",
             "title_card": "<p>NO WI-FI CONFIG,</p><p>PLUG-AND-PLAY</p>",
             "title_banner": "<p>NO WI-FI CONFIG,</p><p>PLUG-AND-PLAY</p>",
             "subtitle": "<p>22 dBm high-power 2.4G receiver delivers a strong and reliable wireless link for smooth motion tracking,</p><p>enabling instant plug-and-play operation without any Wi-Fi setup.</p>"
@@ -64,7 +69,8 @@
         "highlight_item_3KtiRW": {
           "type": "highlight_item",
           "settings": {
-            "image_banner": "shopify://shop_images/Mask_group_6.png",
+            "image_card": "shopify://shop_images/styria8.png",
+            "image_banner": "shopify://shop_images/styria9.png",
             "title_card": "<p>10-IN-1</p><p>QUICK CHARGING DOCK</p>",
             "title_banner": "<p>10-IN-1</p><p>QUICK CHARGING DOCK</p>",
             "subtitle": "<p>All-in-one dock centralizes charging, storage, fast pairing, and one-touch temperature calibration,</p><p>keeping the entire tracker set organized and effortlessly managed.</p>"
@@ -73,6 +79,8 @@
         "highlight_item_DrPbLY": {
           "type": "highlight_item",
           "settings": {
+            "image_card": "shopify://shop_images/styria10.png",
+            "image_banner": "shopify://shop_images/styria11.png",
             "title_card": "<p>1-ON-1</p><p>ONBOARDING SUPPORT</p>",
             "title_banner": "<p>1-ON-1</p><p>ONBOARDING SUPPORT</p>",
             "subtitle": "<p>New to FBT? We offer personal onboarding to help you get started quickly and smoothly.</p>"
