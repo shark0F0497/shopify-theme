@@ -173,13 +173,15 @@
 .field__input--dark {
   flex: 1;
   background-color: transparent;
-  border: none;
-  outline: none;
-  color: #ffffff;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #999999;
   font-family: 'Azeret Mono', monospace;
   font-size: 14px;
   line-height: 1.5;
-  padding: 0;
+  padding: 0 !important;
+  padding-right: 0 !important;
   min-width: 0;
   height: 100%;
 }
@@ -187,10 +189,34 @@
 .field__input--dark::placeholder {
   color: #999999;
   font-family: 'Azeret Mono', monospace;
+  opacity: 1 !important;
+}
+
+.field__input--dark:focus::placeholder {
+  opacity: 0 !important;
+}
+
+.field__input--dark:not(:placeholder-shown)::placeholder {
+  opacity: 0 !important;
 }
 
 .field__input--dark:focus {
-  outline: none;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  padding-right: 0 !important;
+}
+
+.field__input--dark:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.field__input--dark:not(:placeholder-shown) {
+  padding: 0 !important;
+  padding-right: 0 !important;
 }
 
 .field__label {
@@ -220,6 +246,18 @@
 }
 
 .newsletter-form__button--purple:hover {
+  background-color: #6731B8 !important;
+}
+
+.field--dark:has(.field__input--dark:not(:placeholder-shown)) .newsletter-form__button--purple {
+  background-color: #B288F1 !important;
+}
+
+.field--dark:has(.field__input--dark:focus:not(:placeholder-shown)) .newsletter-form__button--purple {
+  background-color: #B288F1 !important;
+}
+
+.field--dark:has(.field__input--dark:not(:placeholder-shown)) .newsletter-form__button--purple:hover {
   background-color: #6731B8 !important;
 }
 
