@@ -46,10 +46,13 @@
 }
 
 .highlight-card__description {
+  font-family: 'Pilcrow', sans-serif;
+  font-weight: 400;
   margin-top: 15px;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #ddd;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #FFFFFF;
+  opacity: 0.6;
 }
 
 /* Masonry Layout using 3 Flex Columns */
