@@ -143,7 +143,7 @@
           "settings": {
             "custom_icon": "shopify://shop_images/Vector_7.png",
             "title": "SHIPPING READY",
-            "subtitle": ""
+            "subtitle": "Fast Shipping On Orders Over $25"
           }
         },
         "icon_block_Krq8Cn": {
@@ -151,7 +151,7 @@
           "settings": {
             "custom_icon": "shopify://shop_images/Vector_8.png",
             "title": "14-DAY RETURN",
-            "subtitle": ""
+            "subtitle": "30-Days Risk-Free Return & 30-Day Exchange Policy*"
           }
         },
         "icon_block_bTfnUx": {
@@ -159,7 +159,7 @@
           "settings": {
             "custom_icon": "shopify://shop_images/Vector_9.png",
             "title": "1-YEAR WARRANTY",
-            "subtitle": ""
+            "subtitle": "At Least 1 Year* Warranty Guarantee Policy"
           }
         },
         "icon_block_wEazHB": {
@@ -167,7 +167,7 @@
           "settings": {
             "custom_icon": "shopify://shop_images/Vector_10.png",
             "title": "Official Support",
-            "subtitle": ""
+            "subtitle": "Quick Assistant Within 24 Hour"
           }
         }
       },
