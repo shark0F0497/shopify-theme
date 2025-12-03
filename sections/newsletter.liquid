@@ -59,6 +59,11 @@
           >
             {{ block.settings.text }}
           </div>
+          {%- if section.settings.subtitle_text != blank -%}
+            <div class="newsletter__subtitle-text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {{ section.settings.subtitle_text }}
+            </div>
+          {%- endif -%}
         {%- when 'email_form' -%}
           <div {{ block.shopify_attributes }}>
             {% form 'customer', class: 'newsletter-form' %}
@@ -148,6 +153,13 @@
     {
       "type": "paragraph",
       "content": "t:sections.newsletter.settings.paragraph.content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_text",
+      "label": "Subtitle Text",
+      "default": "",
+      "info": "Text displayed below the newsletter heading"
     },
     {
       "type": "color_scheme",
