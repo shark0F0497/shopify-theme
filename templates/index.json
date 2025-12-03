@@ -18,7 +18,9 @@
         "subtitle": "Styria Mini — 9.6g Ultra-Light SlimeVR-Compatible 2.4G Tracker",
         "description": "<p>Powered By A 22 DBm High-Gain 2.4G Receiver For Stable,</p><p>Low-Latency Full-body Tracking With 48+ Hour Battery Life.</p><p>No DIY, No Wi-Fi Setup — Plus 1-On-1 Onboarding To Get You Started Fast.</p>",
         "button_text": "Buy Now",
-        "button_link": "shopify://products/styria-mini-9-6g-ultra-light-48h-battery-slimevr-compatible-full-body-tracker-vrchat-fbt-ready-no-diy-required"
+        "button_link": "shopify://products/styria-mini-9-6g-ultra-light-48h-battery-slimevr-compatible-full-body-tracker-vrchat-fbt-ready-no-diy-required",
+        "button2_text": "WATCH VIDEO",
+        "button2_link": ""
       }
     },
     "highlight_section_9xTJY4": {
@@ -28,8 +30,8 @@
           "type": "highlight_item",
           "settings": {
             "image_banner": "shopify://shop_images/Mask_group_2.png",
-            "title_card": "<p>Ships Immediately,</p><p>No Waiting</p>",
-            "title_banner": "<p>Ships Immediately,</p><p>No Waiting</p>",
+            "title_card": "<p>SHIPS IMMEDIATELY,</p><p>NO WAITING</p>",
+            "title_banner": "<p>SHIPS IMMEDIATELY,</p><p>NO WAITING</p>",
             "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you</p><p>order, getting you into your virtual world without the agonizing wait.</p>"
           }
         },
