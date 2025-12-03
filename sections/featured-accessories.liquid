@@ -4,6 +4,9 @@
   <div class="page-width featured-accessories__container">
     {%- if section.settings.heading != blank -%}
       <h2 class="featured-accessories__heading">{{ section.settings.heading | escape }}</h2>
+      <div class="featured-accessories__decorate">
+        {{ 'decorate.svg' | inline_asset_content }}
+      </div>
     {%- endif -%}
 
     <div class="featured-accessories__grid">
