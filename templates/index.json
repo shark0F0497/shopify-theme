@@ -29,10 +29,11 @@
         "highlight_item_LTiDnX": {
           "type": "highlight_item",
           "settings": {
-            "image_banner": "shopify://shop_images/Mask_group_2.png",
+            "image_card": "shopify://shop_images/styria0.png",
+            "image_banner": "shopify://shop_images/styria1.png",
             "title_card": "<p>SHIPS IMMEDIATELY,</p><p>NO WAITING</p>",
             "title_banner": "<p>SHIPS IMMEDIATELY,</p><p>NO WAITING</p>",
-            "subtitle": "<p>Skip the wait - no pre-orders, no delays. The complete tracking kit is ready to ship the moment you</p><p>order, getting you into your virtual world without the agonizing wait.</p>"
+            "subtitle": "<p>SKIP THE WAIT—NO PRE-ORDERS, NO DELAYS. THE COMPLETE TRACKING KIT</p><p>IS READY TO SHIP THE MOMENT YOU ORDER, GETTING YOU INTO YOUR</p><p> VIRTUAL WORLD WITHOUT THE AGONIZING WAIT.</p>"
           }
         },
         "highlight_item_7MEXQM": {
