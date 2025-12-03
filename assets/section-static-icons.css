@@ -83,7 +83,7 @@
   font-family: inherit;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 23px;
 }
 
 .static-icons__title {
