@@ -55,7 +55,7 @@
 /* Masonry Layout using 3 Flex Columns */
 .highlight__grid {
   display: flex;
-  gap: 30px;
+  gap: 70px;
   justify-content: center;
 }
 
@@ -178,6 +178,22 @@
   display: none;
 }
 
+
+/* Column Widths */
+.highlight__column:nth-child(1) {
+  width: 430px;
+  flex: none;
+}
+
+.highlight__column:nth-child(2) {
+  width: 400px;
+  flex: none;
+}
+
+.highlight__column:nth-child(3) {
+  width: 400px;
+  flex: none;
+}
 
 /* Specific Heights per Column Item */
 
