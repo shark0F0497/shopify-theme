@@ -38,10 +38,31 @@
   width: 120px;
   height: 120px;
   margin-bottom: 10px;
-  color: #999999; /* Light grey icon color */
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Individual icon sizes */
+.static-icons__item:nth-child(1) .static-icons__icon {
+  width: 63px;
+  height: 60px;
+}
+
+.static-icons__item:nth-child(2) .static-icons__icon {
+  width: 61px;
+  height: 60px;
+}
+
+.static-icons__item:nth-child(3) .static-icons__icon {
+  width: 62px;
+  height: 60px;
+}
+
+.static-icons__item:nth-child(4) .static-icons__icon {
+  width: 56px;
+  height: 60px;
 }
 
 .static-icons__icon img {
@@ -66,21 +87,20 @@
 }
 
 .static-icons__title {
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Pilcrow', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
   text-transform: uppercase;
   color: #ffffff;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+  line-height: 1.6;
 }
 
 .static-icons__subtitle {
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #ffffff;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+  font-family: 'Azeret Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  color: #999999;
+  line-height: 16px;
 }
 
 @media screen and (max-width: 1540px) {
@@ -102,9 +122,8 @@
     grid-template-columns: 1fr;
     gap: 50px;
   }
-  
+
   .static-icons__border-wrapper {
     padding: 40px 20px;
   }
 }
-

@@ -5,13 +5,30 @@
     <div class="static-icons__border-wrapper">
       <div class="static-icons__grid">
         {%- for block in section.blocks -%}
+          {%- liquid
+            assign icon_width = 120
+            assign icon_height = 120
+            if forloop.index == 1
+              assign icon_width = 63
+              assign icon_height = 60
+            elsif forloop.index == 2
+              assign icon_width = 61
+              assign icon_height = 60
+            elsif forloop.index == 3
+              assign icon_width = 62
+              assign icon_height = 60
+            elsif forloop.index == 4
+              assign icon_width = 56
+              assign icon_height = 60
+            endif
+          -%}
           <div class="static-icons__item" {{ block.shopify_attributes }}>
             <div class="static-icons__icon">
               {%- if block.settings.custom_icon != blank -%}
                 {{
                   block.settings.custom_icon
                   | image_url: width: 240
-                  | image_tag: loading: 'lazy', class: 'static-icons__image', width: 120, height: 120
+                  | image_tag: loading: 'lazy', class: 'static-icons__image', width: icon_width, height: icon_height
                 }}
               {%- else -%}
                 {%- comment -%} Fallback SVG based on block index or default placeholder {%- endcomment -%}
