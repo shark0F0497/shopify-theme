@@ -214,13 +214,15 @@
         "feedback_HpJ9qW": {
           "type": "feedback",
           "settings": {
-            "text": "“IT’S INCREDIBLY TINY—ALMOST UNNOTICEABLE WHEN WORN. WHAT SURPRISED ME IS THAT THERE’S NO PERFORMANCE DROP AT ALL; TORSO STABILITY IS EVEN BETTER THAN MY SLIME...",
+            "image": "shopify://shop_images/Mask_group_15.png",
+            "text": "\"IT'S INCREDIBLY TINY—ALMOST UNNOTICEABLE WHEN WORN. WHAT SURPRISED ME IS THAT THERE’S NO PERFORMANCE DROP AT ALL; TORSO STABILITY IS EVEN BETTER THAN MY SLIME...",
             "name": "ELEANOR"
           }
         },
         "feedback_CdGeQa": {
           "type": "feedback",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_9.png",
             "text": "\"AS A DEVELOPER WORKING IN VR COLLABORATION, THE STABILITY AND PRECISION OF THE STYRIA SYSTEM ARE CRITICAL. THE TRACKING IS ROCK-SOLID AND INCREDIBLY ACCURATE...",
             "name": "Julian"
           }
@@ -228,6 +230,7 @@
         "feedback_Gb3rKA": {
           "type": "feedback",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_11.png",
             "text": "\"THE 'SHIPS IMMEDIATELY' PROMISE IS WHAT SOLD ME FIRST, AND THEY WEREN'T KIDDING—IT ARRIVED IN TWO DAYS! BUT THE REAL SHOCK WAS THE WEIGHT. AT UNDER 10g...",
             "name": "Ivy​"
           }
@@ -235,6 +238,7 @@
         "feedback_QhqMnJ": {
           "type": "feedback",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_12.png",
             "text": "\"I'LL BE HONEST, I CARE ABOUT HOW MY GEAR LOOKS, AND THE STYRIA TRACKERS ARE BEAUTIFULLY CRAFTED. THEY LOOK AND FEEL PREMIUM. BUT BEYOND THE LOOKS...",
             "name": "Leo"
           }
@@ -242,6 +246,7 @@
         "feedback_TYtYVb": {
           "type": "feedback",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_13.png",
             "text": "\"48-HOUR BATTERY LIFE ISN'T A MARKETING GIMMICK; IT'S REAL. I PLAY A FEW HOURS EVERY NIGHT, AND I'VE ONLY CHARGED THESE THINGS ONCE SINCE I GOT THEM TWO WEEKS AGO...",
             "name": "Jasper"
           }
@@ -249,6 +254,7 @@
         "feedback_w7Vqyz": {
           "type": "feedback",
           "settings": {
+            "image": "shopify://shop_images/Mask_group_14.png",
             "text": "\"I WAS WORRIED ABOUT SETTING UP A 10-TRACKER SYSTEM, BUT THE 'NO WI-FI CONFIG' MADE IT STUPIDLY EASY. I JUST PLUGGED THE DONGLE IN, PUT ON THE STRAPS...",
             "name": "Maeve"
           }
