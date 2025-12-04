@@ -209,8 +209,8 @@ product-info {
   /* 自定义 Add to Cart 按钮样式 */
   height: 48px;
   border-radius: 100px;
-  background: #3EACE1 !important;
-  --color-button: 62, 172, 225; /* #3EACE1 的 RGB 值 */
+  background: #B288F1 !important;
+  --color-button: 178, 136, 241; /* #B288F1 的 RGB 值 */
   --color-button-text: 255, 255, 255; /* 白色文字 */
   color: rgb(var(--color-button-text)) !important;
   min-height: 48px !important;
@@ -232,13 +232,13 @@ product-info {
 
 /* 悬停状态 */
 .product-form__submit:not([disabled]):not([aria-disabled='true']):hover {
-  background: #35a0d1 !important; /* 稍深的蓝色 */
+  background: #9359EB !important; /* 稍深的紫色 */
   box-shadow: none !important; /* 悬停时也去除阴影 */
 }
 
 /* 点击状态 */
 .product-form__submit:not([disabled]):not([aria-disabled='true']):active {
-  background: #2d94c1 !important; /* 更深的蓝色 */
+  background: #6731B8 !important; /* 更深的紫色 */
 }
 
 /* 禁用状态 */
