@@ -201,6 +201,7 @@
       "name": "t:sections.newsletter.presets.name",
       "settings": {
         "subtitle_text": "Be Among The First To Receive Updates On Our Latest Products,\nProduct Innovations, And Exclusive Offers.",
+        "email_form_text": "Sign up now for sale alerts & special offers.",
         "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 40,
@@ -213,7 +214,7 @@
         "feedback_HpJ9qW": {
           "type": "feedback",
           "settings": {
-            "text": "\"FINALLY, A FULL-BODY TRACKING SYSTEM THAT DOESN'T FEEL LIKE A PROTOTYPE...\"",
+            "text": "“IT’S INCREDIBLY TINY—ALMOST UNNOTICEABLE WHEN WORN. WHAT SURPRISED ME IS THAT THERE’S NO PERFORMANCE DROP AT ALL; TORSO STABILITY IS EVEN BETTER THAN MY SLIME...",
             "name": "ELEANOR"
           }
         },
