@@ -77,6 +77,18 @@
     white-space: nowrap;
   }
 
+  .footer-custom__brand-text {
+    font-family: 'Azeret Mono', monospace;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #f3f5f2;
+    margin-top: 1rem;
+    white-space: nowrap;
+  }
+
   .footer-custom__font-block {
     width: 6px;
     height: 10px;
@@ -116,6 +128,18 @@
 
   .footer-custom__link:hover {
     opacity: 0.7;
+  }
+
+  .footer-custom__link-icon {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-custom__link-icon svg {
+    display: block;
+    width: 24px;
+    height: 24px;
   }
 
   /* Social Icons Section */
@@ -247,6 +271,9 @@
           <div class="footer-custom__separator"></div>
           {% comment %} <div class="footer-custom__tagline">All You Want and Beyond.<i class="footer-custom__font-block"></i></div> {% endcomment %}
         </div>
+        {%- if section.settings.brand_text != blank -%}
+          <div class="footer-custom__brand-text">{{ section.settings.brand_text }}</div>
+        {%- endif -%}
       </div>
 
       {%- comment -%} Right Section - Links, Social, Copyright {%- endcomment -%}
@@ -255,8 +282,9 @@
         <nav class="footer-custom__links" role="navigation" aria-label="Footer links">
           <a href="/pages/terms-of-use" class="footer-custom__link">Terms of Use</a>
           <a href="/pages/privacy-policy" class="footer-custom__link">Privacy Policy</a>
-          <a href="/pages/cookies-policy" class="footer-custom__link">Cookie Policy</a>
-          {% comment %} <a href="#" class="footer-custom__link">Customized Cookies</a> {% endcomment %}
+          <span class="footer-custom__link">Cookie Policy</span>
+          <span class="footer-custom__link">Customized Cookies</span>
+          <span class="footer-custom__link-icon">{{ 'global.svg' | inline_asset_content }}</span>
         </nav>
 
         <div class="footer-custom__bottom-row">
@@ -310,6 +338,14 @@
 
 {% schema %}
 {
-  "name": "Custom Footer"
+  "name": "Custom Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_text",
+      "label": "Brand Text",
+      "default": "ALL YOU WANT AND BEYOND."
+    }
+  ]
 }
 {% endschema %}
