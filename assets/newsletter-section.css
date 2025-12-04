@@ -90,6 +90,21 @@
   margin-top: 1.5rem;
 }
 
+.newsletter-form__text {
+  font-family: 'Azeret Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  text-align: right;
+  text-transform: capitalize;
+  color: #666666;
+  margin-top: 38px;
+  width: 100%;
+  max-width: 412px;
+}
+
 .newsletter__button {
   margin-top: 3rem;
   width: fit-content;
@@ -105,8 +120,8 @@
 /* Dark theme email subscription form */
 .newsletter-form--dark {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   width: 412px !important;
   min-width: 412px !important;
   max-width: 412px !important;
@@ -288,5 +303,10 @@
     width: 100%;
     border-radius: 0 0 8px 8px;
     height: 48px;
+  }
+
+  .newsletter-form__text {
+    width: 100%;
+    max-width: 100%;
   }
 }

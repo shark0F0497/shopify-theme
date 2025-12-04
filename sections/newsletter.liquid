@@ -124,6 +124,11 @@
                   </small>
                 {%- endif -%}
               </div>
+              {%- if section.settings.email_form_text != blank -%}
+                <div class="newsletter-form__text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                  {{ section.settings.email_form_text }}
+                </div>
+              {%- endif -%}
               {%- if form.posted_successfully? -%}
                 <h3
                   class="newsletter-form__message newsletter-form__message--success form__message"
@@ -163,6 +168,13 @@
       "label": "Subtitle Text",
       "default": "Enter your subtitle text here",
       "info": "Text displayed below the newsletter heading"
+    },
+    {
+      "type": "text",
+      "id": "email_form_text",
+      "label": "Email Form Text",
+      "default": "Sign up now for sale alerts & special offers.",
+      "info": "Text displayed below the email input field"
     },
     {
       "type": "color_scheme",
