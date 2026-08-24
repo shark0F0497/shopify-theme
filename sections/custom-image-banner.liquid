@@ -41,13 +41,7 @@
           {% render 'buy-button', text: section.settings.button_text, link: section.settings.button_link %}
         {%- endif -%}
         {%- if section.settings.button2_text != blank -%}
-          {%
-            render 'buy-button',
-            text: section.settings.button2_text,
-            link: section.settings.button2_link | default: '#',
-            class: 'custom-buy-button--secondary',
-            icon: 'video.svg'
-          %}
+          {% render 'buy-button', text: section.settings.button2_text, link: section.settings.button2_link, default: '#', class: 'custom-buy-button--secondary', icon: 'video.svg' %}
         {%- endif -%}
       </div>
     {%- endif -%}
@@ -121,3 +115,21 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+                render 'buy-button',
+                text: section.settings.button2_text,
+                link: section.settings.button2_link | default: '#',
+                class: 'custom-buy-button--secondary',
+                icon: 'video.svg'
+              %}
+  to: "{% render 'buy-button', text: section.settings.button2_text, link: section.settings.button2_link,
+    default: '#', class: 'custom-buy-button--secondary', icon: 'video.svg' %}"
+  position: 1763..1934
+{% endcomment %}
